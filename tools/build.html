@@ -1,0 +1,9 @@
+<!doctype html>
+<!-- Служебная: tools/build.rb открывает её в Chrome без окна и забирает данные проектов в JSON. На сайте не используется. -->
+<meta charset="utf-8">
+<script src="../js/projects.js"></script>
+<script>PROJECTS.forEach(p => document.write(`<script src="../js/projects/${p.id}.js"><\/script>`));</script>
+<pre id="out"></pre>
+<script>
+  document.getElementById("out").textContent = JSON.stringify({ PROJECTS, PAGES, CONTACTS, CATEGORIES });
+</script>

@@ -1,0 +1,114 @@
+<svg width="688" height="689" viewBox="0 0 688 689" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes kf_ring_transform_0 {
+  0% {
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(0rad) translate(-73.445px, -8.056px);
+  }
+  50% {
+    animation-timing-function: ease-in;
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(0rad) translate(-73.445px, -8.056px);
+  }
+  55.05% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(0.052rad) translate(-73.445px, -8.056px);
+  }
+  60.08% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(-0.175rad) translate(-73.445px, -8.056px);
+  }
+  65% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(0.175rad) translate(-73.445px, -8.056px);
+  }
+  70% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(-0.175rad) translate(-73.445px, -8.056px);
+  }
+  75% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(0.175rad) translate(-73.445px, -8.056px);
+  }
+  80% {
+    animation-timing-function: ease-out;
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(-0.052rad) translate(-73.445px, -8.056px);
+  }
+  85% {
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(0rad) translate(-73.445px, -8.056px);
+  }
+  100% {
+    transform: translateX(22.555px) translateY(16px) translate(73.445px, 8.056px) rotate(0rad) translate(-73.445px, -8.056px);
+  }
+}
+#ring {
+  transform-origin: 0 0;
+  animation: kf_ring_transform_0 4s linear infinite;
+}
+@keyframes kf_Union_transform_0 {
+  0% {
+    transform: translateX(57.445px) translateY(136px) translateX(0px) translateY(0px);
+  }
+  51.45% {
+    animation-timing-function: ease-in;
+    transform: translateX(57.445px) translateY(136px) translateX(0px) translateY(0px);
+  }
+  56.5% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(57.445px) translateY(136px) translateX(12.742px) translateY(0px);
+  }
+  61.52% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(57.445px) translateY(136px) translateX(-27.994px) translateY(0px);
+  }
+  66.45% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(57.445px) translateY(136px) translateX(21.383px) translateY(0px);
+  }
+  71.45% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(57.445px) translateY(136px) translateX(-27.994px) translateY(0px);
+  }
+  76.45% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(57.445px) translateY(136px) translateX(21.348px) translateY(0px);
+  }
+  81.45% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(57.445px) translateY(136px) translateX(-8.42px) translateY(0px);
+  }
+  86.45% {
+    animation-timing-function: ease-out;
+    transform: translateX(57.445px) translateY(136px) translateX(4.417px) translateY(0px);
+  }
+  91.45% {
+    transform: translateX(57.445px) translateY(136px) translateX(0px) translateY(0px);
+  }
+  100% {
+    transform: translateX(57.445px) translateY(136px) translateX(0px) translateY(0px);
+  }
+}
+#Union {
+  transform-origin: 0 0;
+  animation: kf_Union_transform_0 4s linear infinite;
+}
+</style>
+<g id="Ring" clip-path="url(#clip0_608_48003)">
+<rect width="688" height="689" id="Ring_bg_0" fill="white">
+</rect>
+<g id="Icon" clip-path="url(#clip1_608_48003)" transform="translate(248 249)">
+<g id="ring" transform="translate(22.5547 16)">
+<path id="Union" transform="translate(57.4453 136)" d="M32 16H0V0H32V16Z" fill="#141417"/>
+<path id="Union_2" fill-rule="evenodd" clip-rule="evenodd" d="M80.6484 0C81.0878 0.00168023 81.4436 0.357526 81.4453 0.796875V16.5078C109.51 19.9868 132.474 41.5203 137.227 70.0312L146.891 128H0L9.66406 70.0312C14.4162 41.5203 37.3809 19.9868 65.4453 16.5078V0.796875C65.447 0.357525 65.8028 0.00168013 66.2422 0H80.6484ZM73.4453 32C49.6574 32 29.356 49.1998 25.4453 72.6641L18.8906 112H128L121.445 72.6641C117.535 49.1998 97.2333 32 73.4453 32Z" fill="#141417"/>
+</g>
+<path id="Rectangle" transform="translate(112)" d="M0 0H80V80H0V0Z" fill="white"/>
+<rect id="Rectangle_2" transform="translate(128 16)" width="48" height="48" fill="#0000FE"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_608_48003">
+<rect width="688" height="689" fill="white"/>
+</clipPath>
+<clipPath id="clip1_608_48003">
+<rect width="192" height="192" fill="white"/>
+</clipPath>
+</defs>
+</svg>

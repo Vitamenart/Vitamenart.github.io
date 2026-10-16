@@ -1,0 +1,571 @@
+/* Токены из Figma (color/*, space/*, типографика Body/Heading/Display) */
+:root {
+  --black: #0b0b0b;
+  --white: #ffffff;
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --grey-text: rgba(255, 255, 255, 0.5);    /* вторичный текст: белый 50% */
+  --grey-card: #232323;
+  --black-10: rgba(11, 11, 11, 0.1);
+  --black-50: rgba(11, 11, 11, 0.5);
+  --skeleton: var(--white-10);   /* место под картинкой, пока она грузится; на светлом фоне — чёрный 10% (.light) */
+
+  --pad: 24px;          /* space/24 — поля страницы */
+  /* поля контента внутренних страниц: шире 1440 контент не тянется (фон секций — во всю ширину) */
+  --gutter: max(var(--pad), calc(50% - 720px + var(--pad)));
+  --radius: 12px;
+  --radius-panel: 24px;
+  --radius-block: 32px;   /* картинки на страницах проектов */
+
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  /* Текстовые стили Figma (размер/интерлиньяж), масштабируются от макета 1440.
+     Display / Heading — Archivo SemiBold, Body — Inter Medium. Использовать только их. */
+  --display-2xl: clamp(80px, 15.3vw, 220px);
+  --display-xl: clamp(56px, 8.9vw, 128px);
+  --display-l: clamp(48px, 6.1vw, 88px);
+  --display-s: clamp(40px, 4.45vw, 64px);
+  --heading-m: clamp(26px, 2.78vw, 40px);
+  --heading-s: clamp(22px, 1.95vw, 28px);
+  --body-l: clamp(18px, 1.8vw, 26px);
+  --body-m: 20px;
+  --body-s: 14px;
+  --t-display-2xl: 600 var(--display-2xl)/0.85 var(--f-display);
+  --t-display-xl: 600 var(--display-xl)/0.92 var(--f-display);
+  --t-display-l: 600 var(--display-l)/0.96 var(--f-display);
+  --t-display-s: 600 var(--display-s)/0.96 var(--f-display);
+  --t-heading-m: 600 var(--heading-m)/1.15 var(--f-display);
+  --t-heading-s: 600 var(--heading-s)/1.25 var(--f-display);
+  --t-body-l: 500 var(--body-l)/1.38 var(--f-body);
+  --t-body-m: 500 var(--body-m)/1.5 var(--f-body);
+  --t-body-s: 500 var(--body-s)/1.5 var(--f-body);
+  --display-xxl: 21.5vw;  /* "Vitalii" в футере: 310px на 1440 — вне шкалы, так в макете */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font: var(--t-body-s);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;   /* полосы во всю ширину (100vw) не дают горизонтальный скролл */
+}
+body.no-scroll { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+img { display: block; max-width: 100%; }
+p, h1, h2, h3 { margin: 0; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+/* Текст только для поисковиков и скринридеров (заголовки h1 страниц) */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.display { font-family: var(--f-display); font-weight: 600; }
+
+/* обложка: один файл, любой размер контейнера */
+.cover { width: 100%; height: 100%; object-fit: cover; }
+.media { position: relative; overflow: hidden; background-color: var(--skeleton); transition: background-color 0.4s ease; }
+
+/* ---------- Header ---------- */
+/* хэдер закреплён сверху (position: fixed), spacer держит его место в потоке */
+.site-header-spacer { min-height: calc(42px + 2 * var(--pad)); }
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: var(--pad);
+  /* одна высота с вкладками и без: по переключателю (42) + поля — 90 на десктопе, 74 на телефоне */
+  min-height: calc(42px + 2 * var(--pad));
+}
+.site-header.is-stuck {
+  background: rgba(11, 11, 11, 0.5);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+.site-header__name { justify-self: start; }
+.site-header .menu-open { grid-column: 3; justify-self: end; }   /* всегда справа, даже без вкладок */
+.tabs {
+  display: flex; padding: 4px; border-radius: 100px;
+  background: var(--white-10); border: 1px solid var(--white-10);
+  position: sticky; top: var(--pad);
+}
+.tab { height: 32px; display: flex; align-items: center; padding: 0 24px; border-radius: 100px; white-space: nowrap; }
+.tab:hover { background: var(--white-10); }
+/* Плашка активной вкладки: копия подписей (белый фон, чёрный текст), видна только внутри clip-path.
+   Ездит под текстом и перекрашивает его ровно по краю; анимация — в layout.js */
+.tabs__pill {
+  position: absolute; inset: 0; padding: 4px; display: flex;
+  background: var(--white); color: var(--black);
+  pointer-events: none; clip-path: inset(0 100% 0 0 round 100px);
+}
+/* Выпадающий список категорий — вместо вкладок на iPad и мобильном */
+.tab-select { position: relative; display: none; }
+.tab-select__btn { cursor: pointer; }
+.tab-select.is-open .tab-select__btn { opacity: 0.5; }
+.tab-select__btn svg { transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1); }
+.tab-select.is-open .tab-select__btn svg { transform: rotate(180deg); }
+.tab-select__list {
+  position: absolute; top: calc(100% + 1px); left: 50%; transform: translateX(-50%);
+  width: 198px; margin: 0; padding: 0; list-style: none;
+  background: var(--white); color: var(--black); border-radius: 20px; overflow: hidden;
+}
+.tab-select__list[hidden] { display: none; }
+.tab-select__list a { height: 42px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px 0 32px; }
+.tab.is-active { background: none; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  height: 42px; padding: 0 16px 0 32px; border-radius: 100px;
+}
+.pill--solid { background: var(--white); color: var(--black); }
+.pill--outline { border: 1px solid var(--white-20); padding: 0 24px; height: 36px; }
+.pill--outline.is-active { background: var(--white); color: var(--black); border-color: var(--white); }
+.pill--plain { padding: 0 32px; height: 40px; }
+/* Ховер кнопок (не ссылок): заливка — вся кнопка 50%; обводка — фон 10%, текст 50% */
+.pill { transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease; }
+.pill--solid:hover { opacity: 0.5; }   /* в большой карточке — только при наведении на саму кнопку, клик — по всей карточке */
+.pill--outline:not(.is-active):hover { background: var(--white-10); color: var(--grey-text); }
+
+/* ---------- Menu ---------- */
+.menu { position: fixed; inset: 0; z-index: 100; }
+.menu[hidden] { display: none; }
+.menu__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
+.menu__panel {
+  position: absolute; top: 12px; right: 12px; bottom: 12px;
+  width: min(580px, calc(100% - 24px));
+  background: var(--white); color: var(--black);
+  border-radius: var(--radius-panel);
+  display: flex; flex-direction: column; padding: 12px 12px 12px 28px;
+}
+.menu__top { display: flex; justify-content: flex-end; }
+.menu__close { display: flex; align-items: center; gap: 16px; }
+.round-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--black); color: var(--white);
+  display: inline-grid; place-items: center;
+}
+/* Close: бургер превращается в крестик, из-под него вырастает чёрный кружок (класс .is-x на .menu, ставит layout.js).
+   Без .is-x иконка выглядит как бургер в кнопке Menu — с неё и начинается открытие. */
+.menu__close-icon {
+  position: relative; width: 42px; height: 42px; display: grid; place-items: center;
+  color: var(--black); transition: color 0.3s ease;
+}
+.menu__close-dot {
+  position: absolute; inset: 0; border-radius: 50%; background: var(--black);
+  transform: scale(0); transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.menu__close-icon svg { position: relative; }
+.menu__close-icon line { transform-origin: 12px 12px; transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.2s ease; }
+.menu.is-x .menu__close-icon { color: var(--white); }
+.menu.is-x .menu__close-dot { transform: scale(1); }
+/* справа налево: сдвиг к центру → удлинение → поворот */
+.menu.is-x .menu__close-icon .l1 { transform: rotate(45deg) scaleX(1.2) translateY(5px); }
+.menu.is-x .menu__close-icon .l2 { transform: scaleX(0); opacity: 0; }
+.menu.is-x .menu__close-icon .l3 { transform: rotate(-45deg) scaleX(1.2) translateY(-5px); }
+.menu__links {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  font: 600 clamp(56px, 7.2vw, 104px)/1.05 var(--f-display); letter-spacing: -0.03em;
+}
+.menu__bottom { display: flex; justify-content: space-between; align-items: center; }
+.socials { display: flex; gap: 4px; }
+
+/* ---------- Home: Entry gate / барабан ---------- */
+.gate {
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: space-between;
+  overflow: hidden;
+}
+/* Лента квадратов-волной: позиции считает js/home.js */
+.drum { position: relative; flex: 1; min-height: 360px; overflow: hidden; touch-action: pan-y; overscroll-behavior-x: none; }   /* горизонтальный свайп — ленте (home.js) */
+.drum__track { position: absolute; left: 0; right: 0; top: 50%; height: 0; }
+.drum__item {
+  position: absolute; left: 0; top: 0;
+  width: var(--size); height: var(--size);
+  border-radius: 16px; overflow: hidden; background-color: var(--skeleton); transition: background-color 0.4s ease;
+  will-change: transform;
+}
+.drum__item img { width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease; }   /* ховер — как у плиток .tile */
+.drum__item:hover img { transform: scale(1.2); }
+.scroll-hint {
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  padding-bottom: var(--pad); color: var(--grey-text);
+}
+
+/* ---------- Statement ---------- */
+.statement { padding: 160px var(--pad); display: flex; justify-content: center; }
+.statement__inner { width: min(696px, 100%); display: flex; flex-direction: column; gap: 10px; }
+.statement__text { font: var(--t-heading-m); letter-spacing: -0.02em; }
+.statement__name { font: var(--t-body-l); color: var(--grey-text); }
+
+/* ---------- Big project card ---------- */
+.feature { position: relative; display: block; height: max(420px, 52.8vw); }
+/* пока картинки нет — скелетон (--skeleton), после загрузки фон белый (для анимации, см. is-loaded) */
+.feature .media { position: absolute; inset: 0; }
+/* подпись + затемнение снизу кодом (126px на 1440: прозрачный → чёрный 50%) поверх картинки */
+.feature__caption {
+  position: absolute; z-index: 2; left: 0; right: 0; bottom: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 64px var(--pad) 16px;
+  background: linear-gradient(to bottom, transparent, var(--black-50));
+}
+.feature__title { font: var(--t-heading-m); letter-spacing: -0.02em; }
+/* Раскрытие при прокрутке: --p от 0 до 1 считает home.js по положению карточки на экране.
+   0 — картинки нет (белая область), 1 — во всю ширину; растёт от нижней середины, углы выпрямляются.
+   Подпись белая — проявляется в конце, когда под ней уже картинка. */
+.feature { --p: 1; --q: calc(1 - var(--p)); }
+.feature .media > .cover {
+  clip-path: inset(calc(var(--q) * 100%) calc(var(--q) * 50%) 0 calc(var(--q) * 50%) round calc(var(--q) * 48px));
+}
+.feature__caption { opacity: calc((var(--p) - 0.75) * 4); }
+
+/* ---------- Services (светлая часть) ---------- */
+.light, .site-footer, .menu__panel { --skeleton: var(--black-10); }
+.light { background: var(--white); color: var(--black); }
+.services { padding: 160px var(--gutter); display: flex; flex-direction: column; gap: 64px; }
+.services__title { font: var(--t-display-xl); letter-spacing: -0.04em; }
+.services__cols { display: flex; justify-content: space-between; gap: 48px; }
+.services__aside { width: min(453px, 40%); padding-top: 32px; display: flex; flex-direction: column; gap: 48px; }
+.services__aside .media { aspect-ratio: 453 / 443; border-radius: var(--radius-block); }
+.services__aside p { font: var(--t-body-m); }
+.services__list { width: min(688px, 50%); list-style: none; margin: 0; padding: 0; }
+.service-row {
+  height: 104px; display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--black-10);   /* разделители — 10% */
+}
+.service-row__name { font: var(--t-heading-s); letter-spacing: -0.015em; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--white); color: var(--black); padding: 120px var(--pad) var(--pad); overflow: hidden; }
+.site-footer__row { display: flex; justify-content: space-between; gap: 32px; }
+.site-footer__name {
+  font: 600 var(--display-xxl)/0.75 var(--f-display); letter-spacing: -0.05em;
+  margin-bottom: -0.02em;
+}
+.site-footer__side { width: min(688px, 50%); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.site-footer__cta {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  font: var(--t-heading-m); letter-spacing: -0.02em; word-break: break-word;
+}
+.site-footer__links { display: flex; gap: 32px; }
+.site-footer__icons { display: none; }
+.nav-link { flex: 1; font: var(--t-body-m); padding: 2px 0; }
+
+/* ---------- Вкладки (Products / Campaigns / DesignOps) ---------- */
+.works-intro {
+  display: flex; justify-content: space-between; gap: 48px;
+  padding: 64px var(--gutter) 120px;   /* 64 от шапки */
+}
+.works-intro h1, .project-intro__title { font: var(--t-display-s); letter-spacing: -0.03em; }
+.works-intro__text { width: min(688px, 50%); font: var(--t-heading-s); letter-spacing: -0.015em; color: var(--grey-text); }
+
+.grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 64px 16px; padding: 0 var(--gutter) 120px;
+}
+.tile .media { aspect-ratio: 1; border-radius: var(--radius); isolation: isolate; }   /* isolate — Safari не вылезает за скругление при scale */
+.tile__title { margin-top: 16px; font: var(--t-heading-s); letter-spacing: -0.015em; }
+.tile__text { margin-top: 4px; font: var(--t-body-m); color: var(--grey-text); }   /* описание под заголовком: Body M, 4px от заголовка */
+/* ховер: картинка плавно увеличивается внутри своей рамки (opacity — для проявления после загрузки) */
+.tile .cover { transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.tile:hover .cover { transform: scale(1.2); }
+/* Keep exploring (низ страниц вкладок): две карточки в половину ширины — 2×2 обложки 144 + название и кнопка */
+.explore { padding: 0 var(--gutter) 120px; }
+.explore__title { font: var(--t-display-s); letter-spacing: -0.03em; margin-bottom: 32px; }
+.explore__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.explore__card {
+  display: flex; gap: 24px; padding: 16px; min-width: 0;
+  background: var(--white); color: var(--black); border-radius: var(--radius-block);
+  --skeleton: var(--black-10);
+}
+.explore__thumbs { display: grid; grid-template-columns: repeat(2, 144px); grid-auto-rows: 144px; gap: 12px; flex: none; }
+.explore__thumbs .media { border-radius: 16px; }
+.explore__body { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 24px; min-width: 0; }
+.explore__name { font: var(--t-heading-m); letter-spacing: -0.02em; }
+.pill--solid.explore__btn { background: var(--black); color: var(--white); height: 42px; }
+@media (max-width: 1100px) { .explore__row { grid-template-columns: 1fr; } }   /* половины уже не вмещают обложки + кнопку */
+@media (max-width: 560px) {
+  .explore__card { flex-direction: column; }
+  .explore__thumbs { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
+  .explore__thumbs .media { aspect-ratio: 1; }
+}
+.empty { padding: 0 var(--gutter) 160px; font: var(--t-body-m); color: var(--grey-text); }
+
+/* ---------- Contact ---------- */
+.contact { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+.contact__links {
+  flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  font: var(--t-display-l); letter-spacing: -0.03em; text-align: center;
+  padding-bottom: 88px;
+}
+
+/* ---------- Project ---------- */
+/* Обложка проекта в рамке: 24 по бокам, под хэдером; снизу — «Scroll down», как на главной (1392×746 на 1440×900).
+   --hint-h: отступ 16 + строка с иконкой 24 + поле страницы */
+.project-hero { position: relative; padding: 0 var(--pad); --hint-h: calc(16px + 24px + var(--pad)); }
+.project-hero .scroll-hint { padding-top: 16px; }
+.project-hero .media {
+  /* 42px + 2 × поле — высота шапки (как .site-header-spacer): 90 на десктопе, 74 на телефоне */
+  height: calc(100vh - 42px - 2 * var(--pad) - var(--hint-h)); height: calc(100svh - 42px - 2 * var(--pad) - var(--hint-h)); min-height: 360px;
+  border-radius: var(--radius-panel); background: #000;
+}
+.project-hero__close { position: absolute; z-index: 2; top: 12px; right: calc(var(--pad) + 12px); background: var(--white); color: var(--black); }
+.project-hero__close:hover { opacity: 0.85; }
+/* Открытие проекта из плитки (layout.js): копия картинки летит в hero, страница под ней уходит в чёрный. Шапка — поверх */
+.hero-fly { position: fixed; inset: 0; z-index: 9; pointer-events: none; }
+.hero-fly__bg { position: absolute; inset: 0; background: var(--black); opacity: 0; }
+.hero-fly__box { position: absolute; overflow: hidden; isolation: isolate; background: #000; }
+/* Стык страниц после полёта: Chrome (View Transitions) держит снимок последнего кадра старой страницы —
+   картинка уже на месте hero — поверх новой, пока hero не отрисован (project.js досрочно завершает, макс. 0.6 с).
+   Остальные переходы пропускаются (pageswap в layout.js, pagereveal в project.js), так что больше ничего не анимируется. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: vt-hold 0.6s linear both; }
+::view-transition-new(root) { animation: vt-hide 0.6s linear both; }
+@keyframes vt-hold { from, to { opacity: 1; } }
+@keyframes vt-hide { from, to { opacity: 0; } }
+/* Описание на той же сетке, что и картинки: две половины, зазор 16 */
+.project-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 160px var(--gutter); }
+.project-intro__body { display: flex; flex-direction: column; gap: 1.25em;
+  font: var(--t-heading-s); letter-spacing: -0.015em; }
+.project-intro__body > p { color: var(--grey-text); }
+.project-meta { margin: 0; display: flex; flex-direction: column; gap: 1.25em; }
+.project-meta dt { color: var(--grey-text); }
+.project-meta dd { margin: 0; }
+
+/* Блоки контента: full (1392×780) и row из двух квадратов (688×688), зазор 16 */
+.blocks { display: flex; flex-direction: column; gap: 16px; padding: 0 var(--gutter); }
+.block--full .media { aspect-ratio: 1392 / 780; border-radius: var(--radius-block); }
+.block--row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cell { aspect-ratio: 1; display: flex; min-width: 0; }
+.cell > .media { flex: 1; border-radius: var(--radius-block); }
+.cell--stack, .cell--cols { display: flex; gap: 16px; }
+.cell--stack { flex-direction: column; min-width: 0; }
+.stack-item { display: flex; min-height: 0; }
+.stack-item .media { flex: 1; border-radius: var(--radius-block); }
+.cell--text { align-items: center; }
+.cell__text { width: 100%; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.cell__text h2 { font: var(--t-display-s); letter-spacing: -0.03em; }
+.cell__text p { font: var(--t-heading-s); letter-spacing: -0.015em; color: var(--grey-text); margin-bottom: 20px; }
+/* текст прижат к соседней картинке: 64 от её края (16 зазор + 48) */
+.block--row > .cell--text:first-child { justify-content: flex-end; padding-right: 48px; }
+.block--row > .cell--text:last-child { justify-content: flex-start; padding-left: 48px; }
+.block--triple { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+/* Statement / Variant3: текст 696 по центру, 160 сверху и снизу (с учётом зазора блоков) */
+.block--statement { display: flex; justify-content: center; padding: 144px 0; }
+.block--statement > div { width: min(696px, 100%); display: flex; flex-direction: column; gap: 12px; }
+.block--statement h2 { font: var(--t-display-s); letter-spacing: -0.03em; }
+.block--statement p { font: var(--t-heading-s); letter-spacing: -0.015em; color: var(--grey-text); }   /* как описание проекта */
+/* До / после: «после» поверх «до», видна справа от ползунка; тянуть мышью или пальцем, стрелки — с клавиатуры */
+.compare { aspect-ratio: 1392 / 780; border-radius: var(--radius-block); cursor: ew-resize; touch-action: pan-y; user-select: none; }
+.media.compare > .cover { position: absolute; inset: 0; pointer-events: none; }   /* сильнее общего .media > .cover */
+.compare__after { clip-path: inset(0 0 0 var(--pos)); }
+.compare::after {
+  content: ""; position: absolute; z-index: 2; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px;
+  background: var(--white); pointer-events: none;
+}
+.compare__handle {
+  position: absolute; z-index: 3; top: 50%; left: var(--pos); transform: translate(-50%, -50%);
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--white); color: var(--black); pointer-events: none;
+}
+.compare:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; }
+/* Metrics: 4 колонки, значение Display S, подпись Body M серым; 160 до следующего блока */
+.block--metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-bottom: 144px; }
+.metric__value { font: var(--t-display-s); letter-spacing: -0.03em; }
+.metric__label { font: var(--t-body-m); color: var(--grey-text); }
+.cell__text p + p { margin-top: -12px; }   /* абзацы внутри текстовой ячейки */
+/* Соты иконок (js/tokens.js): без фона, иконки позиционирует скрипт */
+.media--tokens { flex: 1; background: none; }
+/* Кубики (js/cubes.js): canvas на весь блок */
+.media--cubes > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.media--cubes > canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; }
+.media--cubes > canvas[hidden] { display: none; }
+.tokens__icon { position: absolute; left: 0; top: 0; display: block; transform-origin: 50% 50%; will-change: transform, opacity; opacity: 0; }
+/* What People Say: светлая полоса во всю ширину (выходит за поля .blocks), карусель карточек */
+.block--tweets { margin: 0 calc(50% - 50vw) 144px; padding: 120px 0; }   /* полоса во всю ширину окна */
+.block--tweets { --edge: max(var(--pad), calc(50vw - 720px + var(--pad))); }             /* поле до края контента */
+.tweets__head { display: flex; justify-content: space-between; align-items: center; padding: 0 var(--edge); margin-bottom: 24px; }
+.tweets__title { font: var(--t-display-s); letter-spacing: -0.03em; }
+.tweets__nav { display: flex; gap: 8px; }
+.tweets__arrow { transition: opacity 0.2s ease; }
+.tweets__arrow:hover { opacity: 0.5; }
+.tweets__track {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(640px, 85vw); gap: 16px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--edge); padding: 0 var(--edge);
+  scrollbar-width: none;
+}
+.tweets__track::-webkit-scrollbar { display: none; }
+.tweet {
+  scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px; padding: 24px;
+  border: 1px solid rgba(11, 11, 11, 0.1); border-radius: var(--radius-block); font: var(--t-body-s);
+}
+.tweet__head { display: flex; align-items: center; gap: 12px; }
+.tweet__avatar { width: 48px; height: 48px; border-radius: 50%; flex: none; background: rgba(11, 11, 11, 0.1); }
+.tweet__who { flex: 1; min-width: 0; }
+.tweet__name, .tweet__handle { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tweet__handle { color: rgba(11, 11, 11, 0.5); }
+.tweet__open {
+  flex: none; height: 36px; padding: 0 20px; border-radius: 100px; display: inline-flex; align-items: center;
+  background: var(--black); color: var(--white); transition: opacity 0.2s ease;
+}
+.tweet__open:hover { opacity: 0.5; }
+.tweet__text { overflow-wrap: anywhere; }
+.tweet__photo {
+  display: block; margin-top: auto; aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden;
+  background: rgba(11, 11, 11, 0.1);
+}
+.tweet__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tweet__photo { position: relative; }
+.tweet__play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(11, 11, 11, 0.35); backdrop-filter: blur(12px); color: var(--white);
+}
+/* Тёмный вариант (dark: true): без белой полосы, 160 от картинок выше, Other Works сразу следом */
+.tweets--dark { padding: 144px 0 0; }
+.tweets--dark .tweet { border-color: var(--white-10); }
+.tweets--dark .tweet__handle { color: var(--grey-text); }
+.tweets--dark .tweet__open, .tweets--dark .tweets__arrow { background: var(--white); color: var(--black); }
+.tweets--dark .tweet__avatar { background: var(--white-10); }
+.tweets--dark .tweet__photo { background: var(--grey-card); }
+/* 1–2 твита: в ширину контента (1440), без карусели */
+.tweets--fixed .tweets__track { grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); overflow: visible; }
+.block--tweets:last-child { margin-bottom: 0; }
+/* кнопки — Body S, высота 42, поля 32, как в макете */
+.project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0.5em; font: var(--t-body-s); letter-spacing: 0; }
+.project-links .pill { height: 42px; padding: 0 32px; }
+.project-links .pill--outline { border-color: rgba(255, 255, 255, 0.5); }
+
+/* Скелетон: пока картинки нет — фон .media = --skeleton (белый 10% на тёмном, чёрный 10% на светлом) */
+.media > .cover, .media > video { position: relative; z-index: 1; }
+.media__caption { position: absolute; z-index: 2; left: 0; right: 0; bottom: 24px; text-align: center; font: var(--t-body-m); }
+.play {
+  position: absolute; z-index: 2; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 120px; height: 120px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(11, 11, 11, 0.35); backdrop-filter: blur(12px); color: var(--white);
+}
+.play:hover { background: rgba(11, 11, 11, 0.55); }
+.play[hidden] { display: none; }
+.media > iframe.cover { position: absolute; inset: 0; z-index: 3; display: block; border: 0; }
+.media.is-playing .media__caption { display: none; }
+/* Видео грузится — по плашке слева направо бежит мягкий блик. Пропадает, когда появился кадр / обложка / плеер (initVideos) */
+.media--video::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, transparent 0%, var(--shimmer) 50%, transparent 100%);
+  transform: translateX(-100%); animation: shimmer 1.6s ease-in-out infinite;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+.media--video.is-ready::before { opacity: 0; visibility: hidden; }
+:root { --shimmer: rgba(255, 255, 255, 0.08); }
+.light, .site-footer, .menu__panel { --shimmer: rgba(0, 0, 0, 0.06); }
+@keyframes shimmer { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .media--video::before { animation: none; transform: none; opacity: 0.5; } }
+/* картинка загрузилась — скелетон убираем (важно для PNG с прозрачностью) */
+.media.is-loaded, .drum__item.is-loaded { background-color: transparent; }
+/* картинка проявляется поверх скелетона, когда уже декодирована (revealImg в layout.js) — без чёрного кадра */
+/* :where — нулевая специфичность: свои transition у ховеров (.drum__item img, .tile .cover) его перебивают, opacity там тоже указан */
+:where(img[data-reveal]) { opacity: 0; transition: opacity 0.4s ease; }
+.is-loaded > img[data-reveal] { opacity: 1; }
+.feature .media.is-loaded { background-color: var(--white); }   /* белый под картинкой — для анимации */
+
+.other-works { padding: 120px var(--gutter) 120px; }
+.other-works__title { font: var(--t-display-s); letter-spacing: -0.03em; margin-bottom: 16px; }
+.other-works__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.other-works .tile .media { aspect-ratio: 336 / 240; }
+
+/* ---------- Showreel (главная) ---------- */
+.showreel { padding: 8px var(--gutter) 0; }
+.showreel__box { position: relative; aspect-ratio: 1390 / 780; border-radius: var(--radius-panel); overflow: hidden; }
+.showreel__box > .media { position: absolute; inset: 0; }
+
+/* ---------- Work: все проекты плиткой ---------- */
+.all-works { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 8px var(--gutter) 96px; }
+.all-works__item .media { aspect-ratio: 1; border-radius: 16px; isolation: isolate; }   /* isolate — Safari не вылезает за скругление при scale */
+/* ховер — как у плиток .tile: картинка плавно увеличивается внутри рамки */
+.all-works__item .cover { transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.all-works__item:hover .cover { transform: scale(1.2); }
+
+/* ---------- About ---------- */
+/* Hero: «Design» + барабан навыков (Display S, шаг 96 на 1440), сдвиг шагами — js/about.js */
+.skills { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+.skills__drum {
+  --skill-step: calc(var(--display-s) * 1.5);
+  position: relative; flex: 1; min-height: 480px; overflow: hidden;
+  font: var(--t-display-s); letter-spacing: -0.03em;
+}
+.skills__fixed { position: absolute; top: 50%; right: calc(50% + 0.18em); transform: translateY(-50%); }
+.skills__list { position: absolute; top: 50%; left: calc(50% + 0.35em); margin: 0; padding: 0; list-style: none; }
+.skills__list li {
+  position: absolute; left: 0; top: 0; white-space: nowrap;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease;
+}
+
+/* Фото + текст: фото 453×490, отступ 64, текст Heading S, имя Body L, соцсети внизу по низу фото */
+.about { display: grid; grid-template-columns: min(453px, 33%) minmax(0, 696px); gap: 64px; padding: 160px var(--gutter); }
+.about__photo { aspect-ratio: 453 / 490; background: var(--black-10); border-radius: var(--radius-block); }
+.about__body { display: flex; flex-direction: column; justify-content: space-between; gap: 48px; }
+.about__text { font: var(--t-heading-s); letter-spacing: -0.015em; }
+.about__name { margin-top: 32px; font: var(--t-body-l); color: rgba(11, 11, 11, 0.5); }
+/* кнопка Download CV перед иконками: чёрная, высотой с кружки */
+.socials--about { flex-wrap: wrap; }
+.pill--dark { background: var(--black); color: var(--white); padding: 0 32px; height: 42px; }
+
+/* ---------- Адаптив ---------- */
+/* iPad и мобильный: вкладки → выпадающий список, имя без фамилии, Menu → белая иконка */
+@media (max-width: 1024px) {
+  .tabs, .site-header__surname, .menu-open__label { display: none; }
+  .tab-select { display: block; }
+  .site-header .menu-open { background: none; color: var(--white); padding: 0; height: 24px; }
+  /* футер: имя сверху на всю ширину, почта Body M со стрелкой, соцсети — круглые иконки */
+  .site-footer { padding: 48px 24px 24px; }   /* в макете поля футера 24 и на телефоне */
+  .site-footer__row { flex-direction: column; gap: 48px; }
+  .site-footer__name { font-size: 36vw; }
+  .site-footer__side { width: 100%; gap: 48px; }
+  .site-footer__cta { font: var(--t-body-m); letter-spacing: 0; }
+  .site-footer__cta svg { width: 24px; height: 24px; flex: none; stroke-width: 5; }
+  .site-footer__links { display: none; }
+  .site-footer__icons { display: flex; justify-content: space-between; }
+}
+@media (max-width: 900px) {
+  .all-works { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .about { grid-template-columns: 1fr; gap: 40px; padding: 96px var(--pad); }
+  .about__photo { max-width: 453px; }
+  .drum { min-height: 300px; }
+  .statement { padding: 96px var(--pad); }
+  .services { padding: 96px var(--pad); }
+  .services__cols, .works-intro { flex-direction: column; }
+  .services__aside, .services__list, .works-intro__text { width: 100%; }
+  .project-intro { grid-template-columns: 1fr; gap: 40px; padding: 96px var(--pad); }
+  .other-works__row { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 40px 12px; }
+}
+@media (max-width: 560px) {
+  :root { --pad: 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .block--row, .block--triple { grid-template-columns: 1fr; }
+  .block--metrics { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; padding-bottom: 64px; }
+  .block--tweets { padding: 72px 0; margin-bottom: 64px; }
+  .tweets--dark { padding: 64px 0 0; }
+  .tweet { padding: 16px; }
+  .block--statement { padding: 80px 0; }
+  .cell--text { aspect-ratio: auto; padding: 48px 0; }
+  .block--row > .cell--text:first-child, .block--row > .cell--text:last-child { justify-content: flex-start; padding: 48px 0; }
+  .play { width: 72px; height: 72px; }
+  .feature__caption { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .menu__panel { padding-left: 20px; }
+}
+
+/* Ховер группы ссылок (меню, соцсети, футер, контакты):
+   наведённый пункт остаётся ярким, остальные уходят в 50%.
+   Скорость берётся из состояния, в которое переходим: погаснуть и загореться под курсором — быстро (0.2s),
+   вернуться, когда курсор ушёл, — медленно (0.6s), чтобы при переезде между пунктами ряд не мигал */
+.hover-dim > * { transition: opacity 0.6s ease; }
+.hover-dim > :hover { transition-duration: 0.2s; }
+.hover-dim:has(> :hover) > :not(:hover) { opacity: 0.5; transition-duration: 0.2s; }
+.hover-dim > .pill--solid:hover { opacity: 1; }   /* кнопка в ряду иконок (Download CV): светлой остаётся та, на которую навели */
+
+/* Барабаны в цифрах (initMetrics в js/project.js): ширина = невидимый итоговый символ, лента едет вверх */
+.reel { position: relative; display: inline-block; overflow-x: visible; overflow-y: clip; vertical-align: top; }   /* режем только сверху/снизу: широкие символы на ленте не обрезаются по бокам */
+.reel__sizer { visibility: hidden; }
+.reel__strip { position: absolute; top: 0; left: 50%; display: flex; flex-direction: column; align-items: center;
+  translate: -50% 0; will-change: transform; }
+.reel__strip > span { display: block; height: 1lh; }

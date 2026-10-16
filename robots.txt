@@ -1,0 +1,6 @@
+# Обход разрешён всем, включая AI-ботов (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…)
+User-agent: *
+Allow: /
+Disallow: /tools/
+
+Sitemap: https://vitamenart.github.io/sitemap.xml

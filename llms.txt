@@ -1,0 +1,51 @@
+# Vitalii Menshenin
+
+> Digital Product & Brand Designer. Design director. Sixteen years in, trained as an artist. I start with a blank page and end with a brand that holds together everywhere: on screen, in motion, in your hand. Along the way I build the teams that keep it that way.
+
+Portfolio of Vitalii Menshenin: brand identity, digital products, campaigns and design tooling, mostly for 1inch (DeFi).
+Full text of every project: https://vitamenart.github.io/llms-full.txt
+Showreel: https://vimeo.com/1161842981
+
+## Contact
+
+- Email: vitalik06smile@gmail.com
+- Telegram: https://t.me/vitamenart
+- Twitter: https://x.com/vitamenart
+- LinkedIn: https://www.linkedin.com/in/vitamenart
+- Instagram: https://www.instagram.com/vitamenart
+
+## Products
+
+Digital products and devices designed from the ground up: interfaces, design systems and brands that people use every day.
+
+- [1inch Brand](https://vitamenart.github.io/project.html?id=1inch-brand): The original 1inch identity, built from scratch. Logo, mascot, colours, type and a single visual system across the website, dApp, wallet and beyond.
+- [1inch Wallet](https://vitamenart.github.io/project.html?id=wallet): A mobile crypto wallet designed from a blank page, balancing the power of DeFi with the clarity and trust of a banking app.
+- [1inch dApp](https://vitamenart.github.io/project.html?id=dapp): The interface of one of DeFi's largest aggregators, from the first version to scale.
+- [1inch Rebrand: an unreleased concept](https://vitamenart.github.io/project.html?id=rebrand-concept): An in-house evolution of the 1inch identity that showed the brand needed a full rebirth rather than a refresh.
+- [1inch Rebranding](https://vitamenart.github.io/project.html?id=rebranding-2025): A new identity for a DeFi brand that grew up. Art-directed on the 1inch side in collaboration with Shuka Brand Bureau.
+- [Hardware Wallet](https://vitamenart.github.io/project.html?id=hardwallet): Every touchpoint of an air-gapped hardware wallet, designed solo: the device, a strictly black-and-white E-Ink interface with custom pixel type and icons, motion and packaging.
+- [NFT Unicorns](https://vitamenart.github.io/project.html?id=nft-unicorns): An unreleased generative NFT collection with 64 million possible unicorns that evolve with their owners.
+- [Gear Face](https://vitamenart.github.io/project.html?id=gear-face): Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen.
+
+## Campaigns
+
+Campaigns, events and brand moments built to be noticed, remembered and shared.
+
+- [Book: reDeFine Money](https://vitamenart.github.io/project.html?id=book): Cover and data visualisation for 1inch's oral history of DeFi.
+- [DEFY](https://vitamenart.github.io/project.html?id=defy): A street-art inspired conference campaign built on a double meaning: DeFi and defy.
+- [Toy: Sir Inchalot](https://vitamenart.github.io/project.html?id=toy): A plush unicorn for 1inch's conference giveaways, taken from first sketches to production-ready 3D.
+- [1inch Merch](https://vitamenart.github.io/project.html?id=merch): Illustrated merch for a brand that travels: a unicorn adapted to every event, and shirts people lined up for.
+- [1inch × Times Square](https://vitamenart.github.io/project.html?id=times-square): A full animated campaign for a Times Square billboard, designed end to end, from concept to the final motion on screen.
+- [Crypto Quest 2025](https://vitamenart.github.io/project.html?id=crypto-quest): A year in crypto, reimagined as a retro RPG: personal stats, low-bit heroes and shareable cards for 1inch Wallet users.
+- [1inch × Bruce Lee](https://vitamenart.github.io/project.html?id=bruce-lee): The first global 1inch campaign, made in partnership with the Bruce Lee Family Company. Art-directed on the 1inch side.
+- [1inch Mascot](https://vitamenart.github.io/project.html?id=mascot): A fast, bold unicorn who travels between worlds, changing his look in every one while staying himself.
+- [Aviasales New Year](https://vitamenart.github.io/project.html?id=aviasales): A New Year campaign for Aviasales: an illustrated world inspired by hand-painted Soviet greeting cards.
+
+## DesignOps
+
+Tools, scripts and workflows I built to help teams create faster and keep every output on-brand.
+
+- [AI Production Workflows](https://vitamenart.github.io/project.html?id=ai-workflows): Custom ComfyUI pipelines and a Claude Code + MCP setup that turned AI into a reliable, on-brand production tool.
+- [Custom Figma Tools](https://vitamenart.github.io/project.html?id=figma-tools): AI-assisted Figma plugins that turned brand rules into tools: an ASCII image converter and an on-brand QR generator.
+- [Motion Automation](https://vitamenart.github.io/project.html?id=motion-automation): After Effects scripts that made animation four times faster to build and ten times lighter to ship.
+- [AI in Blender](https://vitamenart.github.io/project.html?id=ai-blender): LLMs connected to Blender via MCP and Python scripts: 3D scenes built from a text brief in minutes instead of hours.

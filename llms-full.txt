@@ -1,0 +1,342 @@
+# Vitalii Menshenin — Digital Product & Brand Designer
+
+Design director. Sixteen years in, trained as an artist. I start with a blank page and end with a brand that holds together everywhere: on screen, in motion, in your hand. Along the way I build the teams that keep it that way.
+
+## Contact
+
+- Email: vitalik06smile@gmail.com
+- Telegram: https://t.me/vitamenart
+- Twitter: https://x.com/vitamenart
+- LinkedIn: https://www.linkedin.com/in/vitamenart
+- Instagram: https://www.instagram.com/vitamenart
+
+## 1inch Brand
+https://vitamenart.github.io/project.html?id=1inch-brand
+
+The original 1inch identity, built from scratch. Logo, mascot, colours, type and a single visual system across the website, dApp, wallet and beyond.
+
+1inch was born at a hackathon in 2019. When I joined in 2020, the project had a strong product but almost no brand: just a logo bought from a stock site and no visual system behind it.
+
+My task was to create the whole identity from the ground up and make it work as one system across every touchpoint. I redrew the logo and the unicorn mascot, defined the colours, typography and iconography, and built the visual language for the website, landing pages, the dApp and later the wallet app. The same system extended into 3D, motion, events and merch.
+
+The result was a brand that grew together with the company, from a hackathon project to one of the most recognised names in DeFi.
+
+Role: Logo Design, Brand Identity, Brand Guidelines, Art Direction
+Year: 2020
+
+Wallet app: The brand system carried into the 1inch Wallet, from interface to onboarding.
+
+dApp: The core trading interface, designed to make complex DeFi feel simple.
+
+Merch: Brand objects and event materials that made 1inch recognisable offline.
+
+Mascot: The unicorn redrawn as the brand's character, flexible enough for campaigns and merch.
+
+## 1inch Wallet
+https://vitamenart.github.io/project.html?id=wallet
+
+A mobile crypto wallet designed from a blank page, balancing the power of DeFi with the clarity and trust of a banking app.
+
+A mobile crypto wallet designed from a blank page When I started, there was no wallet and no prototype, and the market had very few examples to learn from. Most crypto wallets felt technical and intimidating, built for insiders rather than everyday users.
+
+I designed the 1inch Wallet from the ground up, starting with extensive research into how people manage money on their phones. The key decision was finding the right balance between a crypto wallet and a banking app: the power and transparency DeFi users expect, combined with the clarity and trust of familiar financial apps. That balance shaped everything, from the core structure and onboarding to swaps, payments and everyday flows.
+
+Role: Product Design, UX Research, Visual Design
+
+500K+ downloads; 25K downloads in the first month; 250K downloads in the first year; 13+ networks supported
+
+The first version, shipped in 2020, carried the density of crypto at the time: too many numbers, settings and edge cases on every screen. Every iteration since has been about removing friction, flattening the hierarchy and making each action obvious to someone opening a wallet for the first time.
+
+User flow: Every screen and state was mapped together with the engineering team, so no crypto-specific edge case slipped through.
+
+By 2022 the product design team had grown, and I handed day-to-day work on the wallet over to them. I stayed in the loop as design reviewer, signing off every layout before it reached development.
+
+## 1inch dApp
+https://vitamenart.github.io/project.html?id=dapp
+
+The interface of one of DeFi's largest aggregators, from the first version to scale.
+
+The interface of one of DeFi’s largest aggregators, from the first version to scale.
+
+When I joined in 2020, 1inch had a powerful aggregator but an interface built in a rush at a hackathon. It was hard to use and didn’t reflect the quality of the technology behind it.
+
+I redesigned the dApp from the ground up, creating a clear swap experience and a complete design system that let the product grow quickly and consistently. As 1inch expanded, the interface evolved with it, from a single swap form to a full trading platform used by millions.
+
+Role: Product Design, Design System, Art Direction
+Year: 2020 – 2024
+
+1M users by 2021; 28M+ wallets connected; $800B total swap volume; 267M swaps executed
+
+The first redesign turned a raw prototype into a product people could trust: a clear hierarchy, a focused swap flow and a visual language that matched the 1inch brand.
+
+1inch splits every trade across multiple exchanges to find the best rate, but no one had ever shown users how. I designed a routing visual from scratch that makes the path of every token clear at a glance.
+
+Token icons: More than 1,000 token icons, redrawn by hand in vector so every asset looks sharp and consistent, giving users a cleaner, more trustworthy experience.
+
+## 1inch Rebrand: an unreleased concept
+https://vitamenart.github.io/project.html?id=rebrand-concept
+
+An in-house evolution of the 1inch identity that showed the brand needed a full rebirth rather than a refresh.
+
+1inch is one of the most recognised names in DeFi, routing liquidity across dozens of chains for millions of traders.
+
+I approached this as a refresh, not a reinvention. The brand had already earned its recognition, and the goal was never to erase it: same silhouette, same instincts, more confidence in how it carried itself.
+
+The original mark carried an angry unicorn, attitude built into every line. As the logo simplified, that attitude had to live somewhere else, so I moved it into colour. Red became the carrier of the brand’s edge: direct, fast, slightly confrontational, the way trading itself feels. Research pushed me further. Crypto has settled into a narrow palette of neon blue and violet, an entire industry lit by the same screen. Stepping away from it was less a stylistic choice than a way of being seen at all.
+
+The concept was ultimately shelved. 1inch was growing toward something calmer and more businesslike, speaking to institutions as much as to traders, and aggression was no longer the right instrument for that. I’m putting it in my portfolio anyway. Not every direction becomes the answer, and this one still says something worth looking at.
+
+Scope of Work: Logo Design, Brand Identity, Brand Guidelines, Art Direction
+Year: 2025
+
+## 1inch Rebranding
+https://vitamenart.github.io/project.html?id=rebranding-2025
+
+A new identity for a DeFi brand that grew up. Art-directed on the 1inch side in collaboration with Shuka Brand Bureau.
+
+A new identity for a DeFi brand that grew up By 2025, 1inch had become core infrastructure for DeFi, trusted by Binance, Ledger, MetaMask and many others. The old brand, loud and playful, no longer matched that scale. The company needed an identity that was simpler, calmer and more mature, one that could speak to institutions as confidently as to traders. The rebrand was created in close collaboration with Shuka Brand Bureau. As Art Director on the 1inch side, I shaped the direction together with the agency and led the adaptation of the new identity across products, campaigns and events. The result is a lighter, more confident brand that keeps the spirit of 1inch but speaks with authority without needing to shout.
+
+The new identity launched at TOKEN2049 in Singapore, alongside the move to 1inch.com.
+
+Role: Art Director (1inch)
+In collaboration with: Shuka Brand Bureau
+Year: 2025
+
+Figma Plugin: To bring the new pixel imagery into everyday work, I built a custom ASCII plugin that turns any image into on-brand vector art directly in Figma.
+
+The result is a brand that is simple, confident and honest. A modular system, inspired by the blocks of a chain, connects everything from the logo to interfaces and campaigns, so every touchpoint feels part of one whole. 1inch no longer needs to shout: it speaks with the calm authority of a company that keeps DeFi running.
+
+## Hardware Wallet
+https://vitamenart.github.io/project.html?id=hardwallet
+
+Every touchpoint of an air-gapped hardware wallet, designed solo: the device, a strictly black-and-white E-Ink interface with custom pixel type and icons, motion and packaging.
+
+Industrial design, UI/UX and packaging for an air-gapped crypto wallet. Every touchpoint designed end to end.
+
+A cold wallet the size of a bank card: no buttons, no cables, no connection to the internet. Data moves only through QR codes and NFC, and every action happens on a 2.7″ E-Ink touchscreen. Announced by 1inch in 2023, the device later launched independently as ERA Wallet.
+
+As the sole designer on the project, I shaped the product from the object outward. I designed the device itself, from its proportions, frame and finishes to the full range of colourways, aiming for something that feels closer to a premium phone than a security gadget.
+
+Scope of Work: Industrial Design, UI/UX, Interaction & Motion, Type Design, Iconography, Packaging, 3D Visualisation
+Year: 2023
+
+1bit pure B&W interface; 100+ custom pixel icons; 250+ UI screens designed; 4.6 on Trustpilot
+
+Every screen was designed with security in mind. On a device that protects people’s assets, a single unclear step can cost real money, so each flow was tested and refined until every action felt clear, deliberate and impossible to misread.
+
+E-Ink panel: The interface was the hardest part. The E-Ink panel rendered strictly 1-bit: pure black and pure white, with no shades of grey in between. Without anti-aliasing, even a rounded corner or a diagonal line had to be built pixel by pixel, and nothing could be borrowed from standard UI practice. I designed a complete interaction system within those limits. I drew custom pixel-perfect typefaces and a dedicated icon set so every glyph lands exactly on the grid, and designed animations that work with E-Ink refresh rather than against it.
+
+The work extended to the packaging, built as a layered unboxing that introduces the device step by step.
+
+## NFT Unicorns
+https://vitamenart.github.io/project.html?id=nft-unicorns
+
+An unreleased generative NFT collection with 64 million possible unicorns that evolve with their owners.
+
+A generative collection of 64 million possible unicorns. The 1inch Unicorns were planned as a generative NFT collection built around the brand’s mascot, designed to reward the community and give every holder a character of their own.
+
+The project was frozen before launch, and the later rebrand moved away from the mascot entirely. It remains one of the largest illustration systems I’ve built.
+
+Role: Concept, Character Design, Illustration, Trait System
+Year: 2022
+
+I created the entire collection by hand. Each unicorn was assembled from six trait categories: body, hair, outfit, mouth, eyes and horn, with 20 variations in each. Together they allow for 64 million unique combinations, all sharing one consistent illustration style and personality.
+
+NFT Evolution: Unicorns evolved with their owners, upgrading through stages based on activity on the platform.
+
+## Gear Face
+https://vitamenart.github.io/project.html?id=gear-face
+
+Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen.
+
+Custom watch faces for Samsung Gear, made as a personal side project.
+
+When I found out Samsung had its own store for watch faces, I started learning how to build them myself, from the visual design to the logic behind every complication. I made them purely for my own wrist, as a playground for interface ideas on a tiny round screen.
+
+Designed around the OLED display: a true-black background keeps most pixels off to save battery, and a minimal layout keeps every reading legible at a glance. Steps, floors, charge, heart rate, date and even world time fit on a single face without overloading it.
+
+## Book: reDeFine Money
+https://vitamenart.github.io/project.html?id=book
+
+Cover and data visualisation for 1inch's oral history of DeFi.
+
+I designed the cover and the system of charts inside the book. The cover treats the book as an object: a matte black volume with a recessed square that reads as both a void and a block, a quiet nod to the chain the industry is built on. No crypto clichés, no gradients. Just material, depth, and a title set to play on the “DeFi” hidden inside “reDeFine”.
+
+Author: Vladimir Kozlov
+Scope of Work: Cover design, Data visualisation
+Year: 2026
+
+Inside, I designed the full set of charts and infographics that run through the book, turning market data, timelines and regulatory history into clear editorial spreads. Built on the 1inch brand palette, the system keeps every visual consistent from chapter to chapter while making complex data read at a glance.
+
+## DEFY
+https://vitamenart.github.io/project.html?id=defy
+
+A street-art inspired conference campaign built on a double meaning: DeFi and defy.
+
+DEFY is a play on two words at once: DeFi and OBEY. The visual language nods to one of the most recognisable icons of street art, the stark black-and-white portrait with a bold red label, and flips its message. Where the original commanded obedience, ours invited people to defy the old financial system.
+
+Role: Concept, Art Direction, Illustration
+Year: 2022
+
+## Toy: Sir Inchalot
+https://vitamenart.github.io/project.html?id=toy
+
+A plush unicorn for 1inch's conference giveaways, taken from first sketches to production-ready 3D.
+
+A plush mascot turned conference collectible.
+
+Sir Inchalot is a plush unicorn created as a surprise gift from 1inch for conference attendees. He is built on the brand’s unicorn mascot, with a slightly sly grin and a lot of attitude.
+
+I took the character from first sketches to final 3D. The early drawings explored pose, proportions and personality, aiming for something cute enough to hug but still unmistakably 1inch. I then modelled and textured him in 3D, translating the flat mascot into a soft, simplified form that would survive production as a plush. The 3D model became the reference for the manufacturer.
+
+At events, Sir Inchalot quickly became one of the most wanted items on the booth. People came back for him, traded for him, and actively hunted him down.
+
+Role: Character Design, Sketching, 3D Modelling & Texturing
+Production: External manufacturer
+
+1inch Mascot: The 1inch unicorn is the brand’s core mascot. Sir Inchalot gives it a body: the same character, reimagined as a soft, tactile object people want to take home.
+
+## 1inch Merch
+https://vitamenart.github.io/project.html?id=merch
+
+Illustrated merch for a brand that travels: a unicorn adapted to every event, and shirts people lined up for.
+
+Illustrated apparel and goods for a brand that travels.
+
+For several years, 1inch merch was a calling card at every major crypto event: T-shirts, hoodies, caps, bottles and seasonal sweaters, given away at booths around the world. I led the merch direction and drew the illustrations myself, drawing on my art background to make each piece feel like an artwork, not a logo on a shirt.
+
+The core idea came from the brand’s own story. The 1inch unicorn travels between worlds through portals, so we let him do exactly that at every event. For each conference, the unicorn adapted to the host city and the event’s own visual language, taking on its colours, mood and style. Every drop became a limited edition, tied to a single place and moment.
+
+People noticed. Attendees lined up at the booth for the shirts, collected editions from event to event, and shared them widely on social media.
+
+Role: Merch Direction, Illustration, Apparel Design
+
+Toys: Sir Inchalot: The unicorn, reimagined as a plush collectible. Designed from sketch to 3D.
+
+As 1inch matured, the brand became more restrained and systematic, and the merch followed. The new collection traded illustration for typography, bold graphic marks and a tighter palette: cleaner, more design-led pieces that still carry the brand’s sense of humour, just with a straighter face.
+
+## 1inch × Times Square
+https://vitamenart.github.io/project.html?id=times-square
+
+A full animated campaign for a Times Square billboard, designed end to end, from concept to the final motion on screen.
+
+An animated campaign for one of the most watched screens in the world
+
+1inch took over a large-format digital billboard in Times Square, New York. I designed the campaign end to end, from concept and key visuals to the animated sequences that ran on screen.
+
+The story is built around the brand’s unicorn, who travels between worlds through portals. On the billboard, he gallops through a cosmic landscape of planets and neon light, then bursts out into the city, set against bold typography that reads instantly from the street. Every frame was designed for scale and motion: high contrast, large type and a deep purple palette that holds its own among the brightest screens in Times Square.
+
+Role: Concept, Art Direction, Key Visuals, Motion
+Location: Times Square, New York
+
+## Crypto Quest 2025
+https://vitamenart.github.io/project.html?id=crypto-quest
+
+A year in crypto, reimagined as a retro RPG: personal stats, low-bit heroes and shareable cards for 1inch Wallet users.
+
+Crypto Quest was an interactive year-in-review inside 1inch Wallet.
+
+Users walked through their personal results for the year and, at the end, received a unique character based on how they used crypto. The goal was simple: give people a recap they would actually enjoy and want to share.
+
+I turned the review into a game. The art direction drew on early 8-bit titles: a near-monochrome palette with one green accent, chunky low-bit sprites and a voxel dungeon as the opening scene. I designed the UX flow, the screens and a full cast of heroes, from Knight to Jester, each on a shareable card made to be posted.
+
+Role: Concept, UI/UX, Visual Design, Character Design
+Year: 2025
+
+## 1inch × Bruce Lee
+https://vitamenart.github.io/project.html?id=bruce-lee
+
+The first global 1inch campaign, made in partnership with the Bruce Lee Family Company. Art-directed on the 1inch side.
+
+The first global campaign for 1inch, made in partnership with the Bruce Lee Family Company
+
+1inch takes its name from Bruce Lee's famous one-inch punch: maximum impact with minimum effort. In 2024, after almost three years of preparation, the brand made that connection official through a partnership with the Bruce Lee Family Company, founded by his daughter Shannon Lee.
+
+The campaign set out to change how people see crypto: not as a joke or a gamble, but as a serious financial system. Its message was simple: Take crypto SeriousLee. At its centre was a comedic, kung-fu-inspired commercial that brought Bruce Lee back to the screen through AI morphing technology. It was produced with the creative agency Talent and the production company Birth.
+
+Role: Art Director
+Illustrations: Julien Rico Jr.
+Agency: Talent
+Year: 2024
+
+As Art Director on the 1inch side, I oversaw the visual direction of the film and carried the campaign across every touchpoint, from key visuals and social content to event materials, print and merch.
+
+In Wallet App: The campaign didn’t stop at the screen. Bruce Lee also appeared inside 1inch Wallet, with a special loading animation and in-app cover that brought the campaign into the product itself.
+
+## 1inch Mascot
+https://vitamenart.github.io/project.html?id=mascot
+
+A fast, bold unicorn who travels between worlds, changing his look in every one while staying himself.
+
+A unicorn built for speed, attitude and travel between worlds
+
+In its early years, 1inch was fast, sharp and a little rebellious, a young project taking on the giants of DeFi. The brand needed a character that carried the same energy and could appear anywhere, from campaigns and social media to events and merch.
+
+Role: Character Design, Illustration
+
+NFT Collection: The unicorn was also designed as an NFT collection, with a series of unique variations of the character. The project was never released.
+
+One Unicorn, Many Worlds: The unicorn travels between worlds through portals. Each world, or each campaign and event, gives him a new form, style and mood, yet he always stays recognisably himself. This turned the mascot from a single static image into an open creative platform that could grow with the brand.
+
+Without AI: All illustrations and animations were created by hand, with no generative AI.
+
+## Aviasales New Year
+https://vitamenart.github.io/project.html?id=aviasales
+
+A New Year campaign for Aviasales: an illustrated world inspired by hand-painted Soviet greeting cards.
+
+Aviasales commissioned me to create the key visual for their 2019 New Year campaign, a holiday giveaway of 100 free flights. Drawing on the warmth of hand-painted Soviet greeting cards, I developed an illustrated world that carried across the promo landing page, banners, and social assets.
+
+The goal was nostalgia with a wink: a familiar, cozy aesthetic that felt instantly festive to a Russian-speaking audience while staying true to the brand’s playful voice.
+
+## AI Production Workflows
+https://vitamenart.github.io/project.html?id=ai-workflows
+
+Custom ComfyUI pipelines and a Claude Code + MCP setup that turned AI into a reliable, on-brand production tool.
+
+Off-the-shelf AI tools were too unpredictable for a brand to rely on. I built my own ComfyUI workflows for image restoration, upscaling and on-brand visuals, and connected Claude Code via MCP to our Figma design system.
+
+The result: less manual work, faster turnaround, and content that stays on-brand by default.
+
+Role: Workflow Design, AI Pipelines
+
+Using Claude Code connected via MCP to our Figma design system, I set up a workflow where AI worked directly with real brand tokens: colours, typography and UI components. Presentations and landing pages were generated on top of the actual design system, so every output stayed on-brand by default rather than being fixed afterwards.
+
+I designed my own ComfyUI pipelines for production tasks. Photo restoration: a custom pipeline that rebuilds low-quality images, such as video frames and screenshots, without altering people’s faces. This turned unusable material into assets ready for marketing.
+
+Executive portraits: a complete workflow for generating consistent, on-brand imagery of company leadership.
+
+## Custom Figma Tools
+https://vitamenart.github.io/project.html?id=figma-tools
+
+AI-assisted Figma plugins that turned brand rules into tools: an ASCII image converter and an on-brand QR generator.
+
+During the 1inch rebrand in 2025, I started building my own Figma plugins instead of waiting for tools that didn’t exist. Using AI to write and adapt the code, I turned brand rules into working instruments, so designers could produce on-brand assets in seconds rather than hours, with no third-party services involved. Built specifically around the 1inch identity, the plugins were never meant for public release. Instead, they were shared internally and used across the design team.
+
+ASCII Plugin: The new 1inch identity leaned on ASCII-style imagery, but no existing tool could produce it the way the brand needed. I built a plugin that converts any image into ASCII art and outputs it as clean, editable vectors directly inside Figma. A wide set of controls covers character sets, density, contrast, scale and more, so the result can be tuned to match the brand style exactly and stays fully editable afterwards.
+
+QR Code Plugin: A QR generator that runs entirely inside Figma, with no external services and no tracking links. Beyond the standard settings, including error correction levels, it lets you change the shape and structure of the modules to match the brand’s illustration style. The result is a QR code that sits naturally inside flyers, posters and merch as part of the design.
+
+## Motion Automation
+https://vitamenart.github.io/project.html?id=motion-automation
+
+After Effects scripts that made animation four times faster to build and ten times lighter to ship.
+
+Motion was central to the 1inch brand, but every animation was built by hand and often too heavy for the product. I used AI to write After Effects scripts that turned animations into flexible, adjustable systems and optimised them for web and app.
+
+The result: production almost four times faster, and Lottie files more than 10 times lighter.
+
+Role: Motion Design, Scripting (AI-assisted)
+
+I used AI to write custom After Effects scripts that sped up animation production by almost four times. Each animation was built as a fully parametric system rather than a fixed sequence. In the boat-on-waves example, amplitude, frequency, speed and other parameters can all be adjusted live, so one setup produces endless variations without re-animating a single frame.
+
+## AI in Blender
+https://vitamenart.github.io/project.html?id=ai-blender
+
+LLMs connected to Blender via MCP and Python scripts: 3D scenes built from a text brief in minutes instead of hours.
+
+I connect LLMs to Blender via MCP and Python scripts to build scenes from a text brief. It turns hours of setup into minutes: blocking out a draft scene, automating routine tasks, and building 3D layouts that serve as motion control for AI video generation.
+
+On Apple’s iPhone Duo launch day, we showed our website running on the new device. To make it in time, I built a fully functional 3D model with Claude and Blender MCP: the screen texture bends along the fold, with parallax as the device opens.
+
+A few more projects made with AI in the loop.

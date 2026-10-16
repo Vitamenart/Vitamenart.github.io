@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=Inter:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/projects.js"></script>
+<title>Vitalii Menshenin</title>
+<meta name="description" content="Digital Product &amp; Brand Designer. I build brands that people remember and teams can scale.">
+<!-- Иконки: assets/meta/ (favicon.ico — в корне, браузеры ищут его там по умолчанию) -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/meta/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/meta/apple-touch-icon.png">
+<link rel="manifest" href="assets/meta/site.webmanifest">
+<meta name="theme-color" content="#000000">
+<!-- Превью ссылки в соцсетях. TODO: когда будет домен — заменить пути на полные https://домен/... (соцсети берут только абсолютные) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vitalii Menshenin">
+<meta property="og:title" content="Vitalii Menshenin — Digital Product &amp; Brand Designer">
+<meta property="og:description" content="I build brands that people remember and teams can scale.">
+<meta property="og:image" content="assets/meta/og-image.jpg">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="Vitalii Menshenin — Digital Product &amp; Brand Designer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vitalii Menshenin — Digital Product &amp; Brand Designer">
+<meta name="twitter:description" content="I build brands that people remember and teams can scale.">
+<meta name="twitter:image" content="assets/meta/og-image.jpg">
+<!-- schema -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Vitalii Menshenin","jobTitle":"Digital Product & Brand Designer","description":"Design director. Sixteen years in, trained as an artist. I start with a blank page and end with a brand that holds together everywhere: on screen, in motion, in your hand. Along the way I build the teams that keep it that way.","email":"mailto:vitalik06smile@gmail.com","image":"https://vitamenart.github.io/assets/about/portrait.jpg","url":"https://vitamenart.github.io/","sameAs":["https://t.me/vitamenart","https://x.com/vitamenart","https://www.linkedin.com/in/vitamenart","https://www.instagram.com/vitamenart"]}</script>
+<!-- /schema -->
+</head>
+<body data-page="index">
+  <section class="gate">
+    <div data-slot="header"></div>
+    <div class="drum" aria-label="Selected work"><div class="drum__track" id="drum"></div></div>
+    <a class="scroll-hint" href="#statement">Scroll down <span id="scroll-icon"></span></a>
+  </section>
+
+  <section class="statement" id="statement">
+    <div class="statement__inner">
+      <p class="statement__text">I build brands that people remember and teams can scale. Sixteen years of ideas, craft and direction.</p>
+      <h1 class="statement__name">Vitalii Menshenin</h1>
+    </div>
+  </section>
+
+  <div id="features"></div>
+
+  <section class="light services" id="about">
+    <h2 class="services__title">This is<br>What I Do</h2>
+    <div class="services__cols">
+      <div class="services__aside">
+        <div class="media"><img class="cover" src="assets/about/portrait.jpg" alt="Vitalii Menshenin" loading="lazy"></div>
+        <p>I lead brands across identity, product and campaigns, from the first idea to the final release. I care about strong concepts, crafted details and systems that let teams move fast without losing quality.</p>
+      </div>
+      <ol class="services__list">
+        <li class="service-row"><span class="service-row__name">Art Direction</span><span>01</span></li>
+        <li class="service-row"><span class="service-row__name">Brand Identity</span><span>02</span></li>
+        <li class="service-row"><span class="service-row__name">Product &amp; UI</span><span>03</span></li>
+        <li class="service-row"><span class="service-row__name">3D &amp; Motion</span><span>04</span></li>
+        <li class="service-row"><span class="service-row__name">Campaigns &amp; Events</span><span>05</span></li>
+        <li class="service-row"><span class="service-row__name">Design Systems</span><span>06</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="light showreel">
+    <div class="showreel__box" id="showreel"></div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/media.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

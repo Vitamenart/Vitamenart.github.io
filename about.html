@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=Inter:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/projects.js"></script>
+<title>About — Vitalii Menshenin</title>
+<meta name="description" content="Digital Product &amp; Brand Designer. I build brands that people remember and teams can scale.">
+<!-- Иконки: assets/meta/ (favicon.ico — в корне, браузеры ищут его там по умолчанию) -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/meta/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/meta/apple-touch-icon.png">
+<link rel="manifest" href="assets/meta/site.webmanifest">
+<meta name="theme-color" content="#000000">
+<!-- Превью ссылки в соцсетях. TODO: когда будет домен — заменить пути на полные https://домен/... (соцсети берут только абсолютные) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vitalii Menshenin">
+<meta property="og:title" content="Vitalii Menshenin — Digital Product &amp; Brand Designer">
+<meta property="og:description" content="I build brands that people remember and teams can scale.">
+<meta property="og:image" content="assets/meta/og-image.jpg">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="Vitalii Menshenin — Digital Product &amp; Brand Designer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vitalii Menshenin — Digital Product &amp; Brand Designer">
+<meta name="twitter:description" content="I build brands that people remember and teams can scale.">
+<meta name="twitter:image" content="assets/meta/og-image.jpg">
+<!-- schema -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Vitalii Menshenin","jobTitle":"Digital Product & Brand Designer","description":"Design director. Sixteen years in, trained as an artist. I start with a blank page and end with a brand that holds together everywhere: on screen, in motion, in your hand. Along the way I build the teams that keep it that way.","email":"mailto:vitalik06smile@gmail.com","image":"https://vitamenart.github.io/assets/about/portrait.jpg","url":"https://vitamenart.github.io/","sameAs":["https://t.me/vitamenart","https://x.com/vitamenart","https://www.linkedin.com/in/vitamenart","https://www.instagram.com/vitamenart"]}</script>
+<!-- /schema -->
+</head>
+<body data-page="about" data-tabs="off">
+  <section class="skills">
+    <div data-slot="header"></div>
+    <div class="skills__drum" aria-label="Design direction, systems, leadership, products, brand, interface, tokens, identity, teams, culture, ops">
+      <span class="skills__fixed">Design</span>
+      <ul class="skills__list" id="skills" aria-hidden="true"></ul>
+    </div>
+  </section>
+
+  <section class="light about">
+    <div class="about__photo media"><img class="cover" src="assets/about/portrait.jpg" alt="Vitalii Menshenin" fetchpriority="high"></div>
+    <div class="about__body">
+      <div>
+        <p class="about__text">Design director. Sixteen years in, trained as an artist.<br>I start with a blank page and end with a brand that holds together everywhere: on screen, in motion, in your hand. Along the way I build the teams that keep it that way.</p>
+        <h1 class="about__name">Vitalii Menshenin</h1>
+      </div>
+      <div data-slot="socials"></div>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/about.js"></script>
+</body>
+</html>
