@@ -105,7 +105,7 @@ window.PROJECTS = [
 
 window.CONTACTS = {
   email: "vitalik06smile@gmail.com",
-  showreel: "https://vimeo.com/1161842981",   // по клику, со звуком
+  showreel: "https://vimeo.com/1236877620",   // по клику, со звуком
   cv: "assets/cv/Vitalii-Menshenin-CV.pdf",   // кнопка Download CV в about
   links: [                                   // порядок = порядок в футере
     { label: "Telegram",  short: "tg", href: "https://t.me/vitamenart" },

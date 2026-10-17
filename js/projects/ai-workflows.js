@@ -14,7 +14,7 @@ PAGES["ai-workflows"] = {
     { statement: "AI worked directly with real brand tokens: colours, typography and UI components. Presentations and landing pages were generated on top of the actual design system." },
     { full: { file: "02-claude-mcp.jpg" } },
     { statement: "I designed my own ComfyUI pipelines for production tasks. Photo restoration: a custom pipeline that rebuilds low-quality images, such as video frames and screenshots, without altering people’s faces. This turned unusable material into assets ready for marketing." },
-    { full: { file: "03-figma-weavy.jpg" } },
+    { row: [ { file: "03-weavy-flow.jpg" }, { video: "03-weavy-video.webm", play: "auto" } ] },
     { statement: "Executive portraits: a complete workflow for generating consistent, on-brand imagery of company leadership." },
     { compare: { before: "04-portrait-before.jpg", after: "04-portrait-after.jpg" } },
     { full: { file: "05-comfyui-upscale.jpg" } },
