@@ -304,8 +304,6 @@ AI worked directly with real brand tokens: colours, typography and UI components
 
 I designed my own ComfyUI pipelines for production tasks. Photo restoration: a custom pipeline that rebuilds low-quality images, such as video frames and screenshots, without altering people’s faces. This turned unusable material into assets ready for marketing.
 
-Executive portraits: a complete workflow for generating consistent, on-brand imagery of company leadership.
-
 ## Custom Figma Tools
 https://vitamenart.github.io/project.html?id=figma-tools
 
