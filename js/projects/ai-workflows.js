@@ -11,7 +11,7 @@ PAGES["ai-workflows"] = {
   ],
   blocks: [
     { full: { file: "01-claude-design-system.jpg" } },
-    { statement: "Using Claude Code connected via MCP to our Figma design system, I set up a workflow where AI worked directly with real brand tokens: colours, typography and UI components. Presentations and landing pages were generated on top of the actual design system, so every output stayed on-brand by default rather than being fixed afterwards." },
+    { statement: "AI worked directly with real brand tokens: colours, typography and UI components. Presentations and landing pages were generated on top of the actual design system." },
     { full: { file: "02-claude-mcp.jpg" } },
     { statement: "I designed my own ComfyUI pipelines for production tasks. Photo restoration: a custom pipeline that rebuilds low-quality images, such as video frames and screenshots, without altering people’s faces. This turned unusable material into assets ready for marketing." },
     { full: { file: "03-figma-weavy.jpg" } },

@@ -12,7 +12,7 @@ PAGES["motion-automation"] = {
   blocks: [
     { full: { file: "01-waves.svg" } },
     { full: { cubes: "03-plugin.svg" } },
-    { statement: "I used AI to write custom After Effects scripts that sped up animation production by almost four times. Each animation was built as a fully parametric system rather than a fixed sequence. In the boat-on-waves example, amplitude, frequency, speed and other parameters can all be adjusted live, so one setup produces endless variations without re-animating a single frame." },
+    { statement: "AI helped me write scripts that optimise complex animations automatically: converting effects, removing unused layers and merging keyframes. With hundreds of elements, doing this by hand is physically impossible." },
     { full: { file: "02-scripts.svg" } }
   ]
 };

@@ -4,7 +4,7 @@
 PAGES["defy"] = {
   heading: "DEFY",
   text: [
-    "DEFY is a play on two words at once: DeFi and OBEY. The visual language nods to one of the most recognisable icons of street art, the stark black-and-white portrait with a bold red label, and flips its message. Where the original commanded obedience, ours invited people to defy the old financial system."
+    "DEFY is a play on two words at once: DeFi and OBEY. The visual language nods to one of the most recognisable icons of street art, the stark black-and-white portrait with a bold red label, and flips its message. Where the original commanded obedience, ours invited people to defy traditional finance."
   ],
   meta: [
     { label: "Role", value: ["Concept", "Art Direction", "Illustration"] },

@@ -173,7 +173,7 @@ https://vitamenart.github.io/project.html?id=defy
 
 A street-art inspired conference campaign built on a double meaning: DeFi and defy.
 
-DEFY is a play on two words at once: DeFi and OBEY. The visual language nods to one of the most recognisable icons of street art, the stark black-and-white portrait with a bold red label, and flips its message. Where the original commanded obedience, ours invited people to defy the old financial system.
+DEFY is a play on two words at once: DeFi and OBEY. The visual language nods to one of the most recognisable icons of street art, the stark black-and-white portrait with a bold red label, and flips its message. Where the original commanded obedience, ours invited people to defy traditional finance.
 
 Role: Concept, Art Direction, Illustration
 Year: 2022
@@ -300,7 +300,7 @@ The result: less manual work, faster turnaround, and content that stays on-brand
 
 Role: Workflow Design, AI Pipelines
 
-Using Claude Code connected via MCP to our Figma design system, I set up a workflow where AI worked directly with real brand tokens: colours, typography and UI components. Presentations and landing pages were generated on top of the actual design system, so every output stayed on-brand by default rather than being fixed afterwards.
+AI worked directly with real brand tokens: colours, typography and UI components. Presentations and landing pages were generated on top of the actual design system.
 
 I designed my own ComfyUI pipelines for production tasks. Photo restoration: a custom pipeline that rebuilds low-quality images, such as video frames and screenshots, without altering people’s faces. This turned unusable material into assets ready for marketing.
 
@@ -328,7 +328,7 @@ The result: production almost four times faster, and Lottie files more than 10 t
 
 Role: Motion Design, Scripting (AI-assisted)
 
-I used AI to write custom After Effects scripts that sped up animation production by almost four times. Each animation was built as a fully parametric system rather than a fixed sequence. In the boat-on-waves example, amplitude, frequency, speed and other parameters can all be adjusted live, so one setup produces endless variations without re-animating a single frame.
+AI helped me write scripts that optimise complex animations automatically: converting effects, removing unused layers and merging keyframes. With hundreds of elements, doing this by hand is physically impossible.
 
 ## AI in Blender
 https://vitamenart.github.io/project.html?id=ai-blender

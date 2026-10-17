@@ -45,10 +45,11 @@ function media(m = {}, dir = "") {
     const poster = m.poster ? `<img class="cover" src="${dir + m.poster}" alt="" loading="lazy" decoding="async">` : "";
     if (src.host === "file") {
       const url = /^https?:|^\//.test(m.video) ? m.video : dir + m.video;
-      inner = `<video class="cover" src="${url}" ${m.poster ? `poster="${dir + m.poster}"` : ""} playsinline loop
-        ${auto ? "muted autoplay" : 'preload="metadata"'}></video>${auto ? "" : playBtn()}`;
+      // фоновое видео без атрибута loop: Safari (iPad) с loop иногда замирает на последнем кадре — круг крутит keepLooping
+      inner = `<video class="cover" src="${url}" ${m.poster ? `poster="${dir + m.poster}"` : ""} playsinline
+        ${auto ? "muted autoplay data-loop" : 'loop preload="metadata"'}></video>${auto ? "" : playBtn()}`;
     } else if (auto) {
-      inner = iframe(embedUrl(src, true));
+      inner = iframe(embedUrl(src, true)).replace("<iframe", "<iframe data-loop");
     } else {
       // плеер не грузим, пока не нажали Play: страница остаётся лёгкой
       // превью — родная обложка YouTube / Vimeo (своя — только если явно задан poster)
@@ -83,6 +84,8 @@ function initVideos(root) {
     box.querySelectorAll("iframe").forEach(f => f.addEventListener("load", ready));
   });
 
+  root.querySelectorAll("[data-loop]").forEach(keepLooping);
+
   root.querySelectorAll("img[data-vimeo]").forEach(img =>
     fetch("https://vimeo.com/api/oembed.json?width=1920&url=https://vimeo.com/" + img.dataset.vimeo)
       .then(r => r.json())
@@ -105,4 +108,47 @@ function initVideos(root) {
     v.controls = true; v.play(); btn.hidden = true;
     box.classList.add("is-playing");
   }));
+}
+
+/* Фоновые ролики (play: "auto") крутятся по кругу всегда. Safari на iPad после нескольких повторов
+   мог остановиться на последнем кадре — и у своего файла с loop, и у плеера Vimeo.
+   Файл: по окончании сами перематываем в начало; если ролик встал (пауза или кадр не двигается), а он на экране — запускаем снова.
+   Vimeo: слушаем его события через postMessage и на паузу / конец отвечаем командой play. */
+function keepLooping(el) {
+  let onScreen = false;
+  new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; if (onScreen) nudge(); }).observe(el);
+
+  if (el.tagName === "VIDEO") {
+    const play = () => { const p = el.play(); if (p) p.catch(() => {}); };
+    el.addEventListener("ended", () => { el.currentTime = 0; play(); });
+    let last = -1;
+    function nudge() {
+      if (!onScreen || document.hidden || el.readyState < 2) return;
+      if (el.ended || (el.duration && el.duration - el.currentTime < 0.05)) el.currentTime = 0;
+      if (el.paused) play();
+    }
+    // раз в 2 с: на экране, но время не идёт — значит застрял, толкаем
+    setInterval(() => {
+      const stuck = onScreen && !document.hidden && !el.paused && el.currentTime === last;
+      last = el.currentTime;
+      if (stuck && el.duration && el.duration - el.currentTime < 0.5) { el.currentTime = 0; play(); }   // встал в конце
+      else nudge();
+    }, 2000);
+    document.addEventListener("visibilitychange", nudge);
+    return;
+  }
+
+  // Vimeo
+  const send = (method, value) => el.contentWindow && el.contentWindow.postMessage(JSON.stringify(value === undefined ? { method } : { method, value }), "https://player.vimeo.com");
+  function nudge() { if (onScreen && !document.hidden) send("play"); }
+  addEventListener("message", e => {
+    if (e.source !== el.contentWindow || e.origin !== "https://player.vimeo.com") return;
+    let d = e.data;
+    try { if (typeof d === "string") d = JSON.parse(d); } catch (_) { return; }
+    if (!d) return;
+    if (d.event === "ready") { send("addEventListener", "pause"); send("addEventListener", "ended"); }
+    else if (d.event === "ended") { send("setCurrentTime", 0); nudge(); }
+    else if (d.event === "pause") setTimeout(nudge, 300);
+  });
+  document.addEventListener("visibilitychange", nudge);
 }

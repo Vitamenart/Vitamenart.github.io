@@ -72,16 +72,21 @@ p, h1, h2, h3 { margin: 0; }
 .site-header-spacer { min-height: calc(42px + 2 * var(--pad)); }
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 10;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   padding: var(--pad);
   /* одна высота с вкладками и без: по переключателю (42) + поля — 90 на десктопе, 74 на телефоне */
   min-height: calc(42px + 2 * var(--pad));
 }
-.site-header.is-stuck {
+/* при скролле — фон чёрный 50% и размытие. Фон — отдельный слой, вытянутый на 200px вверх за край экрана:
+   обычно этот запас не виден, а в Safari на iOS с адресной строкой сверху страница рисуется и под строкой —
+   там он продолжает шапку, и между строкой и шапкой не видно контента без размытия */
+.site-header::before {
+  content: ""; position: absolute; z-index: -1; inset: -200px 0 0 0; pointer-events: none;
   background: rgba(11, 11, 11, 0.5);
   -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  opacity: 0; transition: opacity 0.3s ease;
 }
+.site-header.is-stuck::before { opacity: 1; }
 .site-header__name { justify-self: start; }
 .site-header .menu-open { grid-column: 3; justify-self: end; }   /* всегда справа, даже без вкладок */
 .tabs {
@@ -204,11 +209,12 @@ p, h1, h2, h3 { margin: 0; }
 /* подпись + затемнение снизу кодом (126px на 1440: прозрачный → чёрный 50%) поверх картинки */
 .feature__caption {
   position: absolute; z-index: 2; left: 0; right: 0; bottom: 0;
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
   padding: 64px var(--pad) 16px;
   background: linear-gradient(to bottom, transparent, var(--black-50));
 }
 .feature__title { font: var(--t-heading-m); letter-spacing: -0.02em; }
+.feature__caption .pill { flex-shrink: 0; white-space: nowrap; }   /* длинный заголовок переносится, кнопка не сжимается */
 /* Раскрытие при прокрутке: --p от 0 до 1 считает home.js по положению карточки на экране.
    0 — картинки нет (белая область), 1 — во всю ширину; растёт от нижней середины, углы выпрямляются.
    Подпись белая — проявляется в конце, когда под ней уже картинка. */
@@ -550,7 +556,6 @@ p, h1, h2, h3 { margin: 0; }
   .cell--text { aspect-ratio: auto; padding: 48px 0; }
   .block--row > .cell--text:first-child, .block--row > .cell--text:last-child { justify-content: flex-start; padding: 48px 0; }
   .play { width: 72px; height: 72px; }
-  .feature__caption { flex-direction: column; align-items: flex-start; gap: 12px; }
   .menu__panel { padding-left: 20px; }
 }
 
