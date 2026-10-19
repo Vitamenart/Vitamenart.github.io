@@ -8,7 +8,7 @@
  * шапка страницы проекта, «Other Works». Если файла нет — рисуется заглушка
  * с названием, так что можно класть картинки постепенно.
  *
- * category: products | campaigns | designops   (вкладки в хэдере)
+ * category: products | campaigns | designops   (фильтры на странице Work; designops — «AI & Tools»)
  * home:     порядковый номер большой карточки на главной (нет поля — не показываем)
  * links:    кнопки под описанием проекта [{ label, href, style: "solid" | "outline" }]
  *           (если у страницы в js/projects/<id>.js свои links — берутся они)
@@ -17,13 +17,22 @@
 window.COVERS_DIR = "assets/covers-web/";
 window.MEDIA_DIR  = "assets/projects/";   // картинки внутренних страниц: assets/projects/<id>/...
 
+/* Пункты шапки. Активный: index → overview; work → work; about → about; на странице проекта — ни один */
+window.NAV = [
+  { id: "overview", label: "Overview", href: "index.html" },
+  { id: "work",     label: "Work",     href: "work.html" },
+  { id: "about",    label: "About",    href: "about.html" }
+];
+
+/* Фильтры на странице Work (work.html?cat=...). Первый — все проекты.
+   text — на сайте не показывается, идёт только в llms.txt (tools/build.rb) */
 window.CATEGORIES = [
-  { id: "overview",  label: "Overview",  href: "index.html" },
-  { id: "products",  label: "Products",  href: "work.html?cat=products",
+  { id: "all",       label: "All work",   href: "work.html" },
+  { id: "products",  label: "Products",   href: "work.html?cat=products",
     text: "Digital products and devices designed from the ground up: interfaces, design systems and brands that people use every day." },
-  { id: "campaigns", label: "Campaigns", href: "work.html?cat=campaigns",
+  { id: "campaigns", label: "Campaigns",  href: "work.html?cat=campaigns",
     text: "Campaigns, events and brand moments built to be noticed, remembered and shared." },
-  { id: "designops", label: "DesignOps", href: "work.html?cat=designops",
+  { id: "designops", label: "AI & Tools", href: "work.html?cat=designops",
     text: "Tools, scripts and workflows I built to help teams create faster and keep every output on-brand." }
 ];
 
@@ -88,7 +97,7 @@ window.PROJECTS = [
     title: "Aviasales New Year",
     summary: "A New Year campaign for Aviasales: an illustrated world inspired by hand-painted Soviet greeting cards." },
 
-  /* ---------- DesignOps ---------- */
+  /* ---------- AI & Tools ---------- */
   { id: "ai-workflows", category: "designops", cover: "18-ai-workflows.jpg",
     title: "AI Production Workflows",
     summary: "Custom ComfyUI pipelines and a Claude Code + MCP setup that turned AI into a reliable, on-brand production tool." },

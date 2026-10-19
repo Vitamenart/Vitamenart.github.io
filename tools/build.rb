@@ -31,7 +31,7 @@ dom = IO.popen([CHROME, "--headless=new", "--disable-gpu", "--allow-file-access-
 json = dom[%r{<pre id="out">(.*?)</pre>}m, 1] or abort "Chrome не отдал данные — проверь tools/build.html"
 data = JSON.parse(CGI.unescapeHTML(json))
 PROJECTS, PAGES, CONTACTS = data.values_at("PROJECTS", "PAGES", "CONTACTS")
-CATS = data["CATEGORIES"].reject { |c| c["id"] == "overview" }
+CATS = data["CATEGORIES"].reject { |c| c["id"] == "all" }
 
 def plain(html); CGI.unescapeHTML(html.to_s.gsub(/<br\s*\/?>/, " ").gsub(/<[^>]+>/, "")).gsub(/\s+/, " ").strip; end
 def attr(s); CGI.escapeHTML(s.to_s); end
@@ -65,7 +65,7 @@ end
 # ---------- sitemap.xml, robots.txt ----------
 puts "Для поисковиков:"
 today = Date.today.to_s
-pages = ["", "works.html", "about.html", "contact.html"] + CATS.map { |c| c["href"] } + PROJECTS.map { |p| "project.html?id=#{p["id"]}" }
+pages = ["", "work.html", "about.html"] + PROJECTS.map { |p| "project.html?id=#{p["id"]}" }
 write "sitemap.xml", <<~XML
   <?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

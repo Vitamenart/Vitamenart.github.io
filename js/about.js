@@ -4,8 +4,8 @@
    остальные гаснут по мере удаления от центра. */
 (function () {
   const WORDS = ["Direction", "Systems", "Leadership", "Products", "Brand", "Interface",
-                 "Tokens", "Identity", "Teams", "Culture", "Ops"];
-  const STEP_MS = 1000;                        // пауза между шагами
+                 "Tokens", "Identity", "Teams", "Culture", "Workflows", "Tools", "AI"];
+  const STEP_MS = 900;                         // пауза между шагами
   const FADE = [1, 0.5, 0.4, 0.3, 0.2, 0.1];   // прозрачность по расстоянию от центра (как в макете)
   const list = document.getElementById("skills");
   const items = WORDS.concat(WORDS);           // двойной круг: перескок с края на край невидим

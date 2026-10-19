@@ -41,7 +41,7 @@ Campaigns, events and brand moments built to be noticed, remembered and shared.
 - [1inch Mascot](https://vitamenart.github.io/project.html?id=mascot): A fast, bold unicorn who travels between worlds, changing his look in every one while staying himself.
 - [Aviasales New Year](https://vitamenart.github.io/project.html?id=aviasales): A New Year campaign for Aviasales: an illustrated world inspired by hand-painted Soviet greeting cards.
 
-## DesignOps
+## AI & Tools
 
 Tools, scripts and workflows I built to help teams create faster and keep every output on-brand.
 

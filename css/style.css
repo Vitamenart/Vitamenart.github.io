@@ -89,11 +89,8 @@ p, h1, h2, h3 { margin: 0; }
 .site-header.is-stuck::before { opacity: 1; }
 .site-header__name { justify-self: start; }
 .site-header .menu-open { grid-column: 3; justify-self: end; }   /* всегда справа, даже без вкладок */
-.tabs {
-  display: flex; padding: 4px; border-radius: 100px;
-  background: var(--white-10); border: 1px solid var(--white-10);
-  position: sticky; top: var(--pad);
-}
+/* Пункты шапки — без подложки; фильтры на Work (.tabs--filters) — на полупрозрачной подложке */
+.tabs { position: relative; display: flex; padding: 4px; border-radius: 100px; border: 1px solid transparent; }
 .tab { height: 32px; display: flex; align-items: center; padding: 0 24px; border-radius: 100px; white-space: nowrap; }
 .tab:hover { background: var(--white-10); }
 /* Плашка активной вкладки: копия подписей (белый фон, чёрный текст), видна только внутри clip-path.
@@ -131,7 +128,7 @@ p, h1, h2, h3 { margin: 0; }
 .pill--solid:hover { opacity: 0.5; }   /* в большой карточке — только при наведении на саму кнопку, клик — по всей карточке */
 .pill--outline:not(.is-active):hover { background: var(--white-10); color: var(--grey-text); }
 
-/* ---------- Menu ---------- */
+/* ---------- Панель Contact (бывшее меню) ---------- */
 .menu { position: fixed; inset: 0; z-index: 100; }
 .menu[hidden] { display: none; }
 .menu__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
@@ -150,7 +147,7 @@ p, h1, h2, h3 { margin: 0; }
   display: inline-grid; place-items: center;
 }
 /* Close: бургер превращается в крестик, из-под него вырастает чёрный кружок (класс .is-x на .menu, ставит layout.js).
-   Без .is-x иконка выглядит как бургер в кнопке Menu — с неё и начинается открытие. */
+   Без .is-x иконка выглядит как бургер в кнопке Contact — с неё и начинается открытие. */
 .menu__close-icon {
   position: relative; width: 42px; height: 42px; display: grid; place-items: center;
   color: var(--black); transition: color 0.3s ease;
@@ -169,7 +166,7 @@ p, h1, h2, h3 { margin: 0; }
 .menu.is-x .menu__close-icon .l3 { transform: rotate(-45deg) scaleX(1.2) translateY(-5px); }
 .menu__links {
   flex: 1; display: flex; flex-direction: column; justify-content: center;
-  font: 600 clamp(56px, 7.2vw, 104px)/1.05 var(--f-display); letter-spacing: -0.03em;
+  font: 600 var(--display-l)/1.05 var(--f-display); letter-spacing: -0.03em;   /* Display L, 88 на десктопе */
 }
 .menu__bottom { display: flex; justify-content: space-between; align-items: center; }
 .socials { display: flex; gap: 4px; }
@@ -281,13 +278,14 @@ p, h1, h2, h3 { margin: 0; }
 .site-footer__icons { display: none; }
 .nav-link { flex: 1; font: var(--t-body-m); padding: 2px 0; }
 
-/* ---------- Вкладки (Products / Campaigns / DesignOps) ---------- */
-.works-intro {
-  display: flex; justify-content: space-between; gap: 48px;
-  padding: 64px var(--gutter) 120px;   /* 64 от шапки */
-}
+/* ---------- Work: заголовок, фильтры, сетка ---------- */
+.works-intro { padding: 64px var(--gutter) 48px; }   /* 64 от шапки */
 .works-intro h1, .project-intro__title { font: var(--t-display-s); letter-spacing: -0.03em; }
-.works-intro__text { width: min(688px, 50%); font: var(--t-heading-s); letter-spacing: -0.015em; color: var(--grey-text); }
+.works-intro h1 { margin-bottom: 32px; }
+/* фильтры: если не влезают в ширину (телефон) — ряд прокручивается вбок */
+.filters { overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter); }
+.filters::-webkit-scrollbar { display: none; }
+.tabs--filters { display: inline-flex; background: var(--white-10); border-color: var(--white-10); }
 
 .grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -299,35 +297,7 @@ p, h1, h2, h3 { margin: 0; }
 /* ховер: картинка плавно увеличивается внутри своей рамки (opacity — для проявления после загрузки) */
 .tile .cover { transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
 .tile:hover .cover { transform: scale(1.2); }
-/* Keep exploring (низ страниц вкладок): две карточки в половину ширины — 2×2 обложки 144 + название и кнопка */
-.explore { padding: 0 var(--gutter) 120px; }
-.explore__title { font: var(--t-display-s); letter-spacing: -0.03em; margin-bottom: 32px; }
-.explore__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.explore__card {
-  display: flex; gap: 24px; padding: 16px; min-width: 0;
-  background: var(--white); color: var(--black); border-radius: var(--radius-block);
-  --skeleton: var(--black-10);
-}
-.explore__thumbs { display: grid; grid-template-columns: repeat(2, 144px); grid-auto-rows: 144px; gap: 12px; flex: none; }
-.explore__thumbs .media { border-radius: 16px; }
-.explore__body { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 24px; min-width: 0; }
-.explore__name { font: var(--t-heading-m); letter-spacing: -0.02em; }
-.pill--solid.explore__btn { background: var(--black); color: var(--white); height: 42px; }
-@media (max-width: 1100px) { .explore__row { grid-template-columns: 1fr; } }   /* половины уже не вмещают обложки + кнопку */
-@media (max-width: 560px) {
-  .explore__card { flex-direction: column; }
-  .explore__thumbs { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
-  .explore__thumbs .media { aspect-ratio: 1; }
-}
 .empty { padding: 0 var(--gutter) 160px; font: var(--t-body-m); color: var(--grey-text); }
-
-/* ---------- Contact ---------- */
-.contact { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
-.contact__links {
-  flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
-  font: var(--t-display-l); letter-spacing: -0.03em; text-align: center;
-  padding-bottom: 88px;
-}
 
 /* ---------- Project ---------- */
 /* Обложка проекта в рамке: 24 по бокам, под хэдером; снизу — «Scroll down», как на главной (1392×746 на 1440×900).
@@ -508,13 +478,6 @@ p, h1, h2, h3 { margin: 0; }
 .showreel__box { position: relative; aspect-ratio: 1390 / 780; border-radius: var(--radius-panel); overflow: hidden; }
 .showreel__box > .media { position: absolute; inset: 0; }
 
-/* ---------- Work: все проекты плиткой ---------- */
-.all-works { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 8px var(--gutter) 96px; }
-.all-works__item .media { aspect-ratio: 1; border-radius: 16px; isolation: isolate; }   /* isolate — Safari не вылезает за скругление при scale */
-/* ховер — как у плиток .tile: картинка плавно увеличивается внутри рамки */
-.all-works__item .cover { transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
-.all-works__item:hover .cover { transform: scale(1.2); }
-
 /* ---------- About ---------- */
 /* Hero: «Design» + барабан навыков (Display S, шаг 96 на 1440), сдвиг шагами — js/about.js */
 .skills { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
@@ -522,6 +485,9 @@ p, h1, h2, h3 { margin: 0; }
   --skill-step: calc(var(--display-s) * 1.5);
   position: relative; flex: 1; min-height: 480px; overflow: hidden;
   font: var(--t-display-s); letter-spacing: -0.03em;
+  /* к верхнему (под шапкой) и нижнему краю слова плавно гаснут до нуля — не обрезаются краем */
+  -webkit-mask-image: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+  mask-image: linear-gradient(transparent, #000 30%, #000 70%, transparent);
 }
 .skills__fixed { position: absolute; top: 50%; right: calc(50% + 0.18em); transform: translateY(-50%); }
 .skills__list { position: absolute; top: 50%; left: calc(50% + 0.35em); margin: 0; padding: 0; list-style: none; }
@@ -541,9 +507,9 @@ p, h1, h2, h3 { margin: 0; }
 .pill--dark { background: var(--black); color: var(--white); padding: 0 32px; height: 42px; }
 
 /* ---------- Адаптив ---------- */
-/* iPad и мобильный: вкладки → выпадающий список, имя без фамилии, Menu → белая иконка */
+/* iPad и мобильный: пункты шапки → выпадающий список, имя без фамилии, Contact → белая иконка */
 @media (max-width: 1024px) {
-  .tabs, .site-header__surname, .menu-open__label { display: none; }
+  .tabs--header, .site-header__surname, .menu-open__label { display: none; }
   .tab-select { display: block; }
   .site-header .menu-open { background: none; color: var(--white); padding: 0; height: 24px; }
   /* футер: имя сверху на всю ширину, почта Body M со стрелкой, соцсети — круглые иконки */
@@ -557,14 +523,13 @@ p, h1, h2, h3 { margin: 0; }
   .site-footer__icons { display: flex; justify-content: space-between; }
 }
 @media (max-width: 900px) {
-  .all-works { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .about { grid-template-columns: 1fr; gap: 40px; padding: 96px var(--pad); }
   .about__photo { max-width: 453px; }
   .drum { min-height: 300px; }
   .statement { padding: 96px var(--pad); }
   .services { padding: 96px var(--pad); }
-  .services__cols, .works-intro { flex-direction: column; }
-  .services__aside, .services__list, .works-intro__text { width: 100%; }
+  .services__cols { flex-direction: column; }
+  .services__aside, .services__list { width: 100%; }
   .project-intro { grid-template-columns: 1fr; gap: 40px; padding: 96px var(--pad); }
   .other-works__row { grid-template-columns: repeat(2, 1fr); }
   .grid { grid-template-columns: repeat(2, 1fr); gap: 40px 12px; }
@@ -582,6 +547,7 @@ p, h1, h2, h3 { margin: 0; }
   .block--row > .cell--text:first-child, .block--row > .cell--text:last-child { justify-content: flex-start; padding: 48px 0; }
   .play { width: 72px; height: 72px; }
   .menu__panel { padding-left: 20px; }
+  .socials--about .round-btn { display: none; }   /* About на телефоне: только кнопка Download CV, без почты и соцсетей */
 }
 
 /* Ховер группы ссылок (меню, соцсети, футер, контакты):

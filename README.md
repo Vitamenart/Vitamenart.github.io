@@ -4,12 +4,11 @@
 
 ## Страницы
 - `index.html` — главная: барабан, statement, большие карточки проектов, «What I Do», футер
-- `work.html?cat=products|campaigns|designops` — вкладки хэдера, сетка работ
+- `work.html` — все работы: заголовок «My work», фильтры All work / Products / Campaigns / AI & Tools (переключаются на месте, выбранный — в `?cat=products|campaigns|designops`), сетка
 - `project.html?id=...` — страница проекта (шаблон)
-- `contact.html` — контакты
-- `works.html` — все проекты плиткой (пункт меню work)
 - `about.html` — обо мне: барабан навыков (слова и шаг — в начале `js/about.js`), фото, текст, соцсети
-- Меню (work → works.html, about → about.html, contact) — общее, собирается в `js/layout.js`
+- Шапка: Overview / Work / About (`window.NAV` в `js/projects.js`) и кнопка Contact — панель с соцсетями и почтой; собирается в `js/layout.js`
+- `works.html`, `contact.html` — старые адреса, только переадресация (на `work.html` и на главную с открытой панелью Contact)
 
 ## Картинки: одна папка, один файл на проект
 ```
@@ -51,7 +50,7 @@ PNG-оригиналы на сайте не хранятся (лежат в бэ
   `ruby -run -e httpd . -p 8080` → http://localhost:8080
 
 ## Где остановились (2026-10-14)
-**Готово:** главная (hero-волна, карточки, What I Do, шоурил Vimeo со своим превью `assets/showreel/poster.jpg`), анимации и переходы, вкладки категорий, `works.html` (все проекты),
+**Готово:** главная (hero-волна, карточки, What I Do, шоурил Vimeo со своим превью `assets/showreel/poster.jpg`), анимации и переходы, страница Work с фильтрами,
 `about.html` (барабан навыков), мобильный хэдер (выпадающий список ≤1024) и футер, ховеры ссылок и кнопок,
 текстовые стили Figma в `css/style.css` (`--t-*`), шапка проекта (обложка в рамке + крестик, описание на сетке половин).
 

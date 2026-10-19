@@ -33,38 +33,35 @@
     img.decode ? img.decode().then(show, show) : show();
   };
 
-  const params = new URLSearchParams(location.search);
   const page = document.body.dataset.page;
-  const project = page === "project" && (P.find(p => p.id === params.get("id")) || P[0]);
-  const activeTab = page === "work" ? (params.get("cat") || "products")
-    : page === "index" ? "overview" : project ? project.category : null;
+  const activeTab = { index: "overview", work: "work", about: "about" }[page] || null;   // на странице проекта — ни один
+  // выпадающий список (iPad / мобильный): на странице проекта, как раньше, — Work
+  const selectTab = activeTab || (page === "project" ? "work" : null);
   const theme = document.body.dataset.header || "dark";
 
-  /* Хэдер. Десктоп: вкладки-переключатель. iPad и мобильный (≤1024):
-     вместо вкладок — выпадающий список, имя без фамилии, Menu — только иконка. */
+  /* Хэдер: имя, три пункта (window.NAV), справа кнопка Contact — открывает панель с контактами.
+     iPad и мобильный (≤1024): вместо пунктов — выпадающий список, имя без фамилии, Contact — только иконка. */
   function header() {
-    const cats = window.CATEGORIES;
-    const current = cats.find(c => c.id === activeTab) || cats[0];
-    const tabs = document.body.dataset.tabs === "off" ? "" : `
-      <nav class="tabs" aria-label="Categories">
-        ${cats.map(c => `<a class="tab ${c.id === activeTab ? "is-active" : ""}" href="${c.href}" data-tab="${c.id}"
-          ${c.id === activeTab ? 'aria-current="page"' : ""}>${c.label}</a>`).join("")}
-      </nav>
-      <div class="tab-select">
-        <button class="pill pill--solid tab-select__btn" type="button" aria-expanded="false" aria-controls="tab-select-list">
-          ${current.label} ${icon.chevron}
-        </button>
-        <ul class="tab-select__list hover-dim" id="tab-select-list" hidden>
-          ${cats.map(c => `<li><a href="${c.href}" ${c.id === activeTab ? 'aria-current="page"' : ""}>
-            ${c.label}${c.id === activeTab ? icon.check : ""}</a></li>`).join("")}
-        </ul>
-      </div>`;
+    const nav = window.NAV;
+    const current = nav.find(c => c.id === selectTab);
     return `
       <header class="site-header site-header--${theme}">
         <a class="site-header__name" href="index.html">Vitalii<span class="site-header__surname"> Menshenin</span></a>
-        ${tabs}
-        <button class="pill pill--solid menu-open" type="button" aria-haspopup="dialog" aria-controls="menu" aria-label="Menu">
-          <span class="menu-open__label">Menu</span> ${icon.menu}
+        <nav class="tabs tabs--header" aria-label="Main">
+          ${nav.map(c => `<a class="tab ${c.id === activeTab ? "is-active" : ""}" href="${c.href}" data-tab="${c.id}"
+            ${c.id === activeTab ? 'aria-current="page"' : ""}>${c.label}</a>`).join("")}
+        </nav>
+        <div class="tab-select">
+          <button class="pill pill--solid tab-select__btn" type="button" aria-expanded="false" aria-controls="tab-select-list">
+            ${(current || nav[0]).label} ${icon.chevron}
+          </button>
+          <ul class="tab-select__list hover-dim" id="tab-select-list" hidden>
+            ${nav.map(c => `<li><a href="${c.href}" ${c.id === selectTab ? 'aria-current="page"' : ""}>
+              ${c.label}${c.id === selectTab ? icon.check : ""}</a></li>`).join("")}
+          </ul>
+        </div>
+        <button class="pill pill--solid menu-open" type="button" aria-haspopup="dialog" aria-controls="menu" aria-label="Contact">
+          <span class="menu-open__label">Contact</span> ${icon.menu}
         </button>
       </header>`;
   }
@@ -79,7 +76,7 @@
 
   function menu() {
     return `
-      <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+      <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Contact" hidden>
         <div class="menu__backdrop" data-close></div>
         <div class="menu__panel">
           <div class="menu__top">
@@ -92,13 +89,11 @@
             </button>
           </div>
           <nav class="menu__links hover-dim">
-            <a href="works.html">work</a>
-            <a href="about.html">about</a>
-            <a href="contact.html">contact</a>
+            ${C.links.map(l => `<a href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join("")}
+            <a href="mailto:${C.email}">Mail</a>
           </nav>
           <div class="menu__bottom">
             <a href="mailto:${C.email}">${C.email}</a>
-            ${socials("socials")}
           </div>
         </div>
       </div>`;
@@ -187,7 +182,7 @@
   document.body.insertAdjacentHTML("beforeend", menu());
 
   /* Меню: открыть / закрыть, Esc, возврат фокуса.
-     Открытие: белый фон кнопки Menu растягивается в панель (clip-path от рамки кнопки до всей панели),
+     Открытие: белый фон кнопки Contact растягивается в панель (clip-path от рамки кнопки до всей панели),
      бургер на месте кнопки превращается в крестик, под ним вырастает чёрный кружок,
      пункты появляются по очереди. Закрытие — то же в обратную сторону, панель сжимается обратно в кнопку. */
   const m = document.getElementById("menu");
@@ -196,7 +191,7 @@
   const EASE = "cubic-bezier(0.76, 0, 0.24, 1)", EASE_OUT = "cubic-bezier(0.22, 1, 0.36, 1)";
   let opener = null, closing = null;
 
-  // рамка кнопки Menu в координатах панели — отсюда растёт и сюда сжимается фон
+  // рамка кнопки Contact в координатах панели — отсюда растёт и сюда сжимается фон
   function fromButton() {
     const b = opener.getBoundingClientRect(), p = panel.getBoundingClientRect();
     const clip = `inset(${b.top - p.top}px ${p.right - b.right}px ${p.bottom - b.bottom}px ${b.left - p.left}px round ${b.height / 2}px)`;
@@ -282,33 +277,30 @@
     };
     const isOpen = () => sel.classList.contains("is-open");
     btn.addEventListener("click", () => toggle(!isOpen()));
-    document.addEventListener("click", e => { if (isOpen() && !sel.contains(e.target)) toggle(false); });
+    // клик мимо открытого списка только закрывает его — то, что под пальцем (плитка, ссылка), не срабатывает
+    addEventListener("click", e => {
+      if (!isOpen() || sel.contains(e.target)) return;
+      e.preventDefault(); e.stopPropagation();
+      toggle(false);
+    }, true);
     document.addEventListener("keydown", e => { if (e.key === "Escape" && isOpen()) { toggle(false); btn.focus(); } });
   }
-  /* Вкладки: плашка едет к новой вкладке — тянется вперёд, у цели сжимается и выравнивается.
-     Вкладки — разные страницы, поэтому переход по ссылке после анимации. */
-  const tabsNav = document.querySelector(".tabs");
-  if (tabsNav) {
-    const links = [...tabsNav.querySelectorAll(".tab")];
+  /* Плашка активной вкладки (шапка и фильтры на Work): едет к новой вкладке — тянется вперёд,
+     у цели сжимается и выравнивается. Возвращает { links, active, place, slide }. */
+  const SLIDE_DUR = 600;
+  window.tabSlider = function (nav) {
+    const links = [...nav.querySelectorAll(".tab")];
     const pill = document.createElement("div");
     pill.className = "tabs__pill"; pill.setAttribute("aria-hidden", "true");
     pill.innerHTML = links.map(a => `<span class="tab">${a.textContent}</span>`).join("");
-    tabsNav.append(pill);
+    nav.append(pill);
     const active = () => links.find(a => a.classList.contains("is-active"));
     const edges = a => ({ l: a.offsetLeft, r: a.offsetLeft + a.offsetWidth });
-    const clip = (l, r) => `inset(4px ${tabsNav.clientWidth - r}px 4px ${l}px round 100px)`;
-    const place = () => { const a = active(); pill.style.clipPath = a ? clip(edges(a).l, edges(a).r) : ""; };
+    const clip = (l, r) => `inset(4px ${nav.clientWidth - r}px 4px ${l}px round 100px)`;
+    const place = () => { const a = active(); pill.style.clipPath = a ? clip(edges(a).l, edges(a).r) : "inset(50%)"; };
     place();
     if (document.fonts) document.fonts.ready.then(place);
     addEventListener("resize", place);
-    // «назад» из кэша браузера — вернуть плашку на вкладку этой страницы
-    addEventListener("pageshow", e => {
-      if (!e.persisted) return;
-      links.forEach(l => l.classList.toggle("is-active", l.dataset.tab === activeTab));
-      place();
-    });
-
-    const DUR = 600, NAV_AT = 300;   // переход по ссылке — на середине, вторая половина доигрывается на новой странице
     const slide = (from, to, t = 0) => {
       const a = edges(from), b = edges(to), dir = b.l > a.l ? 1 : -1;
       const squeeze = 14 * dir;   // насколько хвост проскакивает цель
@@ -318,11 +310,25 @@
         : [[a.l, a.r], [a.l + (b.l - a.l) * 0.75, a.r + (b.r - a.r) * 0.15], [b.l, b.r + squeeze], [b.l, b.r]];
       pill.style.clipPath = clip(b.l, b.r);
       const anim = pill.animate(frames.map(([l, r], i) => ({ clipPath: clip(l, r), offset: [0, 0.4, 0.75, 1][i] })),
-        { duration: DUR, easing: "cubic-bezier(0.45, 0, 0.25, 1)" });
+        { duration: SLIDE_DUR, easing: "cubic-bezier(0.45, 0, 0.25, 1)" });
       anim.currentTime = t;
     };
+    return { links, active, place, slide };
+  };
 
-    // пришли с другой вкладки — доигрываем анимацию с того места, где ушли со старой страницы
+  /* Шапка: пункты — разные страницы, поэтому переход по ссылке после половины анимации */
+  const tabsNav = document.querySelector(".tabs--header");
+  if (tabsNav) {
+    const { links, active, place, slide } = tabSlider(tabsNav);
+    // «назад» из кэша браузера — вернуть плашку на пункт этой страницы
+    addEventListener("pageshow", e => {
+      if (!e.persisted) return;
+      links.forEach(l => l.classList.toggle("is-active", l.dataset.tab === activeTab));
+      place();
+    });
+
+    const NAV_AT = 300;   // переход по ссылке — на середине, вторая половина доигрывается на новой странице
+    // пришли с другого пункта — доигрываем анимацию с того места, где ушли со старой страницы
     let handoff = null;
     try { handoff = JSON.parse(sessionStorage.getItem("tabSlide")); sessionStorage.removeItem("tabSlide"); } catch (e) {}
     const fromTab = handoff && links.find(l => l.dataset.tab === handoff.from);
@@ -331,10 +337,9 @@
     if (fromTab && handoff.to === activeTab && active() && Date.now() - handoff.at < 1500)
       slide(fromTab, active(), NAV_AT);
 
-    const still = matchMedia("(prefers-reduced-motion: reduce)");
     tabsNav.addEventListener("click", e => {
       const to = e.target.closest(".tab"), from = active();
-      if (!to || !from || to === from || still.matches || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (!to || !from || to === from || noMotion.matches || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       e.preventDefault();
       links.forEach(l => l.classList.toggle("is-active", l === to));
       slide(from, to);
@@ -343,8 +348,14 @@
     });
   }
 
+  /* Старый адрес contact.html ведёт сюда с #contact — сразу открыть панель контактов */
+  if (location.hash === "#contact") {
+    history.replaceState(null, "", location.pathname + location.search);
+    open(document.querySelector(".menu-open"));
+  }
+
   /* Открытие проекта: картинка плитки плавно расширяется до hero страницы проекта, страница под ней уходит в чёрный,
-     в конце — переход. Плитки: сетки категорий (.tile), Works (.all-works__item), Other Works (.tile).
+     в конце — переход. Плитки: сетка Work (.tile), Other Works (.tile).
      На странице проекта hero показывается сразу, без проявления (project.js читает "heroFly"). Закрытие — без анимации. */
   const HERO_DUR = 700;
   // где будет hero: невидимая копия .project-hero под шапкой — размеры берутся из того же CSS
@@ -360,7 +371,7 @@
   }
   let flying = null;
   document.addEventListener("click", e => {
-    const a = e.target.closest('a.tile[href^="project.html"], a.all-works__item[href^="project.html"]');
+    const a = e.target.closest('a.tile[href^="project.html"]');
     const box = a && a.querySelector(".media"), img = box && box.querySelector("img.cover");
     if (!img || flying || noMotion.matches || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
     e.preventDefault();
