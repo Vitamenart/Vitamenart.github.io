@@ -89,7 +89,7 @@ p, h1, h2, h3 { margin: 0; }
 .site-header.is-stuck::before { opacity: 1; }
 .site-header__name { justify-self: start; }
 .site-header .menu-open { grid-column: 3; justify-self: end; }   /* всегда справа, даже без вкладок */
-/* Пункты шапки — без подложки; фильтры на Work (.tabs--filters) — на полупрозрачной подложке */
+/* Пункты шапки — без подложки; фильтры на Work — на полупрозрачной подложке (.filters) */
 .tabs { position: relative; display: flex; padding: 4px; border-radius: 100px; border: 1px solid transparent; }
 .tab { height: 32px; display: flex; align-items: center; padding: 0 24px; border-radius: 100px; white-space: nowrap; }
 .tab:hover { background: var(--white-10); }
@@ -165,8 +165,8 @@ p, h1, h2, h3 { margin: 0; }
 .menu.is-x .menu__close-icon .l2 { transform: scaleX(0); opacity: 0; }
 .menu.is-x .menu__close-icon .l3 { transform: rotate(-45deg) scaleX(1.2) translateY(-5px); }
 .menu__links {
-  flex: 1; display: flex; flex-direction: column; justify-content: center;
-  font: 600 var(--display-l)/1.05 var(--f-display); letter-spacing: -0.03em;   /* Display L, 88 на десктопе */
+  flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  font: 600 var(--display-s)/1.05 var(--f-display); letter-spacing: -0.03em;   /* Display S, 64 на десктопе */
 }
 .menu__bottom { display: flex; justify-content: space-between; align-items: center; }
 .socials { display: flex; gap: 4px; }
@@ -282,10 +282,21 @@ p, h1, h2, h3 { margin: 0; }
 .works-intro { padding: 64px var(--gutter) 48px; }   /* 64 от шапки */
 .works-intro h1, .project-intro__title { font: var(--t-display-s); letter-spacing: -0.03em; }
 .works-intro h1 { margin-bottom: 32px; }
-/* фильтры: если не влезают в ширину (телефон) — ряд прокручивается вбок */
-.filters { overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter); }
-.filters::-webkit-scrollbar { display: none; }
-.tabs--filters { display: inline-flex; background: var(--white-10); border-color: var(--white-10); }
+/* Фильтры: подложка не шире экрана. Если вкладки не влезают (телефон) — они прокручиваются внутри,
+   а у края, за которым есть ещё вкладки, текст плавно уходит в прозрачность (как у Apple).
+   Рамка и подложка при этом целые: маска — только на прокручиваемом слое. --fl / --fr ставит js/work.js */
+.filters {
+  display: inline-flex; max-width: 100%; overflow: hidden;
+  background: var(--white-10); border: 1px solid var(--white-10); border-radius: 100px;
+}
+.filters__scroll {
+  --fl: 0px; --fr: 0px;
+  overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fl), #000 calc(100% - var(--fr)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--fl), #000 calc(100% - var(--fr)), transparent);
+}
+.filters__scroll::-webkit-scrollbar { display: none; }
+.filters .tabs { border: 0; width: max-content; }
 
 .grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -547,6 +558,7 @@ p, h1, h2, h3 { margin: 0; }
   .block--row > .cell--text:first-child, .block--row > .cell--text:last-child { justify-content: flex-start; padding: 48px 0; }
   .play { width: 72px; height: 72px; }
   .menu__panel { padding-left: 20px; }
+  .menu__links { font-size: 48px; }   /* на телефоне пункты панели Contact — как были, 48 */
   .socials--about .round-btn { display: none; }   /* About на телефоне: только кнопка Download CV, без почты и соцсетей */
 }
 

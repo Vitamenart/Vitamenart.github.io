@@ -36,7 +36,23 @@
     render(false);
     if (!still.matches) grid.animate([{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "none" }],
       { duration: 500, easing: "cubic-bezier(0.22, 1, 0.36, 1)" });
-    // активный фильтр — в видимую область (на телефоне ряд прокручивается)
-    to.scrollIntoView({ block: "nearest", inline: "nearest", behavior: still.matches ? "auto" : "smooth" });
+    reveal(to, !still.matches);
   });
+
+  /* Телефон: вкладки прокручиваются внутри подложки. Затухание у края — только там, где за краем ещё что-то есть */
+  const scroller = filters.parentNode, FADE = 48;
+  const fades = () => {
+    const max = scroller.scrollWidth - scroller.clientWidth;
+    scroller.style.setProperty("--fl", (scroller.scrollLeft > 1 ? FADE : 0) + "px");
+    scroller.style.setProperty("--fr", (scroller.scrollLeft < max - 1 ? FADE : 0) + "px");
+  };
+  // выбранная вкладка — в середину видимой части (без прокрутки страницы по вертикали)
+  function reveal(a, smooth) {
+    scroller.scrollTo({ left: a.offsetLeft + a.offsetWidth / 2 - scroller.clientWidth / 2, behavior: smooth ? "smooth" : "auto" });
+  }
+  scroller.addEventListener("scroll", fades, { passive: true });
+  addEventListener("resize", fades);
+  if (active()) reveal(active(), false);
+  fades();
+  if (document.fonts) document.fonts.ready.then(fades);
 })();
