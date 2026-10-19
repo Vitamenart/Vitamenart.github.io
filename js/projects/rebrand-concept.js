@@ -6,12 +6,12 @@ PAGES["rebrand-concept"] = {
   heading: "1inch Rebrand,<br>an unreleased concept",
   text: [
     "1inch is one of the most recognised names in DeFi, routing liquidity across dozens of chains for millions of traders.",
-    "I approached this as a refresh, not a reinvention. The brand had already earned its recognition, and the goal was never to erase it: same silhouette, same instincts, more confidence in how it carried itself.",
-    "The original mark carried an angry unicorn, attitude built into every line. As the logo simplified, that attitude had to live somewhere else, so I moved it into colour. Red became the carrier of the brand’s edge: direct, fast, slightly confrontational, the way trading itself feels. Research pushed me further. Crypto has settled into a narrow palette of neon blue and violet, an entire industry lit by the same screen. Stepping away from it was less a stylistic choice than a way of being seen at all.",
-    "The concept was ultimately shelved. 1inch was growing toward something calmer and more businesslike, speaking to institutions as much as to traders, and aggression was no longer the right instrument for that. I’m putting it in my portfolio anyway. Not every direction becomes the answer, and this one still says something worth looking at."
+    "This was a refresh, not a reinvention: same silhouette, same instincts, more confidence.",
+    "The original mark carried an angry unicorn, attitude in every line. As the logo simplified, that attitude moved into colour. Red became the brand’s edge: direct, fast, slightly confrontational, like trading itself. It also broke from crypto’s narrow palette of neon blue and violet, less a stylistic choice than a way of being seen at all.",
+    "The concept was shelved when, midway through the work, 1inch changed course toward a more serious, businesslike brand, one that spoke to institutions as much as to traders, and aggression no longer fit."
   ],
   meta: [
-    { label: "Scope of Work", value: ["Logo Design", "Brand Identity", "Brand Guidelines", "Art Direction"] },
+    { label: "Role", value: ["Logo Design", "Brand Identity", "Brand Guidelines", "Art Direction"] },
     { label: "Year", value: ["2025"] }
   ],
   blocks: [

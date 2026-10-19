@@ -8,7 +8,8 @@
  * шапка страницы проекта, «Other Works». Если файла нет — рисуется заглушка
  * с названием, так что можно класть картинки постепенно.
  *
- * category: products | campaigns | designops   (фильтры на странице Work; designops — «AI & Tools»)
+ * category: brand | products | campaigns | designops   (фильтры на странице Work; designops — «AI & Tools»)
+ * Порядок в списке = порядок на странице Work.
  * home:     порядковый номер большой карточки на главной (нет поля — не показываем)
  * links:    кнопки под описанием проекта [{ label, href, style: "solid" | "outline" }]
  *           (если у страницы в js/projects/<id>.js свои links — берутся они)
@@ -28,6 +29,8 @@ window.NAV = [
    text — на сайте не показывается, идёт только в llms.txt (tools/build.rb) */
 window.CATEGORIES = [
   { id: "all",       label: "All work",   href: "work.html" },
+  { id: "brand",     label: "Brand",      href: "work.html?cat=brand",
+    text: "Brand identities built from scratch and grown with the company: logos, mascots, visual systems and rebrands." },
   { id: "products",  label: "Products",   href: "work.html?cat=products",
     text: "Digital products and devices designed from the ground up: interfaces, design systems and brands that people use every day." },
   { id: "campaigns", label: "Campaigns",  href: "work.html?cat=campaigns",
@@ -37,22 +40,27 @@ window.CATEGORIES = [
 ];
 
 window.PROJECTS = [
-  /* ---------- Products ---------- */
-  { id: "1inch-brand", category: "products", home: 2, cover: "03-1inch-network.jpg",
+  /* ---------- Brand ---------- */
+  { id: "1inch-brand", category: "brand", home: 2, cover: "03-1inch-network.jpg",
     title: "1inch Brand", homeTitle: "1inch Brand",
     summary: "The original 1inch identity, built from scratch. Logo, mascot, colours, type and a single visual system across the website, dApp, wallet and beyond." },
+  { id: "rebranding-2025", category: "brand", home: 3, cover: "01-1inch-wordmark.jpg",
+    title: "1inch Rebranding",
+    summary: "A new identity for a DeFi brand that grew up. Art-directed on the 1inch side in collaboration with Shuka Brand Bureau." },
+  { id: "rebrand-concept", category: "brand", cover: "02-1inch-rebranding.jpg",
+    title: "1inch Rebrand: an unreleased concept", homeTitle: "1inch Rebrand Concept", skillTitle: "1inch Rebrand Concept",
+    summary: "A bolder, red-edged refresh of the 1inch identity, shelved when the brand turned toward a calmer, institutional tone." },
+  { id: "mascot", category: "brand", cover: "16-mascot.jpg",
+    title: "1inch Mascot",
+    summary: "A fast, bold unicorn who travels between worlds, changing his look in every one while staying himself." },
+
+  /* ---------- Products ---------- */
   { id: "wallet", category: "products", home: 4, cover: "06-wallet-app.jpg", focus: "50% 40%",
     title: "1inch Wallet",
     summary: "A mobile crypto wallet designed from a blank page, balancing the power of DeFi with the clarity and trust of a banking app." },
-  { id: "dapp", category: "products", cover: "11-dapp.jpg",
+  { id: "dapp", category: "products", home: 5, cover: "11-dapp.jpg",
     title: "1inch dApp",
     summary: "The interface of one of DeFi's largest aggregators, from the first version to scale." },
-  { id: "rebrand-concept", category: "products", home: 5, cover: "02-1inch-rebranding.jpg",
-    title: "1inch Rebrand: an unreleased concept", homeTitle: "1inch Rebrand Concept", skillTitle: "1inch Rebrand Concept",
-    summary: "An in-house evolution of the 1inch identity that showed the brand needed a full rebirth rather than a refresh." },
-  { id: "rebranding-2025", category: "products", home: 3, cover: "01-1inch-wordmark.jpg",
-    title: "1inch Rebranding",
-    summary: "A new identity for a DeFi brand that grew up. Art-directed on the 1inch side in collaboration with Shuka Brand Bureau." },
   { id: "hardwallet", category: "products", home: 1, cover: "04-hardwallet.jpg", focus: "50% 60%",
     title: "Hardware Wallet", homeTitle: "HardWallet",
     summary: "Every touchpoint of an air-gapped hardware wallet, designed solo: the device, a strictly black-and-white E-Ink interface with custom pixel type and icons, motion and packaging.",
@@ -61,9 +69,6 @@ window.PROJECTS = [
   { id: "nft-unicorns", category: "products", cover: "05-nft-card.jpg",
     title: "NFT Unicorns",
     summary: "An unreleased generative NFT collection with 64 million possible unicorns that evolve with their owners." },
-  { id: "gear-face", category: "products", cover: "21-gear-face.jpg",
-    title: "Gear Face",
-    summary: "Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen." },
 
   /* ---------- Campaigns ---------- */
   { id: "book", category: "campaigns", cover: "07-defi-book.jpg",
@@ -90,9 +95,6 @@ window.PROJECTS = [
     summary: "The first global 1inch campaign, made in partnership with the Bruce Lee Family Company. Art-directed on the 1inch side.",
     links: [ { label: "News", href: "https://www.adobomagazine.com/campaign-spotlight/bruce-lee-returns-to-urge-you-to-take-crypto-seriouslee-in-first-global-campaign-for-1inch-defi-platform/" },
              { label: "Cointelegraph", href: "https://cointelegraph.com/news/1inch-bruce-lee-family-defi-adoption-seriouslee-campaign", style: "outline" } ] },
-  { id: "mascot", category: "campaigns", cover: "16-mascot.jpg",
-    title: "1inch Mascot",
-    summary: "A fast, bold unicorn who travels between worlds, changing his look in every one while staying himself." },
   { id: "aviasales", category: "campaigns", cover: "17-aviasales.jpg",
     title: "Aviasales New Year",
     summary: "A New Year campaign for Aviasales: an illustrated world inspired by hand-painted Soviet greeting cards." },
@@ -109,7 +111,12 @@ window.PROJECTS = [
     summary: "After Effects scripts that made animation four times faster to build and ten times lighter to ship." },
   { id: "ai-blender", category: "designops", cover: "22-ai-blender.jpg",
     title: "AI in Blender",
-    summary: "LLMs connected to Blender via MCP and Python scripts: 3D scenes built from a text brief in minutes instead of hours." }
+    summary: "LLMs connected to Blender via MCP and Python scripts: 3D scenes built from a text brief in minutes instead of hours." },
+
+  /* ---------- Личное — в самом конце списка ---------- */
+  { id: "gear-face", category: "products", cover: "21-gear-face.jpg",
+    title: "Gear Face",
+    summary: "Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen." }
 ];
 
 /* Главная, блок «This is What I Do»: категории-аккордеон и проекты в них (id из PROJECTS, порядок = порядок в списке).

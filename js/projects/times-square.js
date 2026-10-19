@@ -11,7 +11,8 @@ PAGES["times-square"] = {
   ],
   meta: [
     { label: "Role", value: ["Concept", "Art Direction", "Key Visuals", "Motion"] },
-    { label: "Location", value: ["Times Square, New York"] }
+    { label: "Location", value: ["Times Square, New York"] },
+    { label: "Year", value: ["2022"] }
   ],
   blocks: [
     { full: { video: "https://vimeo.com/1234167483", play: "auto" } },

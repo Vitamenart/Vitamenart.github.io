@@ -198,6 +198,8 @@ p, h1, h2, h3 { margin: 0; }
 .statement__inner { width: min(696px, 100%); display: flex; flex-direction: column; gap: 10px; }
 .statement__text { font: var(--t-heading-m); letter-spacing: -0.02em; }
 .statement__name { font: var(--t-body-l); color: var(--grey-text); }
+/* Подводка к большим карточкам (после шоурила): отступ сверху уже даёт шоурил */
+.statement--story { padding-top: 0; }
 
 /* ---------- Big project card ---------- */
 .feature { position: relative; display: block; height: max(420px, 52.8vw); }
@@ -485,7 +487,7 @@ p, h1, h2, h3 { margin: 0; }
 .other-works .tile .media { aspect-ratio: 336 / 240; }
 
 /* ---------- Showreel (главная) ---------- */
-.showreel { padding: 8px var(--gutter) 0; }
+.showreel { padding: 0 var(--gutter) 160px; }   /* после Statement, перед большими карточками */
 .showreel__box { position: relative; aspect-ratio: 1390 / 780; border-radius: var(--radius-panel); overflow: hidden; }
 .showreel__box > .media { position: absolute; inset: 0; }
 
@@ -538,7 +540,9 @@ p, h1, h2, h3 { margin: 0; }
   .about__photo { max-width: 453px; }
   .drum { min-height: 300px; }
   .statement { padding: 96px var(--pad); }
+  .statement--story { padding-top: 0; }
   .services { padding: 96px var(--pad); }
+  .showreel { padding-bottom: 96px; }
   .services__cols { flex-direction: column; }
   .services__aside, .services__list { width: 100%; }
   .project-intro { grid-template-columns: 1fr; gap: 40px; padding: 96px var(--pad); }

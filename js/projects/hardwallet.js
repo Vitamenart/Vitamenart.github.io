@@ -9,7 +9,7 @@ PAGES["hardwallet"] = {
     "As the sole designer on the project, I shaped the product from the object outward. I designed the device itself, from its proportions, frame and finishes to the full range of colourways, aiming for something that feels closer to a premium phone than a security gadget."
   ],
   meta: [
-    { label: "Scope of Work", value: ["Industrial Design", "UI/UX", "Interaction &amp; Motion", "Type Design",
+    { label: "Role", value: ["Industrial Design", "UI/UX", "Interaction &amp; Motion", "Type Design",
                                        "Iconography", "Packaging", "3D Visualisation"] },
     { label: "Year", value: ["2023"] }
   ],

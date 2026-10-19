@@ -1,4 +1,4 @@
-/* Страница Work: заголовок, фильтры (All work / Products / Campaigns / AI & Tools) и сетка проектов.
+/* Страница Work: заголовок, фильтры (All work / Brand / Products / Campaigns / AI & Tools) и сетка проектов.
    Фильтр переключается на месте, без перезагрузки; выбранный — в адресе: work.html?cat=... */
 (function () {
   const ids = CATEGORIES.map(c => c.id);

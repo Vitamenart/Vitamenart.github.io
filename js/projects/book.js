@@ -8,7 +8,7 @@ PAGES["book"] = {
   ],
   meta: [
     { label: "Author", value: ["Vladimir Kozlov"] },
-    { label: "Scope of Work", value: ["Cover design", "Data visualisation"] },
+    { label: "Role", value: ["Cover design", "Data visualisation"] },
     { label: "Year", value: ["2026"] }
   ],
   links: [

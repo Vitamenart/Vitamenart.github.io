@@ -34,6 +34,8 @@ PROJECTS, PAGES, CONTACTS = data.values_at("PROJECTS", "PAGES", "CONTACTS")
 CATS = data["CATEGORIES"].reject { |c| c["id"] == "all" }
 
 def plain(html); CGI.unescapeHTML(html.to_s.gsub(/<br\s*\/?>/, " ").gsub(/<[^>]+>/, "")).gsub(/\s+/, " ").strip; end
+# абзац описания: перенос после строки без точки — это подзаголовок, ставим точку, чтобы фразы не склеивались
+def para(html); plain(html.to_s.gsub(/([^.!?:;,\s])\s*<br\s*\/?>/, '\\1. ')); end
 def attr(s); CGI.escapeHTML(s.to_s); end
 def url(path); "#{SITE}/#{path}"; end
 def ld(obj); %(<script type="application/ld+json">#{JSON.generate(obj).gsub("</", "<\\/")}</script>); end
@@ -106,7 +108,7 @@ MD
 full = PROJECTS.map do |p|
   page = page_of(p)
   t = ["## #{plain p["title"]}", purl(p["id"]), "", plain(p["summary"]), ""]
-  Array(page["text"]).each { |x| t << plain(x) << "" }
+  Array(page["text"]).each { |x| t << para(x) << "" }
   page["meta"].to_a.each { |m| t << "#{plain m["label"]}: #{m["value"].map { |v| plain v }.join(", ")}" }
   t << ""
   page["blocks"].to_a.each do |b|

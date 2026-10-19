@@ -10,7 +10,8 @@ PAGES["toy"] = {
   ],
   meta: [
     { label: "Role", value: ["Character Design", "Sketching", "3D Modelling &amp; Texturing"] },
-    { label: "Production", value: ["External manufacturer"] }
+    { label: "Production", value: ["External manufacturer"] },
+    { label: "Year", value: ["2023"] }
   ],
   blocks: [
     { row: [ { file: "01-3d-model.jpg" }, { file: "02-sketches.jpg" } ] },

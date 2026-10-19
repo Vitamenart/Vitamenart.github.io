@@ -32,12 +32,62 @@ Merch: Brand objects and event materials that made 1inch recognisable offline.
 
 Mascot: The unicorn redrawn as the brand's character, flexible enough for campaigns and merch.
 
+## 1inch Rebranding
+https://vitamenart.github.io/project.html?id=rebranding-2025
+
+A new identity for a DeFi brand that grew up. Art-directed on the 1inch side in collaboration with Shuka Brand Bureau.
+
+A new identity for a DeFi brand that grew up. By 2025, 1inch had become core infrastructure for DeFi, trusted by Binance, Ledger, MetaMask and many others. The old brand, loud and playful, no longer matched that scale. The company needed an identity that was simpler, calmer and more mature, one that could speak to institutions as confidently as to traders. The rebrand was created in close collaboration with Shuka Brand Bureau. As Art Director on the 1inch side, I shaped the direction together with the agency and led the adaptation of the new identity across products, campaigns and events. The result is a lighter, more confident brand that keeps the spirit of 1inch but speaks with authority without needing to shout.
+
+The new identity launched at TOKEN2049 in Singapore, alongside the move to 1inch.com.
+
+Role: Art Director (1inch)
+In collaboration with: Shuka Brand Bureau
+Year: 2025
+
+Figma Plugin: To bring the new pixel imagery into everyday work, I built a custom ASCII plugin that turns any image into on-brand vector art directly in Figma.
+
+The result is a brand that is simple, confident and honest. A modular system, inspired by the blocks of a chain, connects everything from the logo to interfaces and campaigns, so every touchpoint feels part of one whole. 1inch no longer needs to shout: it speaks with the calm authority of a company that keeps DeFi running.
+
+## 1inch Rebrand: an unreleased concept
+https://vitamenart.github.io/project.html?id=rebrand-concept
+
+A bolder, red-edged refresh of the 1inch identity, shelved when the brand turned toward a calmer, institutional tone.
+
+1inch is one of the most recognised names in DeFi, routing liquidity across dozens of chains for millions of traders.
+
+This was a refresh, not a reinvention: same silhouette, same instincts, more confidence.
+
+The original mark carried an angry unicorn, attitude in every line. As the logo simplified, that attitude moved into colour. Red became the brand’s edge: direct, fast, slightly confrontational, like trading itself. It also broke from crypto’s narrow palette of neon blue and violet, less a stylistic choice than a way of being seen at all.
+
+The concept was shelved when, midway through the work, 1inch changed course toward a more serious, businesslike brand, one that spoke to institutions as much as to traders, and aggression no longer fit.
+
+Role: Logo Design, Brand Identity, Brand Guidelines, Art Direction
+Year: 2025
+
+## 1inch Mascot
+https://vitamenart.github.io/project.html?id=mascot
+
+A fast, bold unicorn who travels between worlds, changing his look in every one while staying himself.
+
+A unicorn built for speed, attitude and travel between worlds
+
+In its early years, 1inch was fast, sharp and a little rebellious, a young project taking on the giants of DeFi. The brand needed a character that carried the same energy and could appear anywhere, from campaigns and social media to events and merch.
+
+Role: Character Design, Illustration
+
+NFT Collection: The unicorn was also designed as an NFT collection, with a series of unique variations of the character. The project was never released.
+
+One Unicorn, Many Worlds: The unicorn travels between worlds through portals. Each world, or each campaign and event, gives him a new form, style and mood, yet he always stays recognisably himself. This turned the mascot from a single static image into an open creative platform that could grow with the brand.
+
+Without AI: All illustrations and animations were created by hand, with no generative AI.
+
 ## 1inch Wallet
 https://vitamenart.github.io/project.html?id=wallet
 
 A mobile crypto wallet designed from a blank page, balancing the power of DeFi with the clarity and trust of a banking app.
 
-A mobile crypto wallet designed from a blank page When I started, there was no wallet and no prototype, and the market had very few examples to learn from. Most crypto wallets felt technical and intimidating, built for insiders rather than everyday users.
+A mobile crypto wallet designed from a blank page. When I started, there was no wallet and no prototype, and the market had very few examples to learn from. Most crypto wallets felt technical and intimidating, built for insiders rather than everyday users.
 
 I designed the 1inch Wallet from the ground up, starting with extensive research into how people manage money on their phones. The key decision was finding the right balance between a crypto wallet and a banking app: the power and transparency DeFi users expect, combined with the clarity and trust of familiar financial apps. That balance shaped everything, from the core structure and onboarding to swaps, payments and everyday flows.
 
@@ -73,39 +123,6 @@ The first redesign turned a raw prototype into a product people could trust: a c
 
 Token icons: More than 1,000 token icons, redrawn by hand in vector so every asset looks sharp and consistent, giving users a cleaner, more trustworthy experience.
 
-## 1inch Rebrand: an unreleased concept
-https://vitamenart.github.io/project.html?id=rebrand-concept
-
-An in-house evolution of the 1inch identity that showed the brand needed a full rebirth rather than a refresh.
-
-1inch is one of the most recognised names in DeFi, routing liquidity across dozens of chains for millions of traders.
-
-I approached this as a refresh, not a reinvention. The brand had already earned its recognition, and the goal was never to erase it: same silhouette, same instincts, more confidence in how it carried itself.
-
-The original mark carried an angry unicorn, attitude built into every line. As the logo simplified, that attitude had to live somewhere else, so I moved it into colour. Red became the carrier of the brand’s edge: direct, fast, slightly confrontational, the way trading itself feels. Research pushed me further. Crypto has settled into a narrow palette of neon blue and violet, an entire industry lit by the same screen. Stepping away from it was less a stylistic choice than a way of being seen at all.
-
-The concept was ultimately shelved. 1inch was growing toward something calmer and more businesslike, speaking to institutions as much as to traders, and aggression was no longer the right instrument for that. I’m putting it in my portfolio anyway. Not every direction becomes the answer, and this one still says something worth looking at.
-
-Scope of Work: Logo Design, Brand Identity, Brand Guidelines, Art Direction
-Year: 2025
-
-## 1inch Rebranding
-https://vitamenart.github.io/project.html?id=rebranding-2025
-
-A new identity for a DeFi brand that grew up. Art-directed on the 1inch side in collaboration with Shuka Brand Bureau.
-
-A new identity for a DeFi brand that grew up By 2025, 1inch had become core infrastructure for DeFi, trusted by Binance, Ledger, MetaMask and many others. The old brand, loud and playful, no longer matched that scale. The company needed an identity that was simpler, calmer and more mature, one that could speak to institutions as confidently as to traders. The rebrand was created in close collaboration with Shuka Brand Bureau. As Art Director on the 1inch side, I shaped the direction together with the agency and led the adaptation of the new identity across products, campaigns and events. The result is a lighter, more confident brand that keeps the spirit of 1inch but speaks with authority without needing to shout.
-
-The new identity launched at TOKEN2049 in Singapore, alongside the move to 1inch.com.
-
-Role: Art Director (1inch)
-In collaboration with: Shuka Brand Bureau
-Year: 2025
-
-Figma Plugin: To bring the new pixel imagery into everyday work, I built a custom ASCII plugin that turns any image into on-brand vector art directly in Figma.
-
-The result is a brand that is simple, confident and honest. A modular system, inspired by the blocks of a chain, connects everything from the logo to interfaces and campaigns, so every touchpoint feels part of one whole. 1inch no longer needs to shout: it speaks with the calm authority of a company that keeps DeFi running.
-
 ## Hardware Wallet
 https://vitamenart.github.io/project.html?id=hardwallet
 
@@ -117,7 +134,7 @@ A cold wallet the size of a bank card: no buttons, no cables, no connection to t
 
 As the sole designer on the project, I shaped the product from the object outward. I designed the device itself, from its proportions, frame and finishes to the full range of colourways, aiming for something that feels closer to a premium phone than a security gadget.
 
-Scope of Work: Industrial Design, UI/UX, Interaction & Motion, Type Design, Iconography, Packaging, 3D Visualisation
+Role: Industrial Design, UI/UX, Interaction & Motion, Type Design, Iconography, Packaging, 3D Visualisation
 Year: 2023
 
 1bit pure B&W interface; 100+ custom pixel icons; 250+ UI screens designed; 4.6 on Trustpilot
@@ -144,17 +161,6 @@ I created the entire collection by hand. Each unicorn was assembled from six tra
 
 NFT Evolution: Unicorns evolved with their owners, upgrading through stages based on activity on the platform.
 
-## Gear Face
-https://vitamenart.github.io/project.html?id=gear-face
-
-Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen.
-
-Custom watch faces for Samsung Gear, made as a personal side project.
-
-When I found out Samsung had its own store for watch faces, I started learning how to build them myself, from the visual design to the logic behind every complication. I made them purely for my own wrist, as a playground for interface ideas on a tiny round screen.
-
-Designed around the OLED display: a true-black background keeps most pixels off to save battery, and a minimal layout keeps every reading legible at a glance. Steps, floors, charge, heart rate, date and even world time fit on a single face without overloading it.
-
 ## Book: reDeFine Money
 https://vitamenart.github.io/project.html?id=book
 
@@ -163,7 +169,7 @@ Cover and data visualisation for 1inch's oral history of DeFi.
 I designed the cover and the system of charts inside the book. The cover treats the book as an object: a matte black volume with a recessed square that reads as both a void and a block, a quiet nod to the chain the industry is built on. No crypto clichés, no gradients. Just material, depth, and a title set to play on the “DeFi” hidden inside “reDeFine”.
 
 Author: Vladimir Kozlov
-Scope of Work: Cover design, Data visualisation
+Role: Cover design, Data visualisation
 Year: 2026
 
 Inside, I designed the full set of charts and infographics that run through the book, turning market data, timelines and regulatory history into clear editorial spreads. Built on the 1inch brand palette, the system keeps every visual consistent from chapter to chapter while making complex data read at a glance.
@@ -193,6 +199,7 @@ At events, Sir Inchalot quickly became one of the most wanted items on the booth
 
 Role: Character Design, Sketching, 3D Modelling & Texturing
 Production: External manufacturer
+Year: 2023
 
 1inch Mascot: The 1inch unicorn is the brand’s core mascot. Sir Inchalot gives it a body: the same character, reimagined as a soft, tactile object people want to take home.
 
@@ -228,6 +235,7 @@ The story is built around the brand’s unicorn, who travels between worlds thro
 
 Role: Concept, Art Direction, Key Visuals, Motion
 Location: Times Square, New York
+Year: 2022
 
 ## Crypto Quest 2025
 https://vitamenart.github.io/project.html?id=crypto-quest
@@ -263,23 +271,6 @@ As Art Director on the 1inch side, I oversaw the visual direction of the film an
 
 In Wallet App: The campaign didn’t stop at the screen. Bruce Lee also appeared inside 1inch Wallet, with a special loading animation and in-app cover that brought the campaign into the product itself.
 
-## 1inch Mascot
-https://vitamenart.github.io/project.html?id=mascot
-
-A fast, bold unicorn who travels between worlds, changing his look in every one while staying himself.
-
-A unicorn built for speed, attitude and travel between worlds
-
-In its early years, 1inch was fast, sharp and a little rebellious, a young project taking on the giants of DeFi. The brand needed a character that carried the same energy and could appear anywhere, from campaigns and social media to events and merch.
-
-Role: Character Design, Illustration
-
-NFT Collection: The unicorn was also designed as an NFT collection, with a series of unique variations of the character. The project was never released.
-
-One Unicorn, Many Worlds: The unicorn travels between worlds through portals. Each world, or each campaign and event, gives him a new form, style and mood, yet he always stays recognisably himself. This turned the mascot from a single static image into an open creative platform that could grow with the brand.
-
-Without AI: All illustrations and animations were created by hand, with no generative AI.
-
 ## Aviasales New Year
 https://vitamenart.github.io/project.html?id=aviasales
 
@@ -288,6 +279,9 @@ A New Year campaign for Aviasales: an illustrated world inspired by hand-painted
 Aviasales commissioned me to create the key visual for their 2019 New Year campaign, a holiday giveaway of 100 free flights. Drawing on the warmth of hand-painted Soviet greeting cards, I developed an illustrated world that carried across the promo landing page, banners, and social assets.
 
 The goal was nostalgia with a wink: a familiar, cozy aesthetic that felt instantly festive to a Russian-speaking audience while staying true to the brand’s playful voice.
+
+Role: Key Visual, Illustration
+Year: 2019
 
 ## AI Production Workflows
 https://vitamenart.github.io/project.html?id=ai-workflows
@@ -338,3 +332,14 @@ I connect LLMs to Blender via MCP and Python scripts to build scenes from a text
 On Apple’s iPhone Duo launch day, we showed our website running on the new device. To make it in time, I built a fully functional 3D model with Claude and Blender MCP: the screen texture bends along the fold, with parallax as the device opens.
 
 A few more projects made with AI in the loop.
+
+## Gear Face
+https://vitamenart.github.io/project.html?id=gear-face
+
+Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen.
+
+Custom watch faces for Samsung Gear, made as a personal side project.
+
+When I found out Samsung had its own store for watch faces, I started learning how to build them myself, from the visual design to the logic behind every complication. I made them purely for my own wrist, as a playground for interface ideas on a tiny round screen.
+
+Designed around the OLED display: a true-black background keeps most pixels off to save battery, and a minimal layout keeps every reading legible at a glance. Steps, floors, charge, heart rate, date and even world time fit on a single face without overloading it.

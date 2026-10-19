@@ -1,74 +1,24 @@
-# Портфолио — локальная сборка
+# Vitalii Menshenin — Portfolio
 
-Без сборщиков и зависимостей: открой `index.html` двойным кликом.
+Design director working across brand, product and campaigns. Sixteen years in, trained as an artist.
 
-## Страницы
-- `index.html` — главная: барабан, statement, большие карточки проектов, «What I Do», футер
-- `work.html` — все работы: заголовок «My work», фильтры All work / Products / Campaigns / AI & Tools (переключаются на месте, выбранный — в `?cat=products|campaigns|designops`), сетка
-- `project.html?id=...` — страница проекта (шаблон)
-- `about.html` — обо мне: барабан навыков (слова и шаг — в начале `js/about.js`), фото, текст, соцсети
-- Шапка: Overview / Work / About (`window.NAV` в `js/projects.js`) и кнопка Contact — панель с соцсетями и почтой; собирается в `js/layout.js`
-- `works.html`, `contact.html` — старые адреса, только переадресация (на `work.html` и на главную с открытой панелью Contact)
+**→ [vitamenart.github.io](https://vitamenart.github.io)**
 
-## Картинки: одна папка, один файл на проект
-```
-assets/covers-web/  ← все обложки проектов (JPEG 2560 px)
-assets/about/       ← портрет (JPEG)
-assets/projects/<id>/ ← картинки страниц проектов (JPEG; PNG — только с прозрачностью)
-```
-PNG-оригиналы на сайте не хранятся (лежат в бэкапе `portfolio_web_backup`).
-Новая картинка: экспорт из Figma в PNG x2 → JPEG-копия рядом
-(`sips -s format jpeg -s formatOptions 85 x.png --out x.jpg`) → PNG убрать.
-Обложка: `sips -s format jpeg -s formatOptions 82 -Z 2560 NN.png --out assets/covers-web/NN.jpg`,
-дальше строка в `js/projects.js` (название, файл, категория, home, focus).
+## Inside
 
-Один и тот же файл обложки показывается в барабане, большой карточке, сетке и на странице проекта.
-Браузер скачивает его один раз, размеры делает CSS (`object-fit: cover`).
+- **Brand**: the 1inch identity from first logo to the 2025 rebrand
+- **Products**: 1inch Wallet, 1inch dApp, an air-gapped hardware wallet
+- **Campaigns**: 1inch × Bruce Lee, Times Square, merch, events
+- **AI & Tools**: custom Figma plugins, AI pipelines and motion automation
 
-## Потом
-- Hero: лента квадратных обложек волной, едет слева направо. Скорость, амплитуда и длина волны — константы в начале `js/home.js`.
+## Built with
 
-## Обновление (шаг 1)
-- Главная, вкладки и шаблон внутренней страницы сверены с новыми макетами.
-- Проекты и их порядок на главной (`home: 1..5`) — `js/projects.js`.
-- Внутренняя страница проекта = файл `js/projects/<id>.js`. Готов `1inch-brand.js`;
-  для остальных пока шаблон из обложки и summary. Типы блоков описаны в начале `js/project.js`:
-  `full` (на всю ширину) и `row` (две половины), внутри — картинка, текст с «View more», стек, столбики.
-- Картинки внутренних страниц: `assets/projects/<id>/<file>`. Нет файла — серый скелетон (одинаковый на всём сайте).
-  Для всех проектов папки уже созданы, для свёрстанных страниц внутри лежат пустые PNG-болванки с нужными именами.
-  GIF / SVG определяются по расширению; видео: `{ video: "ссылка", play: "auto" | "click" }` —
-  файл mp4/webm из папки проекта, ссылка Vimeo или YouTube. `click` — кнопка Play, со звуком,
-  плеер Vimeo/YouTube грузится только после нажатия; `auto` — фоном, без звука, по кругу.
-- Соцсети и шоурил — в `CONTACTS` (`js/projects.js`). Кнопки-ссылки проекта — поле `links` у проекта.
+Plain HTML, CSS and JavaScript. No frameworks, no build step. Hosted on GitHub Pages.
 
-## Обновление (шаг 2)
-- Новые блоки страницы проекта: `triple` (три квадрата в ряд), `statement` (текст по центру),
-  кнопки под описанием — `links` (solid / outline). Описание — в начале `js/project.js`.
-- Каркасы страниц `rebranding-2025.js` (Figma: Rebranding Shuka) и `rebrand-concept.js`
-  (Figma: Rebranding 2025) — раскладка из макета, тексты и кнопки помечены TODO.
-- Локальный сервер для проверки (страница проекта подгружает файлы, с двойного клика может не работать):
-  `ruby -run -e httpd . -p 8080` → http://localhost:8080
+## Contact
 
-## Где остановились (2026-10-14)
-**Готово:** главная (hero-волна, карточки, What I Do, шоурил Vimeo со своим превью `assets/showreel/poster.jpg`), анимации и переходы, страница Work с фильтрами,
-`about.html` (барабан навыков), мобильный хэдер (выпадающий список ≤1024) и футер, ховеры ссылок и кнопок,
-текстовые стили Figma в `css/style.css` (`--t-*`), шапка проекта (обложка в рамке + крестик, описание на сетке половин).
+[Telegram](https://t.me/vitamenart) · [X](https://x.com/vitamenart) · [LinkedIn](https://www.linkedin.com/in/vitamenart) · [Instagram](https://www.instagram.com/vitamenart) · [vitalik06smile@gmail.com](mailto:vitalik06smile@gmail.com)
 
-**Страницы проектов** (`js/projects/<id>.js`) — делаем по скриншотам:
-- готовы: `1inch-brand`, `rebrand-concept` (картинки только full и квадраты); `hardwallet`, `nft-unicorns`, `rebranding-2025`, `dapp` (соты токенов — `js/tokens.js`, иконки в `assets/projects/dapp/tokens/`), `merch` (What People Say — твиты в `js/projects/merch.js`; аватарки — `assets/avatars/<ник>.jpg`, 96×96, общие для всех проектов; фото твитов пока с серверов X; `k06a.jpg` — пустышка, заменить), `defy`, `toy`, `book`, `bruce-lee`, `times-square` (Seen Around the World — твиты, тёмный вариант), `crypto-quest`, `mascot`, `aviasales`, `ai-workflows` (блок до/после с ползунком), `figma-tools`, `motion-automation`, `wallet`, `ai-blender` (видео .webm лежат рядом с картинками). Тексты всех страниц сверены.
+---
 
-**Открытые вопросы:**
-- `mascot`: часть картинок пока 2000 px (из чата) — можно заменить на оригиналы;
-- `ai-blender`: квадратные картинки пока 1376 px (из чата) — заменить на x2-оригиналы 2784;
-- домен: сначала GitHub Pages, свой домен позже. Тогда пути превью в соцсетях (og:image, TODO в `<head>` всех HTML) сделать полными.
-
-**Решено (2026-10-14):** проекты ART / Aqua пока не добавляем; порядок `works.html` и размер меню 104px оставляем; GIF не конвертируем; отдельные превью соцсетей для каждого проекта не нужны.
-
-**Хэдер** закреплён сверху, при скролле — фон чёрный 50% + размытие (`.site-header.is-stuck`). **Ширина:** контент внутренних страниц не шире 1440 (`--gutter` в `css/style.css`); hero, хэдер, футер и главная — во всю ширину.
-
-**SEO и AI (2026-10-14):** `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt` и блок Schema.org Person в `index.html`/`about.html`
-собирает `ruby tools/build.rb` — запускать после правок в `js/projects.js` или `js/projects/*.js` (руками эти файлы не править).
-Адрес сайта — `SITE` в начале `tools/build.rb` (сейчас `vitamenart.github.io`). Отдельные HTML-страницы проектов пробовали — откатили, проекты остаются на `project.html?id=…`.
-
-**Проверка:** `ruby -run -e httpd . -p 8080` в папке проекта → http://localhost:8080.
-Если браузер показывает старую версию — обновить с очисткой кэша (Cmd+Shift+R).
+© Vitalii Menshenin. All images and project materials are shown for portfolio purposes only and may not be reused without permission.
