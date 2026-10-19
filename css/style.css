@@ -234,11 +234,36 @@ p, h1, h2, h3 { margin: 0; }
 .services__aside .media { aspect-ratio: 453 / 443; border-radius: var(--radius-block); }
 .services__aside p { font: var(--t-body-m); }
 .services__list { width: min(688px, 50%); list-style: none; margin: 0; padding: 0; }
-.service-row {
-  height: 104px; display: flex; justify-content: space-between; align-items: center;
-  border-bottom: 1px solid var(--black-10);   /* разделители — 10% */
+/* Аккордеон: строка 104px, открыта одна (js/home.js). Высота — через grid 0fr → 1fr,
+   пункты появляются по очереди (--i), шеврон «выворачивается» через scaleY с перелётом. */
+.service-row { border-bottom: 1px solid var(--black-10); }   /* разделители — 10% */
+.service-row__head {
+  width: 100%; height: 104px; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
 }
 .service-row__name { font: var(--t-heading-s); letter-spacing: -0.015em; }
+.service-row__icon { display: flex; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.service-row.is-open .service-row__icon { transform: scaleY(-1); }
+.service-row__body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.service-row.is-open .service-row__body { grid-template-rows: 1fr; }
+.service-row__links { min-height: 0; overflow: hidden; list-style: none; margin: 0; padding: 0; }
+.service-row__links li {
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.15s, transform 0.15s;                 /* сворачивание — все сразу и быстро */
+}
+.service-row__links li:first-child { margin-top: -12px; }
+.service-row__links li:last-child { padding-bottom: 32px; }
+.service-row.is-open .service-row__links li {
+  opacity: 1; transform: none;
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+  transition-delay: calc(80ms + var(--i) * 45ms);             /* по одному, друг за другом */
+}
+.service-row__links a { display: inline-block; padding: 7px 0; font: var(--t-body-m); transition: opacity 0.2s; }
+/* наведение как в меню: остальные пункты гаснут, наведённый остаётся чёрным */
+.service-row__links:has(a:hover) a:not(:hover) { opacity: 0.2; }
+@media (prefers-reduced-motion: reduce) {
+  .service-row__icon, .service-row__body, .service-row__links li, .service-row.is-open .service-row__links li { transition: none; }
+}
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--white); color: var(--black); padding: 120px var(--pad) var(--pad); overflow: hidden; }

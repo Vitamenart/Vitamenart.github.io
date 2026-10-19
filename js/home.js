@@ -196,6 +196,35 @@
   addEventListener("resize", queueReveal);
   reveal();
 
+  /* --- This is What I Do: аккордеон категорий из SKILLS ---
+     Сначала все свёрнуты, открыта максимум одна; клик по другой сворачивает предыдущую.
+     Анимации — в CSS (.service-row.is-open): высота, пункты по очереди (--i), шеврон выворачивается. */
+  const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  const byId = Object.fromEntries(PROJECTS.map(p => [p.id, p]));
+  const skills = document.getElementById("skills");
+  skills.innerHTML = SKILLS.map((s, n) => `
+    <li class="service-row">
+      <button class="service-row__head" type="button" aria-expanded="false" aria-controls="skill-${n}">
+        <span class="service-row__name">${esc(s.name)}</span>
+        <span class="service-row__icon">${ICON.chevron}</span>
+      </button>
+      <div class="service-row__body" id="skill-${n}">
+        <ul class="service-row__links">${s.projects.filter(id => byId[id]).map((id, i) => `
+          <li style="--i:${i}"><a href="project.html?id=${id}">${esc(byId[id].skillTitle || byId[id].title)}</a></li>`).join("")}
+        </ul>
+      </div>
+    </li>`).join("");
+  skills.addEventListener("click", e => {
+    const head = e.target.closest(".service-row__head");
+    if (!head) return;
+    const row = head.parentElement, open = !row.classList.contains("is-open");
+    skills.querySelectorAll(".service-row.is-open").forEach(r => {
+      r.classList.remove("is-open");
+      r.querySelector(".service-row__head").setAttribute("aria-expanded", "false");
+    });
+    if (open) { row.classList.add("is-open"); head.setAttribute("aria-expanded", "true"); }
+  });
+
   /* --- Showreel: по нажатию на Play --- */
   const reel = document.getElementById("showreel");
   reel.innerHTML = media({ video: CONTACTS.showreel, poster: "assets/showreel/poster.jpg", play: "click", kind: "video" });

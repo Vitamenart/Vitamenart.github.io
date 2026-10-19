@@ -39,7 +39,7 @@ window.PROJECTS = [
     title: "1inch dApp",
     summary: "The interface of one of DeFi's largest aggregators, from the first version to scale." },
   { id: "rebrand-concept", category: "products", home: 5, cover: "02-1inch-rebranding.jpg",
-    title: "1inch Rebrand: an unreleased concept", homeTitle: "1inch Rebrand Concept",
+    title: "1inch Rebrand: an unreleased concept", homeTitle: "1inch Rebrand Concept", skillTitle: "1inch Rebrand Concept",
     summary: "An in-house evolution of the 1inch identity that showed the brand needed a full rebirth rather than a refresh." },
   { id: "rebranding-2025", category: "products", home: 3, cover: "01-1inch-wordmark.jpg",
     title: "1inch Rebranding",
@@ -101,6 +101,18 @@ window.PROJECTS = [
   { id: "ai-blender", category: "designops", cover: "22-ai-blender.jpg",
     title: "AI in Blender",
     summary: "LLMs connected to Blender via MCP and Python scripts: 3D scenes built from a text brief in minutes instead of hours." }
+];
+
+/* Главная, блок «This is What I Do»: категории-аккордеон и проекты в них (id из PROJECTS, порядок = порядок в списке).
+   Один проект может стоять в нескольких категориях. Название пункта — homeTitle или title проекта. */
+window.SKILLS = [
+  { name: "Art Direction",       projects: ["bruce-lee", "rebranding-2025", "book", "aviasales", "mascot"] },
+  { name: "Brand Identity",      projects: ["1inch-brand", "rebranding-2025", "rebrand-concept", "hardwallet"] },
+  { name: "Product & UI",        projects: ["wallet", "dapp", "hardwallet", "gear-face", "crypto-quest"] },
+  { name: "3D & Motion",         projects: ["toy", "times-square", "ai-blender", "motion-automation"] },
+  { name: "Campaigns & Events",  projects: ["bruce-lee", "times-square", "defy", "nft-unicorns", "merch", "crypto-quest"] },
+  { name: "Design Systems",      projects: ["1inch-brand", "dapp", "wallet"] },
+  { name: "AI & Creative Tools", projects: ["figma-tools", "ai-workflows", "ai-blender", "motion-automation"] }
 ];
 
 window.CONTACTS = {
