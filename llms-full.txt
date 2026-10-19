@@ -145,6 +145,8 @@ E-Ink panel: The interface was the hardest part. The E-Ink panel rendered strict
 
 The work extended to the packaging, built as a layered unboxing that introduces the device step by step.
 
+Concept & Prototypes: The amount of work behind this stage was enormous. I even printed the interface on paper at 1:1 scale to test whether the on-screen keyboard would be comfortable to use in real life.
+
 ## NFT Unicorns
 https://vitamenart.github.io/project.html?id=nft-unicorns
 

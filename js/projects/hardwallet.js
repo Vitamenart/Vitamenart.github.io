@@ -33,6 +33,9 @@ PAGES["hardwallet"] = {
              ] } ] },
     { row: [ { file: "07-type.svg" }, { file: "08-icons.jpg" } ] },
     { statement: "The work extended to the packaging, built as a layered unboxing that introduces the device step by step." },
-    { row: [ { file: "09-packaging-layers.svg" }, { file: "10-packaging.jpg" } ] }
+    { row: [ { file: "09-packaging-layers.svg" }, { file: "10-packaging.jpg" } ] },
+    { title: "Concept &amp; Prototypes",
+      statement: "The amount of work behind this stage was enormous. I even printed the interface on paper at 1:1 scale to test whether the on-screen keyboard would be comfortable to use in real life." },
+    { row: [ { file: "11-paper-prototype.jpg" }, { file: "12-prototypes.png" } ] }
   ]
 };
