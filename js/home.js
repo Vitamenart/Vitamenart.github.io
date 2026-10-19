@@ -15,6 +15,7 @@
   const AMP = 0.35;          // амплитуда волны в долях размера карточки (≈55px на 1440)
   const WAVE = 8.7;          // длина волны в размерах карточки (≈1560px на 1440)
   const SWAY = 0.12;         // колыхание волны, полных колебаний в секунду
+  const SWAY_DIR = -1;       // куда бежит волна: 1 — влево, как карточки; -1 — вправо, навстречу (ТЕСТ 2026-10-19)
   /* Курсор у краёв экрана управляет лентой: у левого — едет назад, у правого — разгоняется.
      В центре (EDGE_DEAD) ничего не меняется; к самому краю влияние плавно растёт до максимума. */
   const EDGE_DEAD = 0.4;     // доля полуширины экрана от центра без эффекта
@@ -109,7 +110,7 @@
       const visible = x > -step && x < vw + step;
       el.style.visibility = visible ? "visible" : "hidden";
       if (!visible) return;
-      const y = Math.sin(k * (x + size / 2) + t * SWAY * 2 * Math.PI) * AMP * size;
+      const y = Math.sin(k * (x + size / 2) + SWAY_DIR * t * SWAY * 2 * Math.PI) * AMP * size;
       el.style.transform = `translate3d(${x}px, ${y - size / 2}px, 0)`;
     });
   }
