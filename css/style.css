@@ -66,6 +66,8 @@ p, h1, h2, h3 { margin: 0; }
 /* обложка: один файл, любой размер контейнера */
 .cover { width: 100%; height: 100%; object-fit: cover; }
 .media { position: relative; overflow: hidden; background-color: var(--skeleton); transition: background-color 0.4s ease; }
+/* гифка поверх фото, режим наложения screen (тот же размер и пропорции, что у фото) */
+.media > .cover.media__overlay { position: absolute; inset: 0; z-index: 2; mix-blend-mode: screen; pointer-events: none; }
 
 /* ---------- Header ---------- */
 /* хэдер закреплён сверху (position: fixed), spacer держит его место в потоке */

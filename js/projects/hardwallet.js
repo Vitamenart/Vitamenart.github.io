@@ -36,6 +36,7 @@ PAGES["hardwallet"] = {
     { row: [ { file: "09-packaging-layers.svg" }, { file: "10-packaging.jpg" } ] },
     { title: "Concept &amp; Prototypes",
       statement: "The amount of work behind this stage was enormous. I even printed the interface on paper at 1:1 scale to test whether the on-screen keyboard would be comfortable to use in real life." },
-    { row: [ { file: "11-paper-prototype.jpg" }, { file: "12-prototypes.png" } ] }
+    { row: [ { file: "11-paper-prototype.jpg" }, { file: "12-prototypes.png" } ] },
+    { row: [ { file: "13-fingerprint.jpg" },     { file: "14-sketch.jpg" } ] }
   ]
 };
