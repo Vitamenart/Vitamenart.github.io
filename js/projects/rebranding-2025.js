@@ -22,7 +22,7 @@ PAGES["rebranding-2025"] = {
                        "The founders were also explicit about one thing: no more 3D and no more gradients." ] },
              { file: "14-references.jpg" } ] },
     { full: { file: "15-process.jpg" } },
-    { row: [ { file: "16-wordmark.gif" }, { file: "17-moodboards.jpg" } ] },
+    { row: [ { file: "16-wordmark.gif" }, { file: "18-logomark.jpg" } ] },
     { statement: "The rebrand was a joint effort between our in-house team and an external agency. We explored directions for the logotype and illustration style, the product design team took on the interface, and the agency then developed our exploration into the final logo and illustrations." },
     { full: { file: "01-mosaic.jpg" } },
     { row: [ { title: "Figma Plugin", text: "To bring the new pixel imagery into everyday work, I built a custom ASCII plugin that turns any image into on-brand vector art directly in Figma.", link: "figma-tools" },
