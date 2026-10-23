@@ -553,6 +553,7 @@ p, h1, h2, h3 { margin: 0; }
 }
 @media (max-width: 560px) {
   :root { --pad: 16px; }
+  .blocks { --radius-block: 20px; }   /* картинки на страницах проектов: на телефоне скругление меньше (было 32) */
   .grid { grid-template-columns: 1fr; }
   .block--row, .block--triple { grid-template-columns: 1fr; }
   .block--metrics { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; padding-bottom: 64px; }
