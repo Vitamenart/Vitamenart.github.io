@@ -197,6 +197,55 @@
   addEventListener("resize", queueReveal);
   reveal();
 
+  /* --- View all work: 5 случайных работ, которых нет среди больших карточек ---
+     Кнопка сама доезжает до центра (сцена липкая), дальше прокрутка ведёт обложки снизу вверх за кнопкой.
+     Как только последняя обложка целиком показалась снизу, сцена отлипает — и всё едет вверх вместе со страницей.
+     s — через сколько экранов прокрутки обложка выезжает, speed — её скорость относительно прокрутки (разная — параллакс).
+     x — левый край в % ширины, x-m — на телефоне. Длину секции считаем здесь же (resize). */
+  const LANES = [
+    { x: 14,   xm: 6,  s: 0,    speed: 1 },
+    { x: 69.5, xm: 52, s: 0.3,  speed: 1.15 },
+    { x: 25.5, xm: 14, s: 0.6,  speed: 0.95 },
+    { x: 76,   xm: 54, s: 0.9,  speed: 1.05 },
+    { x: 44,   xm: 26, s: 1.2,  speed: 1 }
+  ];
+  const MORE_END = 0.1;                                   // последняя обложка останавливается на столько экрана выше низа
+  const MORE_LAG = 0.18;                                  // инерция, как у раскрытия карточек
+  const more = document.getElementById("more-work");
+  const stage = more.firstElementChild;                   // высота экрана без панели браузера (100svh) — на телефоне не прыгает
+  const pool = PROJECTS.filter(p => !p.home);
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  const moreCards = document.getElementById("more-work-cards");
+  moreCards.innerHTML = pool.slice(0, LANES.length).map((p, i) => `
+    <div class="more-work__card" style="--x:${LANES[i].x}%;--x-m:${LANES[i].xm}%">
+      <div class="media">${coverImg(p, { lazy: false, alt: "" })}</div>
+    </div>`).join("");
+  const moreEls = [...moreCards.children];
+  let moreShown = null, moreRaf = 0, moreLen = 0;
+  function moreSize() {
+    const vh = stage.clientHeight, size = moreEls[0].offsetHeight, last = LANES[LANES.length - 1];
+    moreLen = last.s * vh + (size + MORE_END * vh) / last.speed;   // сколько px прокрутки сцена стоит
+    more.style.height = Math.round(vh + moreLen) + "px";
+  }
+  function moreFrame() {
+    moreRaf = 0;
+    const vh = stage.clientHeight;
+    const goal = Math.min(moreLen, Math.max(0, -more.getBoundingClientRect().top));
+    moreShown = moreShown === null ? goal : moreShown + (goal - moreShown) * MORE_LAG;
+    if (Math.abs(goal - moreShown) < 0.5) moreShown = goal; else moreRaf = requestAnimationFrame(moreFrame);
+    moreEls.forEach((el, i) => {
+      const { s, speed } = LANES[i];
+      const y = vh - Math.max(0, moreShown - s * vh) * speed;
+      el.style.transform = `translate3d(0, ${y.toFixed(1)}px, 0)`;
+      el.style.visibility = y < vh && y > -el.offsetHeight ? "visible" : "hidden";
+    });
+  }
+  const queueMore = () => { if (!moreRaf) moreRaf = requestAnimationFrame(moreFrame); };
+  addEventListener("scroll", queueMore, { passive: true });
+  addEventListener("resize", () => { moreSize(); queueMore(); });
+  moreSize();
+  moreFrame();
+
   /* --- This is What I Do: аккордеон категорий из SKILLS ---
      Сначала все свёрнуты, открыта максимум одна; клик по другой сворачивает предыдущую.
      Анимации — в CSS (.service-row.is-open): высота, пункты по очереди (--i), шеврон выворачивается. */
