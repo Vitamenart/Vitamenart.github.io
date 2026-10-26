@@ -24,6 +24,8 @@ The result was a brand that grew together with the company, from a hackathon pro
 Role: Logo Design, Brand Identity, Brand Guidelines, Art Direction
 Year: 2020
 
+There was no design system at 1inch, so I built one from scratch: colours, typography, icons and UI components in one shared library. It gave the team a common foundation and kept the products consistent as the company grew.
+
 Wallet app: The brand system carried into the 1inch Wallet, from interface to onboarding.
 
 dApp: The core trading interface, designed to make complex DeFi feel simple.

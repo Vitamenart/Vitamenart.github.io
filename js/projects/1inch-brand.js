@@ -13,8 +13,10 @@ PAGES["1inch-brand"] = {
   ],
   blocks: [
     { row: [ { file: "01-logo-before.jpg" },
-             { file: "02-logo-after.jpg" } ] },
+             { video: "02-logo-after.webm", play: "auto" } ] },
     { full: { file: "03-guidelines.jpg" } },
+    { statement: "There was no design system at 1inch, so I built one from scratch: colours, typography, icons and UI components in one shared library. It gave the team a common foundation and kept the products consistent as the company grew." },
+    { compare: { before: "03-ds-light.jpg", after: "03-ds-dark.jpg" } },
     { row: [ { file: "04-icons.jpg" }, { file: "05-icons-anim.svg" } ] },
     { row: [ { title: "Wallet app", text: "The brand system carried into the 1inch Wallet, from interface to onboarding.", link: "wallet" },
              { cover: "wallet" } ] },
