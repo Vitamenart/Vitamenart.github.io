@@ -41,6 +41,7 @@ Campaigns, events and brand moments built to be noticed, remembered and shared.
 - [DEFY](https://vitamenart.github.io/project.html?id=defy): A street-art inspired conference campaign built on a double meaning: DeFi and defy.
 - [Toy: Sir Inchalot](https://vitamenart.github.io/project.html?id=toy): A plush unicorn for 1inch's conference giveaways, taken from first sketches to production-ready 3D.
 - [1inch Merch](https://vitamenart.github.io/project.html?id=merch): Illustrated merch for a brand that travels: a unicorn adapted to every event, and shirts people lined up for.
+- [1inch Events](https://vitamenart.github.io/project.html?id=events): Booths, side events and parties for 1inch: hall-wide projections, projection mapping on a building facade and a world built for every event.
 - [1inch × Times Square](https://vitamenart.github.io/project.html?id=times-square): A full animated campaign for a Times Square billboard, designed end to end, from concept to the final motion on screen.
 - [Crypto Quest 2025](https://vitamenart.github.io/project.html?id=crypto-quest): A year in crypto, reimagined as a retro RPG: personal stats, low-bit heroes and shareable cards for 1inch Wallet users.
 - [1inch × Bruce Lee](https://vitamenart.github.io/project.html?id=bruce-lee): The first global 1inch campaign, made in partnership with the Bruce Lee Family Company. Art-directed on the 1inch side.

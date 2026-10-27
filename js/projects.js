@@ -84,6 +84,9 @@ window.PROJECTS = [
   { id: "merch", category: "campaigns", cover: "12-merch.jpg",
     title: "1inch Merch",
     summary: "Illustrated merch for a brand that travels: a unicorn adapted to every event, and shirts people lined up for." },
+  { id: "events", category: "campaigns", cover: "23-events.jpg",
+    title: "1inch Events", homeTitle: "Events",
+    summary: "Booths, side events and parties for 1inch: hall-wide projections, projection mapping on a building facade and a world built for every event." },
   { id: "times-square", category: "campaigns", cover: "13-times-square.jpg",
     title: "1inch × Times Square",
     summary: "A full animated campaign for a Times Square billboard, designed end to end, from concept to the final motion on screen." },
@@ -126,7 +129,7 @@ window.SKILLS = [
   { name: "Brand Identity",      projects: ["1inch-brand", "rebranding-2025", "rebrand-concept", "hardwallet"] },
   { name: "Product & UI",        projects: ["wallet", "dapp", "hardwallet", "gear-face", "crypto-quest"] },
   { name: "3D & Motion",         projects: ["toy", "times-square", "ai-blender", "motion-automation"] },
-  { name: "Campaigns & Events",  projects: ["bruce-lee", "times-square", "defy", "nft-unicorns", "merch", "crypto-quest"] },
+  { name: "Campaigns & Events",  projects: ["bruce-lee", "times-square", "defy", "events", "nft-unicorns", "merch", "crypto-quest"] },
   { name: "Design Systems",      projects: ["1inch-brand", "dapp", "wallet"] },
   { name: "AI & Creative Tools", projects: ["figma-tools", "ai-workflows", "ai-blender", "motion-automation"] }
 ];
