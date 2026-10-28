@@ -365,3 +365,12 @@ Custom watch faces for Samsung Gear, made as a personal side project.
 When I found out Samsung had its own store for watch faces, I started learning how to build them myself, from the visual design to the logic behind every complication. I made them purely for my own wrist, as a playground for interface ideas on a tiny round screen.
 
 Designed around the OLED display: a true-black background keeps most pixels off to save battery, and a minimal layout keeps every reading legible at a glance. Steps, floors, charge, heart rate, date and even world time fit on a single face without overloading it.
+
+## Repainted Films
+https://vitamenart.github.io/project.html?id=film-stills
+
+Scenes from films that stayed with me, repainted by hand.
+
+A personal project and a tribute to the films I love. Some films stay with you long after the credits. These are the scenes that stayed with me, repainted in my own hand.
+
+Year: 2019

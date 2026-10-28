@@ -119,7 +119,10 @@ window.PROJECTS = [
   /* ---------- Личное — в самом конце списка ---------- */
   { id: "gear-face", category: "products", cover: "21-gear-face.jpg",
     title: "Gear Face",
-    summary: "Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen." }
+    summary: "Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen." },
+  { id: "film-stills", category: "campaigns", cover: "24-film-stills.jpg",
+    title: "Repainted Films",
+    summary: "Scenes from films that stayed with me, repainted by hand." }
 ];
 
 /* Главная, блок «This is What I Do»: категории-аккордеон и проекты в них (id из PROJECTS, порядок = порядок в списке).

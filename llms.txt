@@ -46,6 +46,7 @@ Campaigns, events and brand moments built to be noticed, remembered and shared.
 - [Crypto Quest 2025](https://vitamenart.github.io/project.html?id=crypto-quest): A year in crypto, reimagined as a retro RPG: personal stats, low-bit heroes and shareable cards for 1inch Wallet users.
 - [1inch × Bruce Lee](https://vitamenart.github.io/project.html?id=bruce-lee): The first global 1inch campaign, made in partnership with the Bruce Lee Family Company. Art-directed on the 1inch side.
 - [Aviasales New Year](https://vitamenart.github.io/project.html?id=aviasales): A New Year campaign for Aviasales: an illustrated world inspired by hand-painted Soviet greeting cards.
+- [Repainted Films](https://vitamenart.github.io/project.html?id=film-stills): Scenes from films that stayed with me, repainted by hand.
 
 ## AI & Tools
 
