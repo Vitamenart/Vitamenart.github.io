@@ -69,7 +69,7 @@ PAGES["merch"] = {
 
     ] } },
     { row: [ { file: "01-cap.jpg" },            { file: "02-bottle.jpg" } ] },
-    { row: [ { file: "03-tshirt-unicorn.jpg" }, { file: "04-hoodie.jpg" } ] },
+    { row: [ { file: "03-hoodie-blue.jpg" },    { file: "04-hoodie.jpg" } ] },
     { row: [ { file: "05-tshirt-model.jpg" },   { file: "06-tie-dye.jpg" } ] },
     { row: [ { cover: "toy" },
              { title: "Toys: Sir Inchalot", text: "The unicorn, reimagined as a plush collectible. Designed from sketch to 3D.", link: "toy" } ] },
