@@ -245,6 +245,24 @@ p, h1, h2, h3 { margin: 0; }
   height: clamp(64px, 5.8vw, 84px); padding: 0 clamp(40px, 4.4vw, 64px);
   font-size: var(--heading-s); letter-spacing: -0.01em;
 }
+/* Ховер: кнопка не гаснет, вместо этого от неё в стороны быстро «рисуются» зелёные мазки (assets/about/brush.svg, вставляет home.js).
+   Каждый мазок проявляется по ходу линии: в его маске белая линия по центру мазка, её «дорисовывает» stroke-dashoffset
+   (длина линии = 1 через pathLength). По очереди (--i); при уходе мыши линия сматывается обратно к кнопке. */
+.more-work__btn:hover { opacity: 1; }
+.more-work__brush {
+  position: absolute; left: 50%; top: 50%; width: 131%; height: auto;
+  transform: translate(-50%, -50%); pointer-events: none; overflow: visible;
+}
+.more-work__brush polyline {
+  stroke-dasharray: 1 2; stroke-dashoffset: 1.1;
+  transition: stroke-dashoffset 0.08s cubic-bezier(0.65, 0, 0.35, 1) calc((4 - var(--i)) * 12ms);
+}
+.more-work__btn:is(:hover, :focus-visible) .more-work__brush polyline {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.12s cubic-bezier(0.65, 0, 0.35, 1) calc(var(--i) * 22ms);
+}
+@media (hover: none) { .more-work__brush { display: none; } }
+@media (prefers-reduced-motion: reduce) { .more-work__brush polyline { transition: none !important; } }
 @media (max-width: 560px) {
   .more-work__card { --card: 42vw; left: var(--x-m); }
 }

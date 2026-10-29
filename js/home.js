@@ -246,6 +246,18 @@
   moreSize();
   moreFrame();
 
+  /* Мазки для ховера кнопки (CSS .more-work__brush). У каждого мазка маска — линия по его центру
+     от конца у кнопки наружу; порядок прорисовки — ORDER (номера масок в файле). */
+  const BRUSH_ORDER = [0, 2, 1, 3, 4];
+  fetch("assets/about/brush.svg").then(r => r.text()).then(svg => {
+    const btn = more.querySelector(".more-work__btn");
+    btn.insertAdjacentHTML("beforeend", svg);
+    const el = btn.lastElementChild;
+    el.classList.add("more-work__brush");
+    el.setAttribute("aria-hidden", "true");
+    el.querySelectorAll("mask polyline").forEach((l, n) => l.style.setProperty("--i", BRUSH_ORDER.indexOf(n)));
+  });
+
   /* --- This is What I Do: аккордеон категорий из SKILLS ---
      Сначала все свёрнуты, открыта максимум одна; клик по другой сворачивает предыдущую.
      Анимации — в CSS (.service-row.is-open): высота, пункты по очереди (--i), шеврон выворачивается. */
