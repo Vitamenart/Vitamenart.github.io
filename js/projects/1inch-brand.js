@@ -1,7 +1,7 @@
 /* Внутренняя страница «1inch Brand» — Figma: 1inch brand (106:4890).
    Картинки: assets/projects/1inch-brand/<file>. .svg — анимированный SVG. */
 PAGES["1inch-brand"] = {
-  heading: "1inch 2020",
+  heading: "1inch Brand",
   text: [
     "1inch was born at a hackathon in 2019. When I joined in 2020, the project had a strong product but almost no brand: just a logo bought from a stock site and no visual system behind it.",
     "My task was to create the whole identity from the ground up and make it work as one system across every touchpoint. I redrew the logo and the unicorn mascot, defined the colours, typography and iconography, and built the visual language for the website, landing pages, the dApp and later the wallet app. The same system extended into 3D, motion, events and merch.",
@@ -9,7 +9,7 @@ PAGES["1inch-brand"] = {
   ],
   meta: [
     { label: "Role", value: ["Logo Design", "Brand Identity", "Brand Guidelines", "Art Direction"] },
-    { label: "Year", value: ["2020"] }
+    { label: "Year", value: ["2020–2025"] }
   ],
   blocks: [
     { row: [ { file: "01-logo-before.jpg" },
