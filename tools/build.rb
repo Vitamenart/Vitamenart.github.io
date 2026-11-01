@@ -10,7 +10,7 @@
 #   index.html, about.html — блок Schema.org Person (между <!-- schema --> и <!-- /schema -->)
 #
 # SITE — адрес сайта. Поменять, когда будет GitHub Pages / свой домен, и запустить сборку ещё раз.
-SITE = "https://vitamenart.github.io"
+SITE = "https://vitamen.art"
 
 require "json"
 require "cgi"

@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Disallow: /tools/
 
-Sitemap: https://vitamenart.github.io/sitemap.xml
+Sitemap: https://vitamen.art/sitemap.xml

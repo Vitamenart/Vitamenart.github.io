@@ -2,7 +2,7 @@
 
 Design director working across brand, product and campaigns. Sixteen years in, trained as an artist.
 
-**→ [vitamenart.github.io](https://vitamenart.github.io)**
+**→ [vitamen.art](https://vitamen.art)**
 
 ## Inside
 
