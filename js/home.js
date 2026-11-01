@@ -160,8 +160,8 @@
   window.addEventListener("resize", () => { build(); layout(); });
 
   /* --- Большие карточки --- */
-  document.getElementById("features").innerHTML = PROJECTS.filter(p => p.home).sort((a, b) => a.home - b.home).map(p => `
-    <a class="feature" href="project.html?id=${p.id}">
+  document.getElementById("features").innerHTML = PROJECTS.filter(p => p.home).sort((a, b) => a.home - b.home).map((p, i) => `
+    <a class="feature${i ? "" : " feature--reveal"}" href="project.html?id=${p.id}">
       <div class="media">${coverImg(p)}</div>
       <div class="feature__caption">
         <h2 class="feature__title">${p.homeTitle || p.title}</h2>
@@ -169,27 +169,34 @@
       </div>
     </a>`).join("");
 
-  /* Раскрытие картинок при прокрутке (CSS: .feature --p). Верх карточки входит снизу экрана — 0,
+  /* Раскрытие первой карточки при прокрутке (CSS: .feature--reveal --p). Верх карточки входит снизу экрана — 0,
      доходит до REVEAL_END высоты экрана — 1. Кривая — ease-out (к полной ширине доезжает мягко),
-     плюс инерция: --p догоняет цель за несколько кадров, поэтому прокрутка колёсиком не даёт ступенек. */
+     плюс инерция: --p догоняет цель за несколько кадров, поэтому прокрутка колёсиком не даёт ступенек.
+     Параллакс всех карточек (CSS: --y): центр рамки внизу экрана — картинка сдвинута вверх на --plx,
+     вверху — вниз на --plx; посередине — на месте. */
   const REVEAL_END = 0.2;
   const REVEAL_LAG = 0.14;                                // доля пути за кадр (меньше — мягче)
   const revealEase = x => 1 - Math.pow(1 - x, 3);         // ease-out cubic
-  const features = [...document.querySelectorAll(".feature")];
-  const shown = features.map(() => null);                 // текущее значение --p у каждой карточки
+  const first = document.querySelector(".feature--reveal");
+  const boxes = [...document.querySelectorAll(".feature .media")];
+  let shown = null;                                       // текущее значение --p у первой карточки
   let revealRaf = 0;
   function reveal() {
     revealRaf = 0;
     const vh = innerHeight;
-    let moving = false;
-    features.forEach((f, i) => {
-      const top = f.getBoundingClientRect().top;
-      const x = Math.min(1, Math.max(0, (vh - top) / (vh * (1 - REVEAL_END))));
-      const goal = reduce.matches ? 1 : revealEase(x);
-      let p = shown[i] === null ? goal : shown[i] + (goal - shown[i]) * REVEAL_LAG;
-      if (Math.abs(goal - p) < 0.001) p = goal; else moving = true;
-      if (p !== shown[i]) { shown[i] = p; f.style.setProperty("--p", p.toFixed(4)); }
+    boxes.forEach(box => {
+      const r = box.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const t = reduce.matches ? 0 : Math.min(1, Math.max(-1, (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2)));
+      box.style.setProperty("--y", (-t * r.height * 0.2).toFixed(1) + "px");   // 0.2 — как --plx в CSS
     });
+    if (!first) return;
+    const x = Math.min(1, Math.max(0, (vh - first.getBoundingClientRect().top) / (vh * (1 - REVEAL_END))));
+    const goal = reduce.matches ? 1 : revealEase(x);
+    let p = shown === null ? goal : shown + (goal - shown) * REVEAL_LAG;
+    const moving = Math.abs(goal - p) >= 0.001;
+    if (!moving) p = goal;
+    if (p !== shown) { shown = p; first.style.setProperty("--p", p.toFixed(4)); }
     if (moving) revealRaf = requestAnimationFrame(reveal);
   }
   const queueReveal = () => { if (!revealRaf) revealRaf = requestAnimationFrame(reveal); };

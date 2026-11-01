@@ -90,8 +90,8 @@ p, h1, h2, h3 { margin: 0; }
 }
 .site-header.is-stuck::before { opacity: 1; }
 .site-header__name { justify-self: start; }
-.site-header .menu-open { grid-column: 3; justify-self: end; }   /* всегда справа, даже без вкладок */
-/* Пункты шапки — без подложки; фильтры на Work — на полупрозрачной подложке (.filters) */
+.site-header .menu-open { grid-column: 3; justify-self: end; }
+/* Вкладки (фильтры на Work) — на полупрозрачной подложке (.filters) */
 .tabs { position: relative; display: flex; padding: 4px; border-radius: 100px; border: 1px solid transparent; }
 .tab { height: 32px; display: flex; align-items: center; padding: 0 24px; border-radius: 100px; white-space: nowrap; }
 .tab:hover { background: var(--white-10); }
@@ -102,19 +102,6 @@ p, h1, h2, h3 { margin: 0; }
   background: var(--white); color: var(--black);
   pointer-events: none; clip-path: inset(0 100% 0 0 round 100px);
 }
-/* Выпадающий список категорий — вместо вкладок на iPad и мобильном */
-.tab-select { position: relative; display: none; }
-.tab-select__btn { cursor: pointer; }
-.tab-select.is-open .tab-select__btn { opacity: 0.5; }
-.tab-select__btn svg { transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1); }
-.tab-select.is-open .tab-select__btn svg { transform: rotate(180deg); }
-.tab-select__list {
-  position: absolute; top: calc(100% + 1px); left: 50%; transform: translateX(-50%);
-  width: 198px; margin: 0; padding: 0; list-style: none;
-  background: var(--white); color: var(--black); border-radius: 20px; overflow: hidden;
-}
-.tab-select__list[hidden] { display: none; }
-.tab-select__list a { height: 42px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px 0 32px; }
 .tab.is-active { background: none; }
 
 .pill {
@@ -130,7 +117,7 @@ p, h1, h2, h3 { margin: 0; }
 .pill--solid:hover { opacity: 0.5; }   /* в большой карточке — только при наведении на саму кнопку, клик — по всей карточке */
 .pill--outline:not(.is-active):hover { background: var(--white-10); color: var(--grey-text); }
 
-/* ---------- Панель Contact (бывшее меню) ---------- */
+/* ---------- Меню: навигация + соцсети + почта ---------- */
 .menu { position: fixed; inset: 0; z-index: 100; }
 .menu[hidden] { display: none; }
 .menu__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
@@ -140,6 +127,7 @@ p, h1, h2, h3 { margin: 0; }
   background: var(--white); color: var(--black);
   border-radius: var(--radius-panel);
   display: flex; flex-direction: column; padding: 12px 12px 12px 28px;
+  overflow-y: auto;   /* низкий экран — панель прокручивается, пункты не наезжают друг на друга */
 }
 .menu__top { display: flex; justify-content: flex-end; }
 .menu__close { display: flex; align-items: center; gap: 16px; }
@@ -166,11 +154,16 @@ p, h1, h2, h3 { margin: 0; }
 .menu.is-x .menu__close-icon .l1 { transform: rotate(45deg) scaleX(1.2) translateY(5px); }
 .menu.is-x .menu__close-icon .l2 { transform: scaleX(0); opacity: 0; }
 .menu.is-x .menu__close-icon .l3 { transform: rotate(-45deg) scaleX(1.2) translateY(-5px); }
+/* блок по центру между Close и почтой */
+.menu__body { margin: auto 0; padding: 48px 0; }
+.menu__label { font: var(--t-body-m); color: var(--black-50); margin-bottom: 24px; }
 .menu__links {
-  flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
   font: 600 var(--display-s)/1.05 var(--f-display); letter-spacing: -0.03em;   /* Display S, 64 на десктопе */
 }
-.menu__bottom { display: flex; justify-content: space-between; align-items: center; }
+.menu__line { margin: 40px 0; border: 0; border-top: 1px solid var(--black-10); }
+.menu__socials { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; font: var(--t-body-m); }
+.menu__bottom { display: flex; justify-content: space-between; align-items: center; font: var(--t-body-m); }
 .socials { display: flex; gap: 4px; }
 
 /* ---------- Home: Entry gate / барабан ---------- */
@@ -204,26 +197,31 @@ p, h1, h2, h3 { margin: 0; }
 .statement--story { padding-top: 0; }
 
 /* ---------- Big project card ---------- */
-.feature { position: relative; display: block; height: max(420px, 52.8vw); }
-/* пока картинки нет — скелетон (--skeleton), после загрузки фон белый (для анимации, см. is-loaded) */
-.feature .media { position: absolute; inset: 0; }
-/* подпись + затемнение снизу кодом (126px на 1440: прозрачный → чёрный 50%) поверх картинки */
+/* Карточки на чёрном: картинка в рамке 1440 (поля --gutter), высота 700 на 1440 (дальше — по пропорции),
+   под ней подпись и кнопка. На телефоне картинка квадратная. */
+.features { display: flex; flex-direction: column; gap: 120px; padding: 0 var(--gutter); }
+.feature { display: block; }
+.feature .media { aspect-ratio: 1392 / 700; border-radius: var(--radius-panel); }
 .feature__caption {
-  position: absolute; z-index: 2; left: 0; right: 0; bottom: 0;
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
-  padding: 64px var(--pad) 16px;
-  background: linear-gradient(to bottom, transparent, var(--black-50));
+  margin-top: 24px;
 }
 .feature__title { font: var(--t-heading-m); letter-spacing: -0.02em; }
 .feature__caption .pill { flex-shrink: 0; white-space: nowrap; }   /* длинный заголовок переносится, кнопка не сжимается */
-/* Раскрытие при прокрутке: --p от 0 до 1 считает home.js по положению карточки на экране.
-   0 — картинки нет (белая область), 1 — во всю ширину; растёт от нижней середины, углы выпрямляются.
-   Подпись белая — проявляется в конце, когда под ней уже картинка. */
-.feature { --p: 1; --q: calc(1 - var(--p)); }
+/* Параллакс: картинка выше рамки на 2 × --plx и едет внутри неё медленнее страницы (--y считает home.js) */
+.feature { --plx: 20%; }
 .feature .media > .cover {
-  clip-path: inset(calc(var(--q) * 100%) calc(var(--q) * 50%) 0 calc(var(--q) * 50%) round calc(var(--q) * 48px));
+  position: absolute; left: 0; top: calc(var(--plx) * -1); height: calc(100% + 2 * var(--plx));
+  transform: translateY(var(--y, 0px)); will-change: transform;
 }
-.feature__caption { opacity: calc((var(--p) - 0.75) * 4); }
+/* Раскрытие при прокрутке — только у первой карточки: --p от 0 до 1 считает home.js по положению карточки на экране.
+   0 — картинки нет, 1 — рамка целиком; растёт от нижней середины, углы скругляются до обычных.
+   Подпись проявляется в конце. */
+.feature--reveal { --p: 1; --q: calc(1 - var(--p)); }
+.feature--reveal .media {
+  clip-path: inset(calc(var(--q) * 100%) calc(var(--q) * 50%) 0 calc(var(--q) * 50%) round calc(24px + var(--q) * 24px));
+}
+.feature--reveal .feature__caption { opacity: calc((var(--p) - 0.75) * 4); }
 
 /* ---------- View all work: кнопка встаёт в центр, за ней снизу вверх проезжают 5 обложек ----------
    Секция высокая, сцена внутри липкая (на весь экран). Обложки не кликаются. Высоту секции и положение обложек считает home.js. */
@@ -355,6 +353,16 @@ p, h1, h2, h3 { margin: 0; }
 .tile .cover { transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
 .tile:hover .cover { transform: scale(1.2); }
 .empty { padding: 0 var(--gutter) 160px; font: var(--t-body-m); color: var(--grey-text); }
+
+/* ---------- Contact ---------- */
+.contact { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+.contact__links {
+  flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  font: var(--t-display-l); letter-spacing: -0.03em; text-align: center;
+  padding-bottom: 88px;
+}
+.contact__mail { margin-top: 24px; font: var(--t-body-m); letter-spacing: 0; color: var(--grey-text); transition: color 0.2s; }
+.contact__mail:hover { color: var(--white); }
 
 /* ---------- Project ---------- */
 /* Обложка проекта в рамке: 24 по бокам, под хэдером; снизу — «Scroll down», как на главной (1392×746 на 1440×900).
@@ -523,7 +531,6 @@ p, h1, h2, h3 { margin: 0; }
 /* :where — нулевая специфичность: свои transition у ховеров (.drum__item img, .tile .cover) его перебивают, opacity там тоже указан */
 :where(img[data-reveal]) { opacity: 0; transition: opacity 0.4s ease; }
 .is-loaded > img[data-reveal] { opacity: 1; }
-.feature .media.is-loaded { background-color: var(--white); }   /* белый под картинкой — для анимации */
 
 .other-works { padding: 120px var(--gutter) 120px; }
 .other-works__title { font: var(--t-display-s); letter-spacing: -0.03em; margin-bottom: 16px; }
@@ -564,11 +571,9 @@ p, h1, h2, h3 { margin: 0; }
 .pill--dark { background: var(--black); color: var(--white); padding: 0 32px; height: 42px; }
 
 /* ---------- Адаптив ---------- */
-/* iPad и мобильный: пункты шапки → выпадающий список, имя без фамилии, Contact → белая иконка */
+/* iPad и мобильный: имя без фамилии */
 @media (max-width: 1024px) {
-  .tabs--header, .site-header__surname, .menu-open__label { display: none; }
-  .tab-select { display: block; }
-  .site-header .menu-open { background: none; color: var(--white); padding: 0; height: 24px; }
+  .site-header__surname { display: none; }
   /* футер: имя сверху на всю ширину, почта Body M со стрелкой, соцсети — круглые иконки */
   .site-footer { padding: 48px 24px 24px; }   /* в макете поля футера 24 и на телефоне */
   .site-footer__row { flex-direction: column; gap: 48px; }
@@ -606,8 +611,11 @@ p, h1, h2, h3 { margin: 0; }
   .cell--text { aspect-ratio: auto; padding: 48px 0; }
   .block--row > .cell--text:first-child, .block--row > .cell--text:last-child { justify-content: flex-start; padding: 48px 0; }
   .play { width: 72px; height: 72px; }
+  .features { gap: 72px; }
+  .feature .media { aspect-ratio: 1; }
+  .feature__caption { margin-top: 16px; }
   .menu__panel { padding-left: 20px; }
-  .menu__links { font-size: 48px; }   /* на телефоне пункты панели Contact — как были, 48 */
+  .menu__links { font-size: 48px; }   /* на телефоне пункты меню — 48 */
   .socials--about .round-btn { display: none; }   /* About на телефоне: только кнопка Download CV, без почты и соцсетей */
 }
 

@@ -67,7 +67,7 @@ end
 # ---------- sitemap.xml, robots.txt ----------
 puts "Для поисковиков:"
 today = Date.today.to_s
-pages = ["", "work.html", "about.html"] + PROJECTS.map { |p| "project.html?id=#{p["id"]}" }
+pages = ["", "work.html", "about.html", "contact.html"] + PROJECTS.map { |p| "project.html?id=#{p["id"]}" }
 write "sitemap.xml", <<~XML
   <?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

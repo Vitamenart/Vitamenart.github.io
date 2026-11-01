@@ -18,11 +18,12 @@
 window.COVERS_DIR = "assets/covers-web/";
 window.MEDIA_DIR  = "assets/projects/";   // картинки внутренних страниц: assets/projects/<id>/...
 
-/* Пункты шапки. Активный: index → overview; work → work; about → about; на странице проекта — ни один */
+/* Пункты меню (кнопка Menu в шапке). Текущая страница помечается aria-current; на странице проекта — ни одна */
 window.NAV = [
   { id: "overview", label: "Overview", href: "index.html" },
   { id: "work",     label: "Work",     href: "work.html" },
-  { id: "about",    label: "About",    href: "about.html" }
+  { id: "about",    label: "About",    href: "about.html" },
+  { id: "contact",  label: "Contact",  href: "contact.html" }
 ];
 
 /* Фильтры на странице Work (work.html?cat=...). Первый — все проекты.
@@ -133,7 +134,7 @@ window.SKILLS = [
   { name: "Product & UI",        projects: ["wallet", "dapp", "hardwallet", "gear-face", "crypto-quest"] },
   { name: "3D & Motion",         projects: ["toy", "times-square", "ai-blender", "motion-automation"] },
   { name: "Campaigns & Events",  projects: ["bruce-lee", "times-square", "defy", "events", "nft-unicorns", "merch", "crypto-quest"] },
-  { name: "Design Systems",      projects: ["1inch-brand", "dapp", "wallet"] },
+  { name: "Design Systems",      projects: ["1inch-brand", "dapp", "wallet", "hardwallet"] },
   { name: "AI & Creative Tools", projects: ["figma-tools", "ai-workflows", "ai-blender", "motion-automation"] }
 ];
 
