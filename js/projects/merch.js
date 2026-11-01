@@ -15,6 +15,14 @@ PAGES["merch"] = {
     { label: "Role", value: ["Merch Direction", "Illustration", "Apparel Design"] }
   ],
   blocks: [
+    { row: [ { file: "01-cap.jpg" },            { file: "02-bottle.jpg" } ] },
+    { row: [ { file: "03-hoodie-blue.jpg" },    { file: "04-hoodie.jpg" } ] },
+    { row: [ { file: "05-tshirt-model.jpg" },   { file: "06-tie-dye.jpg" } ] },
+    { row: [ { cover: "toy" },
+             { title: "Toys: Sir Inchalot", text: "The unicorn, reimagined as a plush collectible. Designed from sketch to 3D.", link: "toy" } ] },
+    { full: { file: "08-tshirts.jpg" } },
+    { row: [ { file: "10-sweater-white.jpg" },  { file: "11-sweater-dark.jpg" } ] },
+    { row: [ { file: "12-anim-left.gif" },      { file: "13-anim-right.gif" } ] },
     { tweets: { title: "What People Say", items: [
     { url: "https://x.com/1inch/status/1812916069277048912",
       name: "1inch", handle: "1inch",
@@ -68,14 +76,6 @@ PAGES["merch"] = {
       text: "special thanks @1inch and @1inchdevs for this wonderful sweater 🫶<br><br>Participate in new draws from 1inch and you will definitely win 👇" }
 
     ] } },
-    { row: [ { file: "01-cap.jpg" },            { file: "02-bottle.jpg" } ] },
-    { row: [ { file: "03-hoodie-blue.jpg" },    { file: "04-hoodie.jpg" } ] },
-    { row: [ { file: "05-tshirt-model.jpg" },   { file: "06-tie-dye.jpg" } ] },
-    { row: [ { cover: "toy" },
-             { title: "Toys: Sir Inchalot", text: "The unicorn, reimagined as a plush collectible. Designed from sketch to 3D.", link: "toy" } ] },
-    { full: { file: "08-tshirts.jpg" } },
-    { row: [ { file: "10-sweater-white.jpg" },  { file: "11-sweater-dark.jpg" } ] },
-    { row: [ { file: "12-anim-left.gif" },      { file: "13-anim-right.gif" } ] },
     { statement: "As 1inch matured, the brand became more restrained and systematic, and the merch followed. The new collection traded illustration for typography, bold graphic marks and a tighter palette: cleaner, more design-led pieces that still carry the brand’s sense of humour, just with a straighter face." },
     { row: [ { file: "14-shirt.jpg" }, { file: "15-shirt.jpg" } ] },
     { row: [ { file: "16-shirt.jpg" }, { file: "17-shirt.jpg" } ] },
