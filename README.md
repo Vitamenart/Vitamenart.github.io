@@ -17,7 +17,7 @@ Plain HTML, CSS and JavaScript. No frameworks, no build step. Hosted on GitHub P
 
 ## Contact
 
-[Telegram](https://t.me/vitamenart) · [X](https://x.com/vitamenart) · [LinkedIn](https://www.linkedin.com/in/vitamenart) · [Instagram](https://www.instagram.com/vitamenart) · [vitalik06smile@gmail.com](mailto:vitalik06smile@gmail.com)
+[Telegram](https://t.me/vitamenart) · [X](https://x.com/vitamenart) · [LinkedIn](https://www.linkedin.com/in/vitamenart) · [Instagram](https://www.instagram.com/vitamenart) · [vitamenart@gmail.com](mailto:vitamenart@gmail.com)
 
 ---
 

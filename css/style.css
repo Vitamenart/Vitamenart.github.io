@@ -619,6 +619,7 @@ p, h1, h2, h3 { margin: 0; }
   .feature__caption { margin-top: 16px; }
   .menu__panel { padding-left: 20px; }
   .menu__links { font-size: 48px; }   /* на телефоне пункты меню — 48 */
+  .menu__socials { font-size: 16px; }   /* соцсети в меню на телефоне мельче, чтобы меню влезало в экран */
   .socials--about .round-btn { display: none; }   /* About на телефоне: только кнопка Download CV, без почты и соцсетей */
 }
 
