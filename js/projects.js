@@ -88,6 +88,9 @@ window.PROJECTS = [
   { id: "events", category: "campaigns", cover: "23-events.jpg",
     title: "1inch Events", homeTitle: "Events",
     summary: "Booths, side events and parties for 1inch: hall-wide projections, projection mapping on a building facade and a world built for every event." },
+  { id: "fusion", category: "campaigns", cover: "25-fusion.jpg",
+    title: "1inch Fusion+",
+    summary: "Key visual for the launch of cross-chain swaps." },
   { id: "times-square", category: "campaigns", cover: "13-times-square.jpg",
     title: "1inch × Times Square",
     summary: "A full animated campaign for a Times Square billboard, designed end to end, from concept to the final motion on screen." },
@@ -129,7 +132,7 @@ window.PROJECTS = [
 /* Главная, блок «This is What I Do»: категории-аккордеон и проекты в них (id из PROJECTS, порядок = порядок в списке).
    Один проект может стоять в нескольких категориях. Название пункта — homeTitle или title проекта. */
 window.SKILLS = [
-  { name: "Art Direction",       projects: ["bruce-lee", "rebranding-2025", "book", "aviasales", "mascot"] },
+  { name: "Art Direction",       projects: ["bruce-lee", "rebranding-2025", "fusion", "book", "aviasales", "mascot"] },
   { name: "Brand Identity",      projects: ["1inch-brand", "rebranding-2025", "rebrand-concept", "hardwallet"] },
   { name: "Product & UI",        projects: ["wallet", "dapp", "hardwallet", "gear-face", "crypto-quest"] },
   { name: "3D & Motion",         projects: ["toy", "times-square", "ai-blender", "motion-automation"] },
