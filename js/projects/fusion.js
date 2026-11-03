@@ -12,6 +12,7 @@ PAGES["fusion"] = {
     { label: "Year", value: ["2024"] }
   ],
   blocks: [
+    { full: { video: "00-hd.webm", play: "auto" } },
     { row: [ { file: "01-cubes.jpg" }, { video: "fusion.webm", play: "auto" } ] },
     { full: { file: "02-billboard.jpg" } },
     { full: { file: "03-swap-ui.jpg" } },
