@@ -617,6 +617,14 @@ p, h1, h2, h3 { margin: 0; }
   .features { gap: 72px; }
   .feature .media { aspect-ratio: 1; }
   .feature__caption { margin-top: 16px; }
+  /* обложка проекта на телефоне: не выше квадрата (и не выше экрана), без «Scroll down» — сразу идёт текст */
+  .project-hero { --hint-h: var(--pad); }
+  .project-hero .scroll-hint { display: none; }
+  .project-hero .media {
+    min-height: 0;
+    height: min(calc(100vw - 2 * var(--pad)), calc(100vh - 42px - 2 * var(--pad) - var(--hint-h)));
+    height: min(calc(100vw - 2 * var(--pad)), calc(100svh - 42px - 2 * var(--pad) - var(--hint-h)));
+  }
   .menu__panel { padding-left: 20px; }
   .menu__links { font-size: 48px; }   /* на телефоне пункты меню — 48 */
   .menu__socials { font-size: 16px; }   /* соцсети в меню на телефоне мельче, чтобы меню влезало в экран */
