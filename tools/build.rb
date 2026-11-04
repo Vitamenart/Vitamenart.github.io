@@ -21,9 +21,10 @@ Encoding.default_internal = Encoding::UTF_8
 ROOT = File.expand_path("..", __dir__)
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 NAME = "Vitalii Menshenin"
-ROLE = "Digital Product & Brand Designer"
-BIO = "Design director. Sixteen years in, trained as an artist. I start with a blank page and end with a brand " \
-      "that holds together everywhere: on screen, in motion, in your hand. Along the way I build the teams that keep it that way."
+ROLE = "Brand & Product Design Lead"
+BIO = "Brand & product design lead. Sixteen years in, trained as a fine artist. At 1inch I joined as the first designer, " \
+      "built the original brand and grew the design team behind it. I start with a blank page and end with a brand " \
+      "that holds together everywhere: on screen, in motion, in your hand."
 
 # ---------- данные из JS ----------
 dom = IO.popen([CHROME, "--headless=new", "--disable-gpu", "--allow-file-access-from-files",
@@ -57,7 +58,7 @@ def purl(id); url("project.html?id=#{id}"); end
 
 # ---------- Schema.org Person на главной и about ----------
 puts "Schema.org Person:"
-%w[index.html about.html].each do |f|
+%w[index.html about.html contact.html].each do |f|
   path = File.join(ROOT, f)
   html = File.read(path).sub(%r{\n?<!-- schema -->.*?<!-- /schema -->}m, "")
   block = "<!-- schema -->\n" + ld({ "@context" => "https://schema.org" }.merge(PERSON)) + "\n<!-- /schema -->"
@@ -92,7 +93,7 @@ end
 write "llms.txt", <<~MD
   # #{NAME}
 
-  > #{ROLE}. #{BIO}
+  > #{BIO}
 
   Portfolio of #{NAME}: brand identity, digital products, campaigns and design tooling, mostly for 1inch (DeFi).
   Full text of every project: #{url "llms-full.txt"}

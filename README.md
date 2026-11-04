@@ -1,6 +1,6 @@
 # Vitalii Menshenin — Portfolio
 
-Design director working across brand, product and campaigns. Sixteen years in, trained as an artist.
+Brand & product design lead working across brand, product and campaigns. Sixteen years in, trained as a fine artist.
 
 **→ [vitamen.art](https://vitamen.art)**
 
