@@ -14,7 +14,7 @@ PAGES["events"] = {
     { full: { video: "05-booth.webm", play: "auto" } },
     { full: { video: "06-event.webm", play: "auto" } },
     { statement: "At major crypto conferences, the booth was where people met 1inch in person. I designed each one as a physical extension of the brand, with clear product messaging and space for the team to meet partners and users." },
-    { row: [ { video: "04-unicorn-run.webm", play: "auto" }, { file: "01-hall-wireframe.jpg" } ] },
-    { row: [ { file: "02-facade-model.jpg" },               { file: "03-projection-motion.jpg" } ] }
+    { row: [ { video: "04-unicorn-run.webm", play: "auto" }, { file: "01-hall-wireframe.avif" } ] },
+    { row: [ { file: "02-facade-model.avif" },               { file: "03-projection-motion.avif" } ] }
   ]
 };

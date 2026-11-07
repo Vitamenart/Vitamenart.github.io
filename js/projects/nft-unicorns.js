@@ -11,11 +11,11 @@ PAGES["nft-unicorns"] = {
     { label: "Year", value: ["2022"] }
   ],
   blocks: [
-    { row: [ { file: "01-unicorns-left.png" }, { file: "02-unicorns-right.png" } ] },
+    { row: [ { file: "01-unicorns-left.avif" }, { file: "02-unicorns-right.avif" } ] },
     { statement: "I created the entire collection by hand. Each unicorn was assembled from six trait categories: body, hair, outfit, mouth, eyes and horn, with 20 variations in each. Together they allow for 64 million unique combinations, all sharing one consistent illustration style and personality." },
-    { full: { file: "03-collection-grid.png" } },
+    { full: { file: "03-collection-grid.avif" } },
     { row: [ { title: "NFT Evolution", text: "Unicorns evolved with their owners, upgrading through stages based on activity on the platform." },
-             { file: "04-evolution.png" } ] },
-    { full: { file: "05-64mln.png" } }
+             { file: "04-evolution.avif" } ] },
+    { full: { file: "05-64mln.avif" } }
   ]
 };

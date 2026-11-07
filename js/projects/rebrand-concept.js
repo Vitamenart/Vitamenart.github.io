@@ -15,11 +15,11 @@ PAGES["rebrand-concept"] = {
     { label: "Year", value: ["2025"] }
   ],
   blocks: [
-    { row: [ { file: "01-logo-dark.jpg" },     { file: "02-logo-light.jpg" } ] },
-    { row: [ { file: "03-icons-browser.png" }, { file: "04-colors-app.png" } ] },
-    { row: [ { file: "05-mobile.jpg" },        { file: "06-watch.jpg" } ] },
-    { full: { file: "07-billboard.jpg" } },
-    { row: [ { file: "08-badges.jpg" },        { file: "09-cards.jpg" } ] },
-    { row: [ { file: "10-tote.jpg" },          { file: "11-merch.png" } ] }
+    { row: [ { file: "01-logo-dark.avif" },     { file: "02-logo-light.avif" } ] },
+    { row: [ { file: "03-icons-browser.avif" }, { file: "04-colors-app.avif" } ] },
+    { row: [ { file: "05-mobile.avif" },        { file: "06-watch.avif" } ] },
+    { full: { file: "07-billboard.avif" } },
+    { row: [ { file: "08-badges.avif" },        { file: "09-cards.avif" } ] },
+    { row: [ { file: "10-tote.avif" },          { file: "11-merch.avif" } ] }
   ]
 };

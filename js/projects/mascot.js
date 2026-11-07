@@ -10,17 +10,17 @@ PAGES["mascot"] = {
     { label: "Role", value: ["Character Design", "Illustration"] }
   ],
   blocks: [
-    { full: { file: "01-unicorns.jpg" } },
-    { full: { file: "02-stickers.jpg" } },
+    { full: { file: "01-unicorns.avif" } },
+    { full: { file: "02-stickers.avif" } },
     { row: [ { title: "NFT Collection", text: "The unicorn was also designed as an NFT collection, with a series of unique variations of the character. The project was never released.", link: "nft-unicorns" },
              { file: "03-nft.gif" } ] },
-    { full: { file: "03-app.jpg" } },
-    { full: { file: "04-uft.jpg" } },
+    { full: { file: "03-app.avif" } },
+    { full: { file: "04-uft.avif" } },
     { title: "One Unicorn, Many Worlds", statement: "The unicorn travels between worlds through portals. Each world, or each campaign and event, gives him a new form, style and mood, yet he always stays recognisably himself. This turned the mascot from a single static image into an open creative platform that could grow with the brand." },
     { full: { video: "uni-run.webm", play: "auto" } },
-    { full: { file: "05-mountain.jpg" } },
-    { full: { file: "06-snow.jpg" } },
-    { full: { file: "07-gotham.jpg" } },
+    { full: { file: "05-mountain.avif" } },
+    { full: { file: "06-snow.avif" } },
+    { full: { file: "07-gotham.avif" } },
     { row: [ { file: "08-without-ai.svg" },
              { title: "Without AI", text: "All illustrations and animations were created by hand, with no generative AI." } ] }
   ]

@@ -9,13 +9,13 @@ PAGES["film-stills"] = {
     { label: "Year", value: ["2019"] }
   ],
   blocks: [
-    { full: { file: "01-good-bad-ugly.jpg" } },
-    { full: { file: "02-blade-runner.jpg" } },
-    { full: { file: "03-breaking-bad.jpg" } },
-    { full: { file: "04-alien.jpg" } },
-    { full: { file: "05-big-lebowski.jpg" } },
-    { full: { file: "06-pulp-fiction.jpg" } },
-    { full: { file: "07-bad-santa.jpg" } },
-    { full: { file: "08-spider-man.jpg" } }
+    { full: { file: "01-good-bad-ugly.avif" } },
+    { full: { file: "02-blade-runner.avif" } },
+    { full: { file: "03-breaking-bad.avif" } },
+    { full: { file: "04-alien.avif" } },
+    { full: { file: "05-big-lebowski.avif" } },
+    { full: { file: "06-pulp-fiction.avif" } },
+    { full: { file: "07-bad-santa.avif" } },
+    { full: { file: "08-spider-man.avif" } }
   ]
 };

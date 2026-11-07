@@ -9,7 +9,7 @@ PAGES["figma-tools"] = {
   blocks: [
     { full: { file: "01-ascii-plugin.svg" } },
     { title: "ASCII Plugin", statement: "The new 1inch identity leaned on ASCII-style imagery, but no existing tool could produce it the way the brand needed. I built a plugin that converts any image into ASCII art and outputs it as clean, editable vectors directly inside Figma. A wide set of controls covers character sets, density, contrast, scale and more, so the result can be tuned to match the brand style exactly and stays fully editable afterwards." },
-    { row: [ { file: "02-qr-plugin.jpg" }, { file: "03-qr-unicorn.jpg" } ] },
+    { row: [ { file: "02-qr-plugin.avif" }, { file: "03-qr-unicorn.avif" } ] },
     { title: "QR Code Plugin", statement: "A QR generator that runs entirely inside Figma, with no external services and no tracking links. Beyond the standard settings, including error correction levels, it lets you change the shape and structure of the modules to match the brand’s illustration style. The result is a QR code that sits naturally inside flyers, posters and merch as part of the design." }
   ]
 };

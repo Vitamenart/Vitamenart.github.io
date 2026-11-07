@@ -1,9 +1,9 @@
 /*
  * ЕДИНСТВЕННОЕ место, где описаны проекты.
  *
- * Обложки: assets/covers-web/<cover>  — JPEG 2560×1440, сжатые копии PNG-оригиналов 3840×2160 (оригиналы — в бэкапе).
- * Новую обложку: сделать JPEG-копию из PNG:
- *   sips -s format jpeg -s formatOptions 82 -Z 2560 NN.png --out assets/covers-web/NN.jpg
+ * Обложки: assets/covers-web/<cover>  — AVIF 2560×1440, сжатые копии PNG-оригиналов 3840×2160 (оригиналы — в бэкапе).
+ * Новую обложку: сделать AVIF-копию из PNG (картинки страниц — так же, без -Z):
+ *   sips -s format avif -s formatOptions 80 -Z 2560 NN.png --out assets/covers-web/NN.avif
  * Один файл используется везде: барабан, большие карточки, сетка вкладок,
  * шапка страницы проекта, «Other Works». Если файла нет — рисуется заглушка
  * с названием, так что можно класть картинки постепенно.
@@ -42,89 +42,89 @@ window.CATEGORIES = [
 
 window.PROJECTS = [
   /* ---------- Brand ---------- */
-  { id: "1inch-brand", category: "brand", home: 2, cover: "03-1inch-network.jpg",
+  { id: "1inch-brand", category: "brand", home: 2, cover: "03-1inch-network.avif",
     title: "1inch Brand", homeTitle: "1inch Brand",
     summary: "The original 1inch identity, built from scratch. Logo, mascot, colours, type and a single visual system across the website, dApp, wallet and beyond." },
-  { id: "rebranding-2025", category: "brand", home: 3, cover: "01-1inch-wordmark.jpg",
+  { id: "rebranding-2025", category: "brand", home: 3, cover: "01-1inch-wordmark.avif",
     title: "1inch Rebranding",
     summary: "A new identity for a DeFi brand that grew up. Art-directed on the 1inch side in collaboration with Shuka Brand Bureau." },
-  { id: "rebrand-concept", category: "brand", cover: "02-1inch-rebranding.jpg",
+  { id: "rebrand-concept", category: "brand", cover: "02-1inch-rebranding.avif",
     title: "1inch Rebrand: an unreleased concept", homeTitle: "1inch Rebrand Concept", skillTitle: "1inch Rebrand Concept",
     summary: "A bolder, red-edged refresh of the 1inch identity, shelved when the brand turned toward a calmer, institutional tone." },
-  { id: "mascot", category: "brand", cover: "16-mascot.jpg",
+  { id: "mascot", category: "brand", cover: "16-mascot.avif",
     title: "1inch Mascot",
     summary: "A fast, bold unicorn who travels between worlds, changing his look in every one while staying himself." },
 
   /* ---------- Products ---------- */
-  { id: "wallet", category: "products", home: 4, cover: "06-wallet-app.jpg", focus: "50% 40%",
+  { id: "wallet", category: "products", home: 4, cover: "06-wallet-app.avif", focus: "50% 40%",
     title: "1inch Wallet",
     summary: "A mobile crypto wallet designed from a blank page, balancing the power of DeFi with the clarity and trust of a banking app." },
-  { id: "dapp", category: "products", home: 5, cover: "11-dapp.jpg",
+  { id: "dapp", category: "products", home: 5, cover: "11-dapp.avif",
     title: "1inch dApp",
     summary: "The interface of one of DeFi's largest aggregators, from the first version to scale." },
-  { id: "hardwallet", category: "products", home: 1, cover: "04-hardwallet.jpg", focus: "50% 60%",
+  { id: "hardwallet", category: "products", home: 1, cover: "04-hardwallet.avif", focus: "50% 60%",
     title: "Hardware Wallet", homeTitle: "HardWallet",
     summary: "Every touchpoint of an air-gapped hardware wallet, designed solo: the device, a strictly black-and-white E-Ink interface with custom pixel type and icons, motion and packaging.",
     links: [ { label: "ERA Wallet", href: "https://era-wallet.com/" },
              { label: "ERA Wallet on X", href: "https://x.com/era_wallet", style: "outline" } ] },
-  { id: "nft-unicorns", category: "products", cover: "05-nft-card.jpg",
+  { id: "nft-unicorns", category: "products", cover: "05-nft-card.avif",
     title: "NFT Unicorns",
     summary: "An unreleased generative NFT collection with 64 million possible unicorns that evolve with their owners." },
 
   /* ---------- Campaigns ---------- */
-  { id: "book", category: "campaigns", cover: "07-defi-book.jpg",
+  { id: "book", category: "campaigns", cover: "07-defi-book.avif",
     title: "Book: reDeFine Money",
     summary: "Cover and data visualisation for 1inch's oral history of DeFi.",
     links: [ { label: "Read the news", href: "https://www.thestreet.com/crypto/innovation/1inch-releases-redefine-money-the-first-book-to-tell-defis-story" } ] },
-  { id: "defy", category: "campaigns", cover: "09-defy-stickers.jpg",
+  { id: "defy", category: "campaigns", cover: "09-defy-stickers.avif",
     title: "DEFY",
     summary: "A street-art inspired conference campaign built on a double meaning: DeFi and defy." },
-  { id: "toy", category: "campaigns", cover: "08-unicorn-plush.jpg",
+  { id: "toy", category: "campaigns", cover: "08-unicorn-plush.avif",
     title: "Toy: Sir Inchalot",
     summary: "A plush unicorn for 1inch's conference giveaways, taken from first sketches to production-ready 3D." },
-  { id: "merch", category: "campaigns", cover: "12-merch.jpg",
+  { id: "merch", category: "campaigns", cover: "12-merch.avif",
     title: "1inch Merch",
     summary: "Illustrated merch for a brand that travels: a unicorn adapted to every event, and shirts people lined up for." },
-  { id: "events", category: "campaigns", cover: "23-events.jpg",
+  { id: "events", category: "campaigns", cover: "23-events.avif",
     title: "1inch Events", homeTitle: "Events",
     summary: "Booths, side events and parties for 1inch: hall-wide projections, projection mapping on a building facade and a world built for every event." },
-  { id: "fusion", category: "campaigns", cover: "25-fusion.jpg",
+  { id: "fusion", category: "campaigns", cover: "25-fusion.avif",
     title: "1inch Fusion+",
     summary: "Key visual for the launch of cross-chain swaps." },
-  { id: "times-square", category: "campaigns", cover: "13-times-square.jpg",
+  { id: "times-square", category: "campaigns", cover: "13-times-square.avif",
     title: "1inch × Times Square",
     summary: "A full animated campaign for a Times Square billboard, designed end to end, from concept to the final motion on screen." },
-  { id: "crypto-quest", category: "campaigns", cover: "14-crypto-quest.jpg",
+  { id: "crypto-quest", category: "campaigns", cover: "14-crypto-quest.avif",
     title: "Crypto Quest 2025",
     summary: "A year in crypto, reimagined as a retro RPG: personal stats, low-bit heroes and shareable cards for 1inch Wallet users." },
-  { id: "bruce-lee", category: "campaigns", cover: "15-bruce-lee.jpg",
+  { id: "bruce-lee", category: "campaigns", cover: "15-bruce-lee.avif",
     title: "1inch × Bruce Lee",
     summary: "The first global 1inch campaign, made in partnership with the Bruce Lee Family Company. Art-directed on the 1inch side.",
     links: [ { label: "News", href: "https://www.adobomagazine.com/campaign-spotlight/bruce-lee-returns-to-urge-you-to-take-crypto-seriouslee-in-first-global-campaign-for-1inch-defi-platform/" },
              { label: "Cointelegraph", href: "https://cointelegraph.com/news/1inch-bruce-lee-family-defi-adoption-seriouslee-campaign", style: "outline" } ] },
-  { id: "aviasales", category: "campaigns", cover: "17-aviasales.jpg",
+  { id: "aviasales", category: "campaigns", cover: "17-aviasales.avif",
     title: "Aviasales New Year",
     summary: "A New Year campaign for Aviasales: an illustrated world inspired by hand-painted Soviet greeting cards." },
 
   /* ---------- AI & Tools ---------- */
-  { id: "ai-workflows", category: "designops", cover: "18-ai-workflows.jpg",
+  { id: "ai-workflows", category: "designops", cover: "18-ai-workflows.avif",
     title: "AI Production Workflows",
     summary: "Custom ComfyUI pipelines and a Claude Code + MCP setup that turned AI into a reliable, on-brand production tool." },
-  { id: "figma-tools", category: "designops", cover: "19-figma-tools.jpg",
+  { id: "figma-tools", category: "designops", cover: "19-figma-tools.avif",
     title: "Custom Figma Tools",
     summary: "AI-assisted Figma plugins that turned brand rules into tools: an ASCII image converter and an on-brand QR generator." },
-  { id: "motion-automation", category: "designops", cover: "20-motion-automation.jpg",
+  { id: "motion-automation", category: "designops", cover: "20-motion-automation.avif",
     title: "Motion Automation",
     summary: "After Effects scripts that made animation four times faster to build and ten times lighter to ship." },
-  { id: "ai-blender", category: "designops", cover: "22-ai-blender.jpg",
+  { id: "ai-blender", category: "designops", cover: "22-ai-blender.avif",
     title: "AI in Blender",
     summary: "LLMs connected to Blender via MCP and Python scripts: 3D scenes built from a text brief in minutes instead of hours." },
 
   /* ---------- Личное — в самом конце списка ---------- */
-  { id: "gear-face", category: "products", cover: "21-gear-face.jpg",
+  { id: "gear-face", category: "products", cover: "21-gear-face.avif",
     title: "Gear Face",
     summary: "Custom watch faces for Samsung Gear, designed as a personal playground for interfaces on a tiny round screen." },
-  { id: "film-stills", category: "campaigns", cover: "24-film-stills.jpg",
+  { id: "film-stills", category: "campaigns", cover: "24-film-stills.avif",
     title: "Repainted Films",
     summary: "Scenes from films that stayed with me, repainted by hand." }
 ];

@@ -13,11 +13,11 @@ PAGES["fusion"] = {
   ],
   blocks: [
     { full: { video: "00-hd.webm", play: "auto" } },
-    { row: [ { file: "01-cubes.jpg" }, { video: "fusion.webm", play: "auto" } ] },
-    { full: { file: "02-billboard.jpg" } },
-    { full: { file: "03-swap-ui.jpg" } },
+    { row: [ { file: "01-cubes.avif" }, { video: "fusion.webm", play: "auto" } ] },
+    { full: { file: "02-billboard.avif" } },
+    { full: { file: "03-swap-ui.avif" } },
     { statement: "Along the way we explored other directions too. One was built on three pillars that summed up the product: Seamless, Secure and Self-Custody. Another used a prism that refracted a single swap beam into different networks, showing how one action reaches many chains." },
-    { full: { file: "04-concept-pillars.jpg" } },
-    { full: { file: "05-concept-prism.jpg" } }
+    { full: { file: "04-concept-pillars.avif" } },
+    { full: { file: "05-concept-prism.avif" } }
   ]
 };

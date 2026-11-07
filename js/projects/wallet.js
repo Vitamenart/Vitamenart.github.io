@@ -16,15 +16,15 @@ PAGES["wallet"] = {
       { value: "250K",  label: "downloads in the first year" },
       { value: "13+",   label: "networks supported" }
     ] },
-    { row: [ { file: "01-app-icon.jpg" }, { file: "02-wallets.jpg" } ] },
-    { row: [ { file: "03-history.jpg" },  { file: "04-widgets.jpg" } ] },
+    { row: [ { file: "01-app-icon.avif" }, { file: "02-wallets.avif" } ] },
+    { row: [ { file: "03-history.avif" },  { file: "04-widgets.avif" } ] },
     { statement: "The first version, shipped in 2020, carried the density of crypto at the time: too many numbers, settings and edge cases on every screen. Every iteration since has been about removing friction, flattening the hierarchy and making each action obvious to someone opening a wallet for the first time." },
-    { full: { file: "05-first-version.jpg" } },
-    { row: [ { file: "06-user-flow.jpg" },
+    { full: { file: "05-first-version.avif" } },
+    { row: [ { file: "06-user-flow.avif" },
              { title: "User flow", text: "Every screen and state was mapped together with the engineering team, so no crypto-specific edge case slipped through." } ] },
-    { full: { file: "07-cards.jpg" } },
+    { full: { file: "07-cards.avif" } },
     { statement: "By 2022 the product design team had grown, and I handed day-to-day work on the wallet over to them. I stayed in the loop as design reviewer, signing off every layout before it reached development." },
-    { full: { file: "08-screens.jpg" } },
-    { full: { file: "09-design-system.jpg" } }
+    { full: { file: "08-screens.avif" } },
+    { full: { file: "09-design-system.avif" } }
   ]
 };

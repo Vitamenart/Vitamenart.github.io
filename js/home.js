@@ -301,6 +301,6 @@
 
   /* --- Showreel: по нажатию на Play --- */
   const reel = document.getElementById("showreel");
-  reel.innerHTML = media({ video: CONTACTS.showreel, poster: "assets/showreel/poster.jpg", play: "click", kind: "video" });
+  reel.innerHTML = media({ video: CONTACTS.showreel, poster: "assets/showreel/poster.avif", play: "click", kind: "video" });
   initVideos(reel);
 })();

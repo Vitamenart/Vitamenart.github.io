@@ -20,23 +20,23 @@ PAGES["hardwallet"] = {
       { value: "250+",  label: "UI screens designed" },
       { value: "4.6",   label: "on Trustpilot" }
     ] },
-    { full: { file: "01-devices.jpg" } },
-    { full: { file: "02-screens.jpg" } },
-    { full: { file: "03-colorways.jpg" } },
-    { full: { file: "04-components.jpg" } },
+    { full: { file: "01-devices.avif" } },
+    { full: { file: "02-screens.avif" } },
+    { full: { file: "03-colorways.avif" } },
+    { full: { file: "04-components.avif" } },
     { statement: "Every screen was designed with security in mind. On a device that protects people’s assets, a single unclear step can cost real money, so each flow was tested and refined until every action felt clear, deliberate and impossible to misread." },
-    { full: { file: "05-ui-screens.jpg" } },
-    { row: [ { file: "06-keypad.jpg" },
+    { full: { file: "05-ui-screens.avif" } },
+    { row: [ { file: "06-keypad.avif" },
              { title: "E-Ink panel", text: [
                "The interface was the hardest part. The E-Ink panel rendered strictly 1-bit: pure black and pure white, with no shades of grey in between. Without anti-aliasing, even a rounded corner or a diagonal line had to be built pixel by pixel, and nothing could be borrowed from standard UI practice. I designed a complete interaction system within those limits.",
                "I drew custom pixel-perfect typefaces and a dedicated icon set so every glyph lands exactly on the grid, and designed animations that work with E-Ink refresh rather than against it."
              ] } ] },
-    { row: [ { file: "07-type.svg" }, { file: "08-icons.jpg" } ] },
+    { row: [ { file: "07-type.svg" }, { file: "08-icons.avif" } ] },
     { statement: "The work extended to the packaging, built as a layered unboxing that introduces the device step by step." },
-    { row: [ { file: "09-packaging-layers.svg" }, { file: "10-packaging.jpg" } ] },
+    { row: [ { file: "09-packaging-layers.svg" }, { file: "10-packaging.avif" } ] },
     { title: "Concept &amp; Prototypes",
       statement: "The amount of work behind this stage was enormous. I even printed the interface on paper at 1:1 scale to test whether the on-screen keyboard would be comfortable to use in real life." },
-    { row: [ { file: "11-paper-prototype.jpg" }, { file: "12-prototypes.png" } ] },
-    { row: [ { file: "13-fingerprint.jpg" },     { file: "14-sketch.jpg" } ] }
+    { row: [ { file: "11-paper-prototype.avif" }, { file: "12-prototypes.avif" } ] },
+    { row: [ { file: "13-fingerprint.avif" },     { file: "14-sketch.avif" } ] }
   ]
 };

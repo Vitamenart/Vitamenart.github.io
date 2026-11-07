@@ -11,8 +11,8 @@ PAGES["aviasales"] = {
     { label: "Year", value: ["2019"] }
   ],
   blocks: [
-    { row: [ { file: "01-reference.jpg" }, { file: "02-hedgehog.jpg" } ] },
-    { full: { file: "03-100-free-tickets.jpg" } },
-    { row: [ { file: "04-santa.jpg" }, { file: "05-cat.jpg" } ] }
+    { row: [ { file: "01-reference.avif" }, { file: "02-hedgehog.avif" } ] },
+    { full: { file: "03-100-free-tickets.avif" } },
+    { row: [ { file: "04-santa.avif" }, { file: "05-cat.avif" } ] }
   ]
 };

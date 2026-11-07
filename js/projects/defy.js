@@ -11,18 +11,18 @@ PAGES["defy"] = {
     { label: "Year", value: ["2022"] }
   ],
   blocks: [
-    { full: { file: "01-built-to-defy.jpg" } },
-    { row: [ { file: "02-tshirt.jpg" }, { file: "03-stickers.jpg" } ] },
+    { full: { file: "01-built-to-defy.avif" } },
+    { row: [ { file: "02-tshirt.avif" }, { file: "03-stickers.avif" } ] },
     { tweets: { title: "What People Say", items: [
       { url: "https://x.com/aestimi/status/1517867735757246464",
         name: "tim", handle: "aestimi",
-        avatar: "assets/avatars/aestimi.jpg",
+        avatar: "assets/avatars/aestimi.avif",
         photo: "https://pbs.twimg.com/ext_tw_video_thumb/1517867675829035008/pu/img/6Rs4oIoEutZOEXeL.jpg?name=medium",
         video: true,
         text: "The first useful ad at Amsterdam’s subway today. Great job, 1inch" },
       { url: "https://x.com/viktorfischer/status/1517964752386990081",
         name: "Viktor | RockawayX", handle: "viktorfischer",
-        avatar: "assets/avatars/viktorfischer.jpg",
+        avatar: "assets/avatars/viktorfischer.avif",
         photo: "https://pbs.twimg.com/media/FRDk4-eXoAA6czc.jpg?name=medium",
         text: "@aestimi @1inch Also - finally interesting sidewalks @deacix @k06a 😁" }
     ] } }

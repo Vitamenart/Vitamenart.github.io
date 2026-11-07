@@ -7,11 +7,11 @@ PAGES["ai-blender"] = {
   ],
   meta: [],
   blocks: [
-    { row: [ { file: "01-neuron-blender.jpg" }, { file: "02-neuron-render.jpg" } ] },
+    { row: [ { file: "01-neuron-blender.avif" }, { file: "02-neuron-render.avif" } ] },
     { statement: "On Apple’s iPhone Duo launch day, we showed our website running on the new device. To make it in time, I built a fully functional 3D model with Claude and Blender MCP: the screen texture bends along the fold, with parallax as the device opens." },
-    { row: [ { file: "03-duo-blender.jpg" }, { video: "duo.webm", play: "auto" } ] },
+    { row: [ { file: "03-duo-blender.avif" }, { video: "duo.webm", play: "auto" } ] },
     { statement: "A few more projects made with AI in the loop." },
-    { row: [ { file: "04-map-nodes.jpg" }, { file: "05-spider-web.jpg" } ] },
-    { row: [ { video: "window.webm", play: "auto" }, { file: "06-interior-nodes.jpg" } ] }
+    { row: [ { file: "04-map-nodes.avif" }, { file: "05-spider-web.avif" } ] },
+    { row: [ { video: "window.webm", play: "auto" }, { file: "06-interior-nodes.avif" } ] }
   ]
 };

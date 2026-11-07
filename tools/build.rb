@@ -47,7 +47,7 @@ end
 
 PERSON = {
   "@type" => "Person", "name" => NAME, "jobTitle" => ROLE, "description" => BIO,
-  "email" => "mailto:#{CONTACTS["email"]}", "image" => url("assets/about/portrait.jpg"), "url" => url(""),
+  "email" => "mailto:#{CONTACTS["email"]}", "image" => url("assets/about/portrait.avif"), "url" => url(""),
   "sameAs" => CONTACTS["links"].map { |l| l["href"] }
 }
 

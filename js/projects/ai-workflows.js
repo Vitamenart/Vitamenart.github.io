@@ -10,13 +10,13 @@ PAGES["ai-workflows"] = {
     { label: "Role", value: ["Workflow Design", "AI Pipelines"] }
   ],
   blocks: [
-    { full: { file: "01-claude-design-system.jpg" } },
-    { full: { file: "02-claude-mcp.jpg" } },
+    { full: { file: "01-claude-design-system.avif" } },
+    { full: { file: "02-claude-mcp.avif" } },
     { statement: "AI worked directly with real brand tokens: colours, typography and UI components. Presentations and landing pages were generated on top of the actual design system." },
-    { row: [ { file: "03-weavy-flow.jpg" }, { video: "03-weavy-video.webm", play: "auto" } ] },
+    { row: [ { file: "03-weavy-flow.avif" }, { video: "03-weavy-video.webm", play: "auto" } ] },
     { statement: "I designed my own ComfyUI pipelines for production tasks. Photo restoration: a custom pipeline that rebuilds low-quality images, such as video frames and screenshots, without altering people’s faces. This turned unusable material into assets ready for marketing." },
-    { compare: { before: "04-portrait-before.jpg", after: "04-portrait-after.jpg" } },
-    { full: { file: "05-comfyui-upscale.jpg" } },
-    { full: { file: "06-comfyui-lora.jpg" } }
+    { compare: { before: "04-portrait-before.avif", after: "04-portrait-after.avif" } },
+    { full: { file: "05-comfyui-upscale.avif" } },
+    { full: { file: "06-comfyui-lora.avif" } }
   ]
 };

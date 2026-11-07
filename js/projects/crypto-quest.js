@@ -12,9 +12,9 @@ PAGES["crypto-quest"] = {
     { label: "Year", value: ["2025"] }
   ],
   blocks: [
-    { full: { file: "01-screens.png" } },
-    { row: [ { file: "02-heroes.png" }, { file: "03-knight.gif" } ] },
+    { full: { file: "01-screens.avif" } },
+    { row: [ { file: "02-heroes.avif" }, { file: "03-knight.gif" } ] },
     { row: [ { file: "04-cards-left.gif" }, { file: "05-cards-right.gif" } ] },
-    { full: { file: "06-hero-cards.png" } }
+    { full: { file: "06-hero-cards.avif" } }
   ]
 };

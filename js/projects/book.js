@@ -16,9 +16,9 @@ PAGES["book"] = {
     { label: "Read the book", href: "https://written.app/book/e0462ae3-8547-472f-b677-e798058ad4c0", style: "outline" }
   ],
   blocks: [
-    { full: { file: "01-spread-dex.jpg" } },
+    { full: { file: "01-spread-dex.avif" } },
     { statement: "Inside, I designed the full set of charts and infographics that run through the book, turning market data, timelines and regulatory history into clear editorial spreads. Built on the 1inch brand palette, the system keeps every visual consistent from chapter to chapter while making complex data read at a glance." },
-    { row: [ { file: "02-spread-yellow.jpg" }, { file: "03-spread-circles.jpg" } ] },
-    { full: { file: "04-spread-friendly.jpg" } }
+    { row: [ { file: "02-spread-yellow.avif" }, { file: "03-spread-circles.avif" } ] },
+    { full: { file: "04-spread-friendly.avif" } }
   ]
 };

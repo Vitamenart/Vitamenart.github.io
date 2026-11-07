@@ -17,8 +17,8 @@ PAGES["bruce-lee"] = {
   blocks: [
     { full: { video: "https://youtu.be/Xv2-G-JIOrI", play: "click" } },
     { statement: "As Art Director on the 1inch side, I oversaw the visual direction of the film and carried the campaign across every touchpoint, from key visuals and social content to event materials, print and merch." },
-    { row: [ { file: "01-self-custodial.jpg" }, { file: "02-phone.jpg" } ] },
-    { row: [ { file: "03-tshirt.jpg" },        { file: "04-gasless.jpg" } ] },
+    { row: [ { file: "01-self-custodial.avif" }, { file: "02-phone.avif" } ] },
+    { row: [ { file: "03-tshirt.avif" },        { file: "04-gasless.avif" } ] },
     { row: [ { title: "In Wallet App", text: "The campaign didn’t stop at the screen. Bruce Lee also appeared inside 1inch Wallet, with a special loading animation and in-app cover that brought the campaign into the product itself." },
              { file: "05-wallet-card.svg" } ] }
   ]

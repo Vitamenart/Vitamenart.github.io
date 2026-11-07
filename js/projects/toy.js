@@ -14,9 +14,9 @@ PAGES["toy"] = {
     { label: "Year", value: ["2023"] }
   ],
   blocks: [
-    { row: [ { file: "01-3d-model.jpg" }, { file: "02-sketches.jpg" } ] },
-    { row: [ { video: "03-render.webm", play: "auto" }, { file: "04-event.jpg" } ] },
-    { row: [ { file: "05-booth.jpg" },    { file: "06-plush.jpg" } ] },
+    { row: [ { file: "01-3d-model.avif" }, { file: "02-sketches.avif" } ] },
+    { row: [ { video: "03-render.webm", play: "auto" }, { file: "04-event.avif" } ] },
+    { row: [ { file: "05-booth.avif" },    { file: "06-plush.avif" } ] },
     { row: [ { title: "1inch Mascot", text: "The 1inch unicorn is the brand’s core mascot. Sir Inchalot gives it a body: the same character, reimagined as a soft, tactile object people want to take home.", link: "mascot" },
              { file: "../mascot/uni-anim.svg" } ] }
   ]

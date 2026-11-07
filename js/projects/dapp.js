@@ -18,14 +18,14 @@ PAGES["dapp"] = {
       { value: "$800B", label: "total swap volume" },
       { value: "267M",  label: "swaps executed" }
     ] },
-    { full: { file: "01-before-hackathon.jpg" } },
-    { full: { file: "02-first-redesign.jpg" } },
+    { full: { file: "01-before-hackathon.avif" } },
+    { full: { file: "02-first-redesign.avif" } },
     { statement: "The first redesign turned a raw prototype into a product people could trust: a clear hierarchy, a focused swap flow and a visual language that matched the 1inch brand." },
-    { full: { file: "03-screens.jpg" } },
-    { full: { file: "04-update-2021.jpg" } },
-    { full: { file: "05-all-screens.jpg" } },
+    { full: { file: "03-screens.avif" } },
+    { full: { file: "04-update-2021.avif" } },
+    { full: { file: "05-all-screens.avif" } },
     { statement: "1inch splits every trade across multiple exchanges to find the best rate, but no one had ever shown users how. I designed a routing visual from scratch that makes the path of every token clear at a glance." },
-    { full: { file: "06-routing.jpg" } },
+    { full: { file: "06-routing.avif" } },
     { row: [ { tokens: { dir: "tokens/", count: 64 } },
              { title: "Token icons", text: "More than 1,000 token icons, redrawn by hand in vector so every asset looks sharp and consistent, giving users a cleaner, more trustworthy experience." } ] }
   ]
