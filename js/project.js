@@ -44,7 +44,6 @@
   root.innerHTML = `
       <section class="project-hero">
         <div class="media">${coverImg(p, { eager: true })}</div>
-        <a class="round-btn project-hero__close" href="work.html?cat=${p.category}" aria-label="Back to projects">${ICON.close}</a>
         <a class="scroll-hint" href="#project-intro">Scroll down ${ICON.scroll}</a>
       </section>`;
   fadeScrollHint();
@@ -78,11 +77,16 @@
     };
     page.links = page.links || p.links;
     const dir = MEDIA_DIR + p.id + "/";
-    const others = [1, 2, 3, 4].map(k => PROJECTS[(idx + k) % PROJECTS.length]);
+    const next = PROJECTS[(idx + 1) % PROJECTS.length];
+    const others = [2, 3, 4, 5].map(k => PROJECTS[(idx + k) % PROJECTS.length]);   // следующий уже в Next project
 
     root.insertAdjacentHTML("beforeend", `
       <section class="project-intro" id="project-intro">
-        <h1 class="project-intro__title">${page.heading}</h1>
+        <div class="project-intro__head">
+          <a class="project-back" href="work.html?cat=${p.category}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 6l-6 6 6 6"/></svg>All work</a>
+          <h1 class="project-intro__title">${page.heading}</h1>
+        </div>
         <div class="project-intro__body">
           ${page.text.map(t => `<p>${t}</p>`).join("")}
           ${page.meta.length ? `<dl class="project-meta">${page.meta.map(m =>
@@ -96,7 +100,14 @@
       <div class="blocks">${page.blocks.map(block).join("")}
       </div>
 
-      <section class="other-works">
+      <section class="next-project">
+        <a class="next-project__link" href="project.html?id=${next.id}">
+          <div class="media next-project__cover">${coverImg(next, { alt: "" })}</div>
+          <span class="next-project__label">Next project ${ICON.arrow}</span>
+        </a>
+      </section>
+
+      <section class="other-works light">
         <h2 class="other-works__title">Other Works</h2>
         <div class="other-works__row">${others.map(o => `
           <a class="tile" href="project.html?id=${o.id}">
@@ -154,6 +165,52 @@
     const card = track.querySelector(".tweet");
     track.scrollBy({ left: +btn.dataset.dir * (card.offsetWidth + 16), behavior: "smooth" });
   });
+
+  /* Квадратные картинки (jpg / png в ряду из двух) на телефоне открываются по нажатию: картинка вылетает
+     из своего места на всю ширину, крестик под ней. Закрыть — крестик, тап по фону, Esc или «назад».
+     Гифки, svg, видео, соты, кубики и до/после не открываются. Листать нельзя — только одна картинка. */
+  const zoomQuery = matchMedia("(max-width: 560px)");
+  document.addEventListener("click", e => {
+    if (!zoomQuery.matches) return;
+    const box = e.target.closest(".block--row > .cell > .media--img");
+    const img = box && box.querySelector("img.cover");
+    if (!img || !/\.(jpe?g|png)$/i.test(img.src.split("?")[0]) || !img.complete) return;
+    openZoom(img);
+  });
+  function openZoom(img) {
+    const from = img.getBoundingClientRect();
+    const zoom = document.createElement("div");
+    zoom.className = "zoom";
+    zoom.innerHTML = `<div class="zoom__img"><img class="cover" src="${img.currentSrc || img.src}" alt="${img.alt}"></div>
+      <button class="round-btn zoom__close" type="button" aria-label="Close">${ICON.close}</button>`;
+    document.body.append(zoom);
+    document.body.classList.add("no-scroll");
+    const pic = zoom.querySelector(".zoom__img");
+    // FLIP: ставим картинку на место квадрата и отпускаем на её место в окне
+    const to = pic.getBoundingClientRect();
+    const flip = `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${from.width / to.width})`;
+    pic.animate([{ transform: flip }, { transform: "none" }], { duration: 400, easing: "cubic-bezier(0.65, 0, 0.35, 1)" });
+    requestAnimationFrame(() => zoom.classList.add("is-open"));
+    history.pushState({ zoom: true }, "");
+    let closed = false;
+    const close = () => {
+      if (closed) return;
+      closed = true;
+      removeEventListener("popstate", close);
+      removeEventListener("keydown", onKey);
+      const back = img.getBoundingClientRect(), now = pic.getBoundingClientRect();
+      zoom.classList.remove("is-open");
+      pic.animate([{ transform: "none" },
+        { transform: `translate(${back.left - now.left}px, ${back.top - now.top}px) scale(${back.width / now.width})` }],
+        { duration: 350, easing: "cubic-bezier(0.65, 0, 0.35, 1)", fill: "forwards" })
+        .finished.then(() => { zoom.remove(); document.body.classList.remove("no-scroll"); });
+    };
+    const onKey = e => { if (e.key === "Escape") history.back(); };
+    addEventListener("popstate", close);            // «назад» в браузере / жест на Android
+    addEventListener("keydown", onKey);
+    zoom.addEventListener("click", e => { if (!e.target.closest(".zoom__img img")) history.back(); });   // крестик или фон
+    zoom.querySelector(".zoom__close").focus({ preventScroll: true });
+  }
 
   /* Цифры (metrics) — «однорукий бандит»: каждый символ (цифры, $, M, +…) — барабан со случайной лентой,
      которая заканчивается нужным символом. Как только блок показался в экране хоть краем, все барабаны

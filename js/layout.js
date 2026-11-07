@@ -94,7 +94,7 @@
     return `
       <footer class="site-footer">
         <div class="site-footer__row">
-          <p class="site-footer__name">Vitalii</p>
+          <img class="site-footer__name" src="assets/vitalii.svg" alt="Vitalii" width="861" height="270">
           <div class="site-footer__side">
             <a class="site-footer__cta" href="mailto:${C.email}">
               <span>Let's work together<br>${C.email}</span>${icon.arrow}
