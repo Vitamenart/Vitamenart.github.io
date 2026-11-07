@@ -166,7 +166,7 @@
     track.scrollBy({ left: +btn.dataset.dir * (card.offsetWidth + 16), behavior: "smooth" });
   });
 
-  /* Квадратные картинки (jpg / png в ряду из двух) на телефоне открываются по нажатию: картинка вылетает
+  /* Квадратные картинки (avif / jpg / png в ряду из двух) на телефоне открываются по нажатию: картинка вылетает
      из своего места на всю ширину, крестик под ней. Закрыть — крестик, тап по фону, Esc или «назад».
      Гифки, svg, видео, соты, кубики и до/после не открываются. Листать нельзя — только одна картинка. */
   const zoomQuery = matchMedia("(max-width: 560px)");
@@ -174,7 +174,7 @@
     if (!zoomQuery.matches) return;
     const box = e.target.closest(".block--row > .cell > .media--img");
     const img = box && box.querySelector("img.cover");
-    if (!img || !/\.(jpe?g|png)$/i.test(img.src.split("?")[0]) || !img.complete) return;
+    if (!img || !/\.(jpe?g|png|avif)$/i.test(img.src.split("?")[0]) || !img.complete) return;
     openZoom(img);
   });
   function openZoom(img) {
