@@ -322,7 +322,7 @@ p, h1, h2, h3 { margin: 0; }
 .nav-link { flex: 1; font: var(--t-body-m); padding: 2px 0; }
 
 /* ---------- Work: заголовок, фильтры, сетка ---------- */
-.works-intro { padding: 64px var(--gutter) 48px; }   /* 64 от шапки */
+.works-intro { padding: 24px var(--gutter) 40px; }   /* 24 от шапки */
 .works-intro h1, .project-intro__title { font: var(--t-display-s); letter-spacing: -0.03em; }
 .works-intro h1 { margin-bottom: 32px; }
 /* Фильтры: подложка не шире экрана. Если вкладки не влезают (телефон) — они прокручиваются внутри,
@@ -342,9 +342,12 @@ p, h1, h2, h3 { margin: 0; }
 .filters .tabs { border: 0; width: max-content; }
 
 .grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 64px 16px; padding: 0 var(--gutter) 120px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 56px 16px; padding: 0 var(--gutter) 120px;
 }
+/* в сетке Work (4 в ряд) подписи чуть мельче, чем Heading S / Body M */
+.grid .tile__title { font-size: clamp(18px, 1.67vw, 24px); }
+.grid .tile__text { font-size: 14px; }
 .tile .media { aspect-ratio: 1; border-radius: var(--radius); isolation: isolate; }   /* isolate — Safari не вылезает за скругление при scale */
 .tile__title { margin-top: 16px; font: var(--t-heading-s); letter-spacing: -0.015em; }
 .tile__text { margin-top: 4px; font: var(--t-body-m); color: var(--grey-text); }   /* описание под заголовком: Body M, 4px от заголовка */
@@ -629,7 +632,7 @@ p, h1, h2, h3 { margin: 0; }
   .project-back { position: static; }   /* в один столбец — ссылка в потоке над заголовком */
   .next-project { padding: 96px var(--pad) 56px; }
   .other-works__row { grid-template-columns: repeat(2, 1fr); }
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 40px 12px; }
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 40px 12px; }
 }
 @media (max-width: 560px) {
   /* на телефоне текст мельче: нижние границы шкалы уменьшены (Display XL / 2XL и меню не трогаем) */
@@ -643,7 +646,11 @@ p, h1, h2, h3 { margin: 0; }
     --body-m: 16px;
   }
   .blocks { --radius-block: 20px; }   /* картинки на страницах проектов: на телефоне скругление меньше (было 32) */
-  .grid { grid-template-columns: 1fr; }
+  /* Work на телефоне: 2 в ряд, зазор 8 — как между картинками на страницах проектов */
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 32px 8px; }
+  .grid .tile__title, .other-works .tile__title { margin-top: 12px; font-size: 16px; }
+  .grid .tile__text, .other-works .tile__text { font-size: 12px; }
+  .other-works__row { gap: 32px 8px; }   /* Other works — как сетка Work */
   /* два квадрата остаются рядом, как на десктопе; в столбец — только ряд «картинка + текст» */
   .block--row:has(> .cell--text) { grid-template-columns: 1fr; }
   /* зазоры между картинками на телефоне — 8 (поля от краёв прежние) */

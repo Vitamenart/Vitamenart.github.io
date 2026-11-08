@@ -15,7 +15,7 @@
     const list = cat === "all" ? PROJECTS : PROJECTS.filter(p => p.category === cat);
     grid.innerHTML = list.length ? list.map((p, i) => `
       <a class="tile" href="project.html?id=${p.id}">
-        <div class="media">${coverImg(p, first ? { eager: i < 3, lazy: false } : { lazy: false })}</div>
+        <div class="media">${coverImg(p, first ? { eager: i < 4, lazy: false } : { lazy: false })}</div>
         <p class="tile__title">${p.title}</p>
         <p class="tile__text">${p.summary}</p>
       </a>`).join("") : '<p class="empty">No projects in this category yet.</p>';
