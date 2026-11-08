@@ -9,7 +9,8 @@
      Карточек — кратно числу проектов, чтобы порядок не ломался на стыке;
      повторы не догружают ничего нового.
      При первом заходе (в этой вкладке) лента влетает из-за правого края: быстро, с плавной остановкой. */
-  const SPEED = -33;         // px/с, минус — движение влево
+  const SPEED = -50;         // px/с, минус — движение влево
+  const M_SPEED = -33 * 1.6; // px/с на телефоне (≈53)
   const INTRO = 1600;        // мс, влёт ленты справа при первом заходе
   const introEase = p => 1 - Math.pow(1 - p, 4);   // ease-out: быстро → медленно
   const AMP = 0.35;          // амплитуда волны в долях размера карточки (≈84px на 1440)
@@ -17,7 +18,7 @@
   const SWAY = 0.12;         // колыхание волны, полных колебаний в секунду
   const MOBILE = 560;        // ширина экрана телефона: волна быстрее
   const MIN_SIZE = 160;      // px, карточка не мельче этого ни на какой ширине (телефон, iPad, узкое окно)
-  const M_TEMPO = 1.6;       // во сколько раз быстрее на телефоне едет лента и колышется волна
+  const M_TEMPO = 1.6;       // во сколько раз быстрее на телефоне колышется волна
   const SWAY_DIR = -1;       // куда бежит волна: 1 — влево, как карточки; -1 — вправо, навстречу (ТЕСТ 2026-10-19)
   /* Курсор у краёв экрана управляет лентой: у левого — едет назад, у правого — разгоняется.
      В центре (EDGE_DEAD) ничего не меняется; к самому краю влияние плавно растёт до максимума. */
@@ -29,7 +30,7 @@
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
   let items = [], size = 0, step = 0, loop = 0, offset = 0, t = 0;
   let speedGoal = 1, speedNow = 1;   // множитель скорости от положения курсора
-  let tempo = 1;                     // M_TEMPO на телефоне, 1 на остальных (ставит build)
+  let tempo = 1, speed = SPEED;      // на телефоне M_TEMPO и M_SPEED (ставит build)
 
   function edgeSpeed(clientX) {
     const n = clientX / window.innerWidth * 2 - 1;                       // -1 слева … 1 справа
@@ -81,6 +82,7 @@
     const vw = window.innerWidth;
     size = Math.round(Math.min(296, Math.max(MIN_SIZE, vw * 0.1667)));  // 240 на 1440
     tempo = vw <= MOBILE ? M_TEMPO : 1;
+    speed = vw <= MOBILE ? M_SPEED : SPEED;
     step = size + Math.round(size * 0.09);                         // зазор 22 на 1440
     const need = Math.ceil(vw / step) + 2;
     const count = Math.ceil(need / PROJECTS.length) * PROJECTS.length;
@@ -139,7 +141,7 @@
     last = now;
     if (!reduce.matches) {
       speedNow += (speedGoal - speedNow) * (1 - Math.exp(-EDGE_EASE * dt));   // плавный разгон/торможение
-      offset += SPEED * tempo * speedNow * dt;
+      offset += speed * speedNow * dt;
       t += tempo * speedNow * dt;                                                    // волна колышется в ту же сторону
     }
     const p = push * (1 - Math.exp(-PUSH_EASE * dt));                        // ручная прокрутка — плавно
