@@ -95,7 +95,7 @@
         a.className = "drum__item";
         a.href = "project.html?id=" + p.id;
         // все обложки ленты грузим сразу: те же файлы, что и везде, повторы берутся из кэша
-        a.innerHTML = coverImg(p, { eager: i < need, lazy: false, alt: i < PROJECTS.length ? p.title : "" });
+        a.innerHTML = coverImg(p, { square: true, eager: i < need, lazy: false, alt: i < PROJECTS.length ? p.title : "" });
         if (i >= PROJECTS.length) a.setAttribute("tabindex", "-1");
         track.appendChild(a);
         items.push(a);

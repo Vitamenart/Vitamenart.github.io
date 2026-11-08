@@ -16,12 +16,14 @@
   };
   window.ICON = icon;
 
-  /* Одна функция для всех обложек. Разный размер = разный CSS, файл один. */
+  /* Одна функция для всех обложек. Разный размер = разный CSS, файл один.
+     Исключение — square: маленький квадрат 600×600 из assets/covers-sq/ (волна на главной, шлейф на About). */
   window.coverImg = function (p, opts = {}) {
     // eager — первый экран (высокий приоритет); lazy: false — грузить сразу, но без приоритета
     const lazy = opts.eager ? 'fetchpriority="high"' : opts.lazy === false ? 'loading="eager"' : 'loading="lazy"';
-    return `<img class="cover" src="${window.COVERS_DIR + p.cover}" alt="${opts.alt ?? p.title}"
-      width="1920" height="1080" decoding="async" ${lazy}
+    const [dir, w, h] = opts.square ? [window.COVERS_SQ_DIR, 600, 600] : [window.COVERS_DIR, 1920, 1080];
+    return `<img class="cover" src="${dir + p.cover}" alt="${opts.alt ?? p.title}"
+      width="${w}" height="${h}" decoding="async" ${lazy}
       data-reveal onload="revealImg(this)" onerror="this.remove()" style="object-position:${p.focus || "50% 50%"}">`;
   };
 

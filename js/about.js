@@ -37,3 +37,50 @@
     place(true);
   }, STEP_MS);
 })();
+
+/* About hero: шлейф из обложек за курсором (те же картинки, что в волне на главной).
+   Мышь прошла GAP px — у курсора появляется следующая обложка, держится и гаснет.
+   Только мышь (на тач-экранах нет курсора) и без reduced-motion. Слой под словами. */
+(function () {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const GAP = 110;        // px пути мыши между картинками
+  const MAX = 12;         // больше картинок одновременно не держим
+  const HOLD = 450;       // мс картинка стоит до начала исчезания
+  const hero = document.querySelector(".skills");
+  const layer = document.createElement("div");
+  layer.className = "trail";
+  layer.setAttribute("aria-hidden", "true");
+  hero.prepend(layer);
+
+  const srcs = PROJECTS.map(p => [COVERS_SQ_DIR + p.cover, "50% 50%"]);   // квадраты 600×600 (assets/covers-sq)
+  let n = 0, last = null, loaded = false;
+
+  hero.addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    if (!loaded) { srcs.forEach(([s]) => { new Image().src = s; }); loaded = true; }   // прогрев кэша
+    const r = layer.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    if (last && Math.hypot(x - last.x, y - last.y) < GAP) return;
+    last = { x, y };
+    spawn(x, y);
+  });
+  hero.addEventListener("pointerleave", () => { last = null; });
+
+  function spawn(x, y) {
+    const [src, focus] = srcs[n++ % srcs.length];
+    const img = document.createElement("img");
+    img.className = "trail__img";
+    img.src = src; img.alt = ""; img.decoding = "async";
+    img.style.cssText = `left:${x}px;top:${y}px;object-position:${focus}`;
+    layer.appendChild(img);
+    while (layer.children.length > MAX) layer.firstChild.remove();
+    img.animate(
+      [{ transform: "translate(-50%,-50%) scale(0.4)", opacity: 0 },
+       { transform: "translate(-50%,-50%) scale(1)", opacity: 1 }],
+      { duration: 350, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" });
+    img.animate(
+      [{ transform: "translate(-50%,-50%) scale(1)", opacity: 1 },
+       { transform: "translate(-50%,-50%) scale(0.85)", opacity: 0 }],
+      { duration: 380, delay: HOLD, easing: "ease-in", fill: "forwards" }
+    ).finished.then(() => img.remove(), () => {});
+  }
+})();

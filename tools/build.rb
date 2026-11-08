@@ -8,6 +8,8 @@
 #   llms.txt      — коротко для AI: кто, чем занимается, проекты со ссылками
 #   llms-full.txt — полный текст всех проектов
 #   index.html, about.html — блок Schema.org Person (между <!-- schema --> и <!-- /schema -->)
+#   assets/covers-sq/ — маленькие квадратные копии обложек 600×600 (AVIF q80) для волны на главной
+#                       и шлейфа на About; делаются из assets/covers-web/, только новые или изменённые
 #
 # SITE — адрес сайта. Поменять, когда будет GitHub Pages / свой домен, и запустить сборку ещё раз.
 SITE = "https://vitamen.art"
@@ -55,6 +57,21 @@ PERSON = {
 def page_of(p); PAGES[p["id"]] || { "heading" => p["title"], "text" => [p["summary"]], "meta" => [], "blocks" => [] }; end
 def cells_of(b); b["full"] ? [b["full"]] : b["compare"] ? [b["compare"]] : (b["row"] || b["triple"] || []); end
 def purl(id); url("project.html?id=#{id}"); end
+
+# ---------- квадратные копии обложек (волна, шлейф) ----------
+# sips сначала уменьшает (высота 600), потом режет по центру до 600×600 — обложки горизонтальные
+SQ = 600
+puts "Квадратные обложки:"
+sq_dir = File.join(ROOT, "assets/covers-sq")
+Dir.mkdir(sq_dir) unless Dir.exist?(sq_dir)
+PROJECTS.map { |p| p["cover"] }.compact.uniq.each do |c|
+  src, dst = File.join(ROOT, "assets/covers-web", c), File.join(sq_dir, c)
+  next unless File.exist?(src)
+  next if File.exist?(dst) && File.mtime(dst) >= File.mtime(src)
+  system("sips", "--resampleHeight", SQ.to_s, "-c", SQ.to_s, SQ.to_s, "-s", "format", "avif",
+         "-s", "formatOptions", "80", src, "--out", dst, out: File::NULL) or warn "  ✗ #{c}"
+  puts "  assets/covers-sq/#{c}"
+end
 
 # ---------- Schema.org Person на главной и about ----------
 puts "Schema.org Person:"

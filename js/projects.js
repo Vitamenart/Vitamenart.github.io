@@ -4,8 +4,9 @@
  * Обложки: assets/covers-web/<cover>  — AVIF 2560×1440, сжатые копии PNG-оригиналов 3840×2160 (оригиналы — в бэкапе).
  * Новую обложку: сделать AVIF-копию из PNG (картинки страниц — так же, без -Z):
  *   sips -s format avif -s formatOptions 80 -Z 2560 NN.png --out assets/covers-web/NN.avif
- * Один файл используется везде: барабан, большие карточки, сетка вкладок,
- * шапка страницы проекта, «Other Works». Если файла нет — рисуется заглушка
+ * Один файл используется везде: большие карточки, сетка вкладок,
+ * шапка страницы проекта, «Other Works». Исключение — волна на главной и шлейф на About:
+ * там маленькие квадраты assets/covers-sq/ (600×600), их делает ruby tools/build.rb. Если файла нет — рисуется заглушка
  * с названием, так что можно класть картинки постепенно.
  *
  * category: brand | products | campaigns | designops   (фильтры на странице Work; designops — «AI & Tools»)
@@ -16,6 +17,7 @@
  * Внутренняя страница: js/projects/<id>.js, описание типов блоков — в js/project.js
  */
 window.COVERS_DIR = "assets/covers-web/";
+window.COVERS_SQ_DIR = "assets/covers-sq/";   // квадраты 600×600 для волны и шлейфа — делает ruby tools/build.rb
 window.MEDIA_DIR  = "assets/projects/";   // картинки внутренних страниц: assets/projects/<id>/...
 
 /* Пункты меню (кнопка Menu в шапке). Текущая страница помечается aria-current; на странице проекта — ни одна */
