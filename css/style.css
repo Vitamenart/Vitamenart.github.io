@@ -1,5 +1,6 @@
 /* Токены из Figma (color/*, space/*, типографика Body/Heading/Display) */
 :root {
+  --header-h: 74px;   /* высота шапки на всех экранах */
   --black: #0b0b0b;
   --white: #ffffff;
   --white-10: rgba(255, 255, 255, 0.1);
@@ -70,13 +71,13 @@ p, h1, h2, h3 { margin: 0; }
 
 /* ---------- Header ---------- */
 /* хэдер закреплён сверху (position: fixed), spacer держит его место в потоке */
-.site-header-spacer { min-height: calc(42px + 2 * var(--pad)); }
+/* высота шапки — 74 на всех экранах (переключатель 42 + по 16 сверху и снизу) */
+.site-header-spacer { min-height: var(--header-h); }
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 10;
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-  padding: var(--pad);
-  /* одна высота с вкладками и без: по переключателю (42) + поля — 90 на десктопе, 74 на телефоне */
-  min-height: calc(42px + 2 * var(--pad));
+  padding: 0 var(--pad);
+  min-height: var(--header-h);
 }
 /* при скролле — фон чёрный 50% и размытие. Фон — отдельный слой, вытянутый на 200px вверх за край экрана:
    обычно этот запас не виден, а в Safari на iOS с адресной строкой сверху страница рисуется и под строкой —
@@ -88,7 +89,9 @@ p, h1, h2, h3 { margin: 0; }
   opacity: 0; transition: opacity 0.3s ease;
 }
 .site-header.is-stuck::before { opacity: 1; }
-.site-header__name { justify-self: start; }
+/* Имя в шапке: капсом, имя жирное, фамилия — обычным начертанием */
+.site-header__name { justify-self: start; text-transform: uppercase; font-weight: 600; letter-spacing: 0.01em; }
+.site-header__surname { font-weight: 400; }
 .site-header .menu-open { grid-column: 3; justify-self: end; }
 /* Вкладки (фильтры на Work) — на полупрозрачной подложке (.filters) */
 .tabs { position: relative; display: flex; padding: 4px; border-radius: 100px; border: 1px solid transparent; }
@@ -121,14 +124,18 @@ p, h1, h2, h3 { margin: 0; }
 .menu[hidden] { display: none; }
 .menu__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
 .menu__panel {
-  position: absolute; top: 12px; right: 12px; bottom: 12px;
-  width: min(580px, calc(100% - 24px));
+  /* панель — 16 от краёв экрана (как кнопка Menu от верха шапки) */
+  --menu-inset: 16px;
+  position: absolute; top: var(--menu-inset); right: var(--menu-inset); bottom: var(--menu-inset);
+  width: min(580px, calc(100% - 2 * var(--menu-inset)));
   background: var(--white); color: var(--black);
   border-radius: var(--radius-panel);
-  display: flex; flex-direction: column; padding: 12px 12px 12px 28px;
+  display: flex; flex-direction: column;
+  padding: 12px 12px 12px 28px;
   overflow-y: auto;   /* низкий экран — панель прокручивается, пункты не наезжают друг на друга */
 }
-.menu__top { display: flex; justify-content: flex-end; }
+/* Close — 8 от верхнего и правого края панели (поле панели 12, строку поднимаем на 4) */
+.menu__top { display: flex; justify-content: flex-end; margin: -4px -4px 0 0; }
 .menu__close { display: flex; align-items: center; gap: 16px; }
 .round-btn {
   width: 42px; height: 42px; border-radius: 50%;
@@ -372,8 +379,8 @@ p, h1, h2, h3 { margin: 0; }
 .project-hero { position: relative; padding: 0 var(--pad); --hint-h: calc(16px + 24px + var(--pad)); }
 .project-hero .scroll-hint { padding-top: 16px; }
 .project-hero .media {
-  /* 42px + 2 × поле — высота шапки (как .site-header-spacer): 90 на десктопе, 74 на телефоне */
-  height: calc(100vh - 42px - 2 * var(--pad) - var(--hint-h)); height: calc(100svh - 42px - 2 * var(--pad) - var(--hint-h)); min-height: 360px;
+  /* экран минус шапка (--header-h) и полоса «Scroll down» снизу */
+  height: calc(100vh - var(--header-h) - var(--hint-h)); height: calc(100svh - var(--header-h) - var(--hint-h)); min-height: 360px;
   border-radius: var(--radius-panel); background: #000;
 }
 /* Открытие проекта из плитки (layout.js): копия картинки летит в hero, страница под ней уходит в чёрный. Шапка — поверх */
@@ -680,8 +687,8 @@ p, h1, h2, h3 { margin: 0; }
   .project-hero .scroll-hint { display: none; }
   .project-hero .media {
     min-height: 0;
-    height: min(calc(100vw - 2 * var(--pad)), calc(100vh - 42px - 2 * var(--pad) - var(--hint-h)));
-    height: min(calc(100vw - 2 * var(--pad)), calc(100svh - 42px - 2 * var(--pad) - var(--hint-h)));
+    height: min(calc(100vw - 2 * var(--pad)), calc(100vh - var(--header-h) - var(--hint-h)));
+    height: min(calc(100vw - 2 * var(--pad)), calc(100svh - var(--header-h) - var(--hint-h)));
   }
   .menu__panel { padding-left: 20px; }
   .menu__links { font-size: 48px; }   /* на телефоне пункты меню — 48 */
