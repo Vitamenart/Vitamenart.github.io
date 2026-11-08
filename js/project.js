@@ -116,6 +116,7 @@
           </a>`).join("")}
         </div>
       </section>`);
+    root.classList.add("is-ready");   // контент на месте — футер можно показать (style.css)
     initVideos(document.getElementById("project"));
     if (window.initTokens) initTokens(document.getElementById("project"));
     if (window.initCubes) initCubes(document.getElementById("project"));

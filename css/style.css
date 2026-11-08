@@ -383,6 +383,10 @@ p, h1, h2, h3 { margin: 0; }
 /* Стык страниц после полёта: Chrome (View Transitions) держит снимок последнего кадра старой страницы —
    картинка уже на месте hero — поверх новой, пока hero не отрисован (project.js досрочно завершает, макс. 0.6 с).
    Остальные переходы пропускаются (pageswap в layout.js, pagereveal в project.js), так что больше ничего не анимируется. */
+/* Пока контент проекта не отрисован (project.js ставит .is-ready), футер скрыт: на телефоне hero — квадрат,
+   и белый футер иначе мелькал бы прямо под ним, пока не загрузится страница */
+#project:not(.is-ready) { min-height: 100vh; min-height: 100svh; }
+#project:not(.is-ready) ~ .site-footer { visibility: hidden; }
 @view-transition { navigation: auto; }
 ::view-transition-old(root) { animation: vt-hold 0.6s linear both; }
 ::view-transition-new(root) { animation: vt-hide 0.6s linear both; }
