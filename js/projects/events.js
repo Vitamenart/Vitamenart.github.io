@@ -14,6 +14,8 @@ PAGES["events"] = {
     { full: { video: "05-booth.webm", play: "auto" } },
     { full: { video: "06-event.webm", play: "auto" } },
     { statement: "At major crypto conferences, the booth was where people met 1inch in person. I designed each one as a physical extension of the brand, with clear product messaging and space for the team to meet partners and users." },
+    { full: { file: "07-poaps.avif" } },
+    { statement: "Each event also had its own POAP, a digital badge that attendees could keep. Every design mixed the look of the event with the 1inch unicorn, and over time the collection grew to around a hundred." },
     { row: [ { video: "04-unicorn-run.webm", play: "auto" }, { file: "01-hall-wireframe.avif" } ] },
     { row: [ { file: "02-facade-model.avif" },               { file: "03-projection-motion.avif" } ] }
   ]
